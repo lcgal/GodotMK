@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Map/Line2D.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map/ExplorableTile.gd" type="Script" id=2]
+
+[node name="ExplorableTile" type="Area2D"]
+scale = Vector2( 0.9, 0.9 )
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 4.76837e-07, 0 )
+polygon = PoolVector2Array( -217.665, 223.851, -219, 102.38, -324.452, 47.6517, -321.783, -73.8188, -216.33, -135.221, -216.33, -252.687, -112.213, -312.755, -5.42554, -254.022, 101.362, -314.09, 208.149, -251.352, 206.814, -133.887, 313.601, -72.4839, 314.936, 46.3168, 206.814, 106.385, 208.149, 225.185, 102.697, 286.588, -5.42554, 225.185, -109.543, 285.253 )
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( -324.5, 47.6094, -321.934, -74.2425, -216.928, -135.407, -216.575, -253.141, -112.277, -312.891, -5.15002, -254.555, 101.27, -313.952, 208.043, -251.373, 206.982, -134.7, 313.368, -72.5198, 314.902, 46.2904, 206.828, 106.226, 208.126, 225.155, 102.648, 286.507, -5.54356, 225.273, -109.606, 285.209, -217.713, 223.861, -219.108, 102.382, -324.492, 47.6172 )
+width = 15.0
+default_color = Color( 0.839216, 0.839216, 0.984314, 1 )
+script = ExtResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_ExplorableTile_input_event"]
+[connection signal="mouse_entered" from="." to="Line2D" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="." to="Line2D" method="_on_Area2D_mouse_exited"]

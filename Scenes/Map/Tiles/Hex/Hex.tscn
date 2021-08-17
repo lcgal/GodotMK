@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Map/Tiles/Hex/Line2D.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map/Tiles/Hex/IndividualTile.gd" type="Script" id=2]
+
+[node name="Hex" type="Area2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -202.035, -120.774, -200.427, -234.208, -99.1425, -293.392, -1.07321, -234.208, 2.14212, -120.774, -100.75, -59.9464 )
+script = ExtResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+modulate = Color( 0.776471, 0.760784, 0.760784, 1 )
+points = PoolVector2Array( -100.721, -59.9813, 0.742249, -119.239, -0.395874, -234.454, -101.686, -292.643, -202.235, -232.164, -201.839, -119.627, -100.735, -59.9458 )
+width = 3.0
+default_color = Color( 0.854902, 0.815686, 0.815686, 1 )
+script = ExtResource( 1 )
+
+[connection signal="mouse_entered" from="." to="Line2D" method="_on_NW_mouse_entered"]
+[connection signal="mouse_exited" from="." to="Line2D" method="_on_NW_mouse_exited"]

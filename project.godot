@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Camera2D",
+"class": "MainCamera",
+"language": "GDScript",
+"path": "res://Scenes/Camera2D.gd"
+}, {
 "base": "Area2D",
 "class": "MapTile",
 "language": "GDScript",
-"path": "res://Scenes/MapTile.gd"
+"path": "res://Scenes/Map/Tiles/MapTile.gd"
 } ]
 _global_script_class_icons={
+"MainCamera": "",
 "MapTile": ""
 }
 

@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/httpcloud3steamusercontentcomugc168827064304375920925D35754F5010BDFE81339F7D7859AB21642CF59.jpg-838d6ea0c635ef182cd606d73199f363.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/MapTiles/Early/httpcloud3steamusercontentcomugc168827064304375920925D35754F5010BDFE81339F7D7859AB21642CF59.jpg"
+dest_files=[ "res://.import/httpcloud3steamusercontentcomugc168827064304375920925D35754F5010BDFE81339F7D7859AB21642CF59.jpg-838d6ea0c635ef182cd606d73199f363.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
