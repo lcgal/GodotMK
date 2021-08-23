@@ -18,6 +18,7 @@ width = 15.0
 default_color = Color( 0.839216, 0.839216, 0.984314, 1 )
 script = ExtResource( 1 )
 
+[connection signal="activate" from="." to="Line2D" method="_on_ExplorableTile_activate"]
 [connection signal="input_event" from="." to="." method="_on_ExplorableTile_input_event"]
 [connection signal="mouse_entered" from="." to="Line2D" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="." to="Line2D" method="_on_Area2D_mouse_exited"]

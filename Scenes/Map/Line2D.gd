@@ -1,12 +1,13 @@
 extends Line2D
 
+var active = false
 
 func _ready():
 	pass
 
-
 func _on_Area2D_mouse_entered():
-	visible = true
+	if (active):
+		visible = true
 
 
 func _on_Area2D_mouse_exited():
@@ -20,3 +21,7 @@ func _on_Area2D_mouse_exited():
 #
 #func _on_Area2D_mouse_exited():
 #	default_color = defaultColor
+
+
+func _on_ExplorableTile_activate():
+	active = true
