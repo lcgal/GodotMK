@@ -18,24 +18,25 @@ scale = Vector2( 1.04609, 1.023 )
 texture = ExtResource( 3 )
 
 [node name="NW" parent="Sprite" instance=ExtResource( 2 )]
+position = Vector2( 0, 1 )
 
 [node name="NE" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 202, 0 )
+position = Vector2( 202, 1 )
 
 [node name="W" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( -101, 175 )
+position = Vector2( -101, 176.5 )
 
 [node name="C" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 101, 175 )
+position = Vector2( 101, 176.5 )
 
 [node name="E" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 303, 175 )
+position = Vector2( 304, 176.5 )
 
 [node name="SW" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 0, 351 )
+position = Vector2( 0, 352 )
 
 [node name="SE" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 202, 351 )
+position = Vector2( 202, 352 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
