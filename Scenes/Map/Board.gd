@@ -10,16 +10,39 @@ var xVector = Vector2(380,-321)
 var root = "/root/Node2D/Board/"
 
 func _ready():
-	initializeMapTiles()
-	getTiles()
+	initialize()
 	var tile : ExplorableTile = get_tree().get_root().get_node(root + "B1")
 	tile.explore()
 	tile = get_tree().get_root().get_node(root + "A2")
 	tile.explore()
+
+func initialize():
+	readConfigfies()
+	initializeMapTiles()
+	initializeExplorableTiles()
 	
+func readConfigfies():
+	readScenarioInfo()
+	readTilesInfo()
+
+func readScenarioInfo():
+	var file = File.new()
+	file.open("res://Assets/MapTiles/WedgeMapTiles.json",file.READ)
+	var tileJson = file.get_as_text()
+	file.close()
+	var parsedData = JSON.parse(tileJson).result
+	explorableTilesInfo = parsedData["ExplorableTiles"]
+	scenarioCountryTilesLeft = parsedData["CountrysideTiles"]
+	scenarioCoreTilesLeft = parsedData["CoreTiles"]
+	scenarioCityCount = parsedData["Cities"]
+
+func readTilesInfo():
+	var file = File.new()
+	file.open("res://Assets/MapTiles/MapTiles.json",file.READ)
+	var tileJson = file.get_as_text()
+	file.close()
+	mapTileInfo = JSON.parse(tileJson).result
 #--------------------------BOARD-------------------------------
-
-
 
 func addAdjacency(var key):
 	var adjacency = explorableTilesInfo[key]["Adjacency"] + 1
@@ -35,19 +58,25 @@ func addAdjacency(var key):
 #--------------------------EXPLORABLETILES---------------------
 var explorableTilesInfo = {}
 
-func getTiles():
-	var file = File.new()
-	file.open("res://Assets/MapTiles/WedgeMapTiles.json",file.READ)
-	var tileJson = file.get_as_text()
-	file.close()
-	explorableTilesInfo = JSON.parse(tileJson).result
+func initializeExplorableTiles():
 	for key in explorableTilesInfo:
-		instExplorableTile(explorableTilesInfo[key], key)
+		var info = explorableTilesInfo[key]
+		var y = info["Y"]
+		var x = info["X"]
+		var adjacentTiles = info["AdjacentTiles"]
+		var exploreTileScene = load("res://Scenes/Map/ExplorableTile.tscn")
+		var exploreTileSceneInstance = exploreTileScene.instance()
+		exploreTileSceneInstance.set_name(key)
+		exploreTileSceneInstance.key = key
+		exploreTileSceneInstance.adjacentTiles = adjacentTiles
+		exploreTileSceneInstance.global_position = origin + y*yVector + x*xVector
+		add_child(exploreTileSceneInstance)
+		exploreTileSceneInstance.connect("exploreTile",self,"handleExploreTile")
+
 
 func handleExploreTile(var explore, var key, var adjacentTiles):
 	randomize()
-	
-	
+
 	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
 	var mapTileSceneInstance = mapTileScene.instance()
 	
@@ -85,39 +114,47 @@ func handleExploreTile(var explore, var key, var adjacentTiles):
 					adjacentTileNode.activate()
 		addAdjacency(tile["Id"])
 
-func instExplorableTile(var info, var key):
-	var y = info["Y"]
-	var x = info["X"]
-	var adjacentTiles = info["AdjacentTiles"]
-	var exploreTileScene = load("res://Scenes/Map/ExplorableTile.tscn")
-	var exploreTileSceneInstance = exploreTileScene.instance()
-	exploreTileSceneInstance.set_name(key)
-	exploreTileSceneInstance.key = key
-	exploreTileSceneInstance.adjacentTiles = adjacentTiles
-	exploreTileSceneInstance.global_position = origin + y*yVector + x*xVector
-	add_child(exploreTileSceneInstance)
-	exploreTileSceneInstance.connect("exploreTile",self,"handleExploreTile")
 #--------------------------END-------------------------------
 
 #--------------------------MAPTILES--------------------------
 var mapTileInfo = {}
 var countrySideTileList = []
 var coreTileList = []
+var unusedCoreTileList = []
 var rootSpritePath = "res://Assets/MapTiles/Tiles/"
-var scenarioCountryTilesLeft = 7
-var scenarioCoreTilesLeft = 6
+var scenarioCountryTilesLeft
+var scenarioCoreTilesLeft
+var scenarioCityCount
 
 func initializeMapTiles():
-	var file = File.new()
-	file.open("res://Assets/MapTiles/CountrySideTiles.json",file.READ)
-	var tileJson = file.get_as_text()
-	file.close()
-	mapTileInfo = JSON.parse(tileJson).result
+	#Creating Tile options lists
+	randomize()
 	for tile in mapTileInfo["CountrySideTiles"]:
 		countrySideTileList.append(tile)
+	
+	#TODO do this properly:
+	var cityTiles = []
+	var coreTiles = []
 	for tile in mapTileInfo["CoreTiles"]:
+		if (mapTileInfo["CoreTiles"][tile]["isCity"]):
+			cityTiles.append(tile)
+		else:
+			coreTiles.append(tile)
+
+	for i in range(0,scenarioCityCount,1):
+		var index = randi() % cityTiles.size()
+		var tile = cityTiles[index]
+		cityTiles.remove(index)
 		coreTileList.append(tile)
-		
+	for i in range(0,scenarioCoreTilesLeft - scenarioCityCount,1):
+		var index = randi() % coreTiles.size()
+		var tile = coreTiles[index]
+		coreTiles.remove(index)
+		coreTileList.append(tile)
+	
+	unusedCoreTileList = coreTiles
+	#END
+	
 	emit_signal("setGreenTileCounter",scenarioCountryTilesLeft)
 	emit_signal("setBrownTileCounter",scenarioCoreTilesLeft)
 

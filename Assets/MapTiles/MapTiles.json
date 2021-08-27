@@ -62,47 +62,58 @@
 	{
 	"B1" :
 		{
-		"Sprite" : "core1.png"
+		"Sprite" : "core1.png",
+		"isCity" : false
 		},
 	"B2" :
 		{
-		"Sprite" : "core2.png"
+		"Sprite" : "core2.png",
+		"isCity" : false
 		},
 	"B3" :
 		{
-		"Sprite" : "core3.png"
+		"Sprite" : "core3.png",
+		"isCity" : false
 		},
 	"B4" :
 		{
-		"Sprite" : "core4.png"
-		},
-	"B5" :
-		{
-		"Sprite" : "core5.png"
-		},
-	"B6" :
-		{
-		"Sprite" : "core6.png"
-		},
-	"B7" :
-		{
-		"Sprite" : "core7.png"
-		},
-	"B8" :
-		{
-		"Sprite" : "core8.png"
+		"Sprite" : "core4.png",
+		"isCity" : false
 		},
 	"B9" :
 		{
-		"Sprite" : "core9.png"
+		"Sprite" : "core9.png",
+		"isCity" : false
 		},
 	"B10" :
 		{
-		"Sprite" : "core10.png"
+		"Sprite" : "core10.png",
+		"isCity" : false
+		},
+	"B5" :
+		{
+		"Sprite" : "core5.png",
+		"isCity" : true
+		},
+	"B6" :
+		{
+		"Sprite" : "core6.png",
+		"isCity" : true
+		},
+	"B7" :
+		{
+		"Sprite" : "core7.png",
+		"isCity" : true
+		},
+	"B8" :
+		{
+		"Sprite" : "core8.png",
+		"isCity" : true
 		},
 	"B11" :
 		{
-		"Sprite" : "core11.png"
+		"Sprite" : "core11.png",
+		"isCity" : true
 		}
 	}
 }
