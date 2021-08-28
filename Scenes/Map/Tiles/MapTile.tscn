@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Map/Tiles/MapTile.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Map/Tiles/Hex/Hex.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/MapTiles/Portal/PortalWide.png" type="Texture" id=3]
 
 [node name="MapTile" type="Area2D"]
-position = Vector2( 400, 300 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -13,32 +11,10 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -5.77515, -13.9559 )
 scale = Vector2( 1.04609, 1.023 )
 texture = ExtResource( 3 )
-
-[node name="NW" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 0, 1 )
-
-[node name="NE" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 202, 1 )
-
-[node name="W" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( -101, 176.5 )
-
-[node name="C" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 101, 176.5 )
-
-[node name="E" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 304, 176.5 )
-
-[node name="SW" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 0, 352 )
-
-[node name="SE" parent="Sprite" instance=ExtResource( 2 )]
-position = Vector2( 202, 352 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2( 4.76837e-07, 0 )
-polygon = PoolVector2Array( -217.665, 223.851, -219, 102.38, -324.452, 47.6517, -321.783, -73.8188, -216.33, -135.221, -216.33, -252.687, -112.213, -312.755, -5.42554, -254.022, 101.362, -314.09, 208.149, -251.352, 206.814, -133.887, 313.601, -72.4839, 314.936, 46.3168, 206.814, 106.385, 208.149, 225.185, 102.697, 286.588, -5.42554, 225.185, -109.543, 285.253 )
+polygon = PoolVector2Array( -211.452, 239.18, -212.285, 120.98, -316.334, 61.0474, -317.999, -57.5686, -210.62, -119.998, -211.869, -238.198, -103.242, -299.795, -0.0248045, -238.198, 108.602, -299.795, 212.235, -236.949, 213.076, -120.529, 318.365, -60.0657, 319.198, 58.9665, 211.819, 120.147, 212.236, 239.18, 107.77, 298.696, 1.64015, 238.763, -105.739, 299.528 )

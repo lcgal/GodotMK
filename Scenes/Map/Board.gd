@@ -132,7 +132,6 @@ func initializeMapTiles():
 	for tile in mapTileInfo["CountrySideTiles"]:
 		countrySideTileList.append(tile)
 	
-	#TODO do this properly:
 	var cityTiles = []
 	var coreTiles = []
 	for tile in mapTileInfo["CoreTiles"]:

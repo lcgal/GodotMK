@@ -17,11 +17,12 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_ExplorableTile_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && active:
+	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.pressed && active:
 		explore()
 
 func explore():
 	emit_signal("exploreTile",position,key,adjacentTiles)
+	print(position)
 	queue_free()
 
 func activate():

@@ -1,21 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Map/Tiles/Hex/Line2D.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Map/Tiles/Hex/IndividualTile.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Map/Tiles/Hex/Hex.gd" type="Script" id=3]
 
 [node name="Hex" type="Area2D"]
+script = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -202.035, -120.774, -201.196, -234.195, -99.1425, -293.392, 0.0578842, -234.039, 0.170898, -119.58, -100.75, -59.9464 )
-script = ExtResource( 2 )
+polygon = PoolVector2Array( -100.377, 55.4605, -99.6325, -59.0543, 0.0649033, -117.608, 100.781, -59.25, 100.903, 56.9962, -0.0078373, 115.216 )
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="CollisionPolygon2D"]
 visible = false
-modulate = Color( 0.776471, 0.760784, 0.760784, 1 )
-points = PoolVector2Array( -100.721, -59.9813, 0.28717, -119.082, -0.395874, -234.454, -101.686, -292.643, -202.235, -232.164, -201.839, -119.627, -100.735, -59.9458 )
-width = 3.0
-default_color = Color( 0.854902, 0.815686, 0.815686, 1 )
+points = PoolVector2Array( -104, 55.0625, -103.839, -62.6135, 0, -120, 104.5, -59.75, 104.123, 57.8906, 0.25, 116.75, -104.563, 55.3125 )
+width = 4.0
+default_color = Color( 0.862745, 0.866667, 0.882353, 1 )
 script = ExtResource( 1 )
 
-[connection signal="mouse_entered" from="." to="Line2D" method="_on_NW_mouse_entered"]
-[connection signal="mouse_exited" from="." to="Line2D" method="_on_NW_mouse_exited"]
+[connection signal="input_event" from="." to="." method="_on_Hex_input_event"]
+[connection signal="mouse_entered" from="." to="CollisionPolygon2D/Line2D" method="_on_Hex_mouse_entered"]
+[connection signal="mouse_exited" from="." to="CollisionPolygon2D/Line2D" method="_on_Hex_mouse_exited"]
