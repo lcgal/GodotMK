@@ -4,13 +4,15 @@ signal setGreenTileCounter(values)
 signal setBrownTileCounter(values)
 
 var origin = Vector2(-560,1317)
-var yVector = Vector2(-96,-484)
-var xVector = Vector2(380,-321)
+var xVector = Vector2(381,-324)
+var yVector = Vector2(-95,-486)
 
 var root = "/root/Node2D/Board/"
 
 func _ready():
 	initialize()
+	print(position)
+	print(global_position)
 	var tile : ExplorableTile = get_tree().get_root().get_node(root + "B1")
 	tile.explore()
 	tile = get_tree().get_root().get_node(root + "A2")
