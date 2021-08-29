@@ -4,25 +4,26 @@ signal setGreenTileCounter(values)
 signal setBrownTileCounter(values)
 
 var origin = Vector2(-560,1317)
-var xVector = Vector2(381,-324)
-var yVector = Vector2(-95,-486)
+var xVector = Vector2(381,-323)
+var yVector = Vector2(-95,-484)
 
 var root = "/root/Node2D/Board/"
 
 func _ready():
 	initialize()
-	print(position)
-	print(global_position)
+	addPortal()
 	var tile : ExplorableTile = get_tree().get_root().get_node(root + "B1")
 	tile.explore()
 	tile = get_tree().get_root().get_node(root + "A2")
 	tile.explore()
 
+
 func initialize():
 	readConfigfies()
 	initializeMapTiles()
 	initializeExplorableTiles()
-	
+	initializePlayer()
+
 func readConfigfies():
 	readScenarioInfo()
 	readTilesInfo()
@@ -82,31 +83,33 @@ func handleExploreTile(var explore, var key, var adjacentTiles):
 	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
 	var mapTileSceneInstance = mapTileScene.instance()
 	
+	var mapTile 
 	if (scenarioCountryTilesLeft > 0) :
 		var index = randi() % countrySideTileList.size()
 		var mapTileId = countrySideTileList[index]
 		countrySideTileList.remove(index)
 		scenarioCountryTilesLeft -= 1
-		var mapTile = mapTileInfo["CountrySideTiles"][mapTileId]
-		mapTileSceneInstance.setTile(rootSpritePath + mapTile["Sprite"]) 
+		mapTile = mapTileInfo["CountrySideTiles"][mapTileId]
 		emit_signal("setGreenTileCounter",scenarioCountryTilesLeft)
 	elif (scenarioCoreTilesLeft > 0) :
 		var index = randi() % coreTileList.size()
 		var mapTileId = coreTileList[index]
 		coreTileList.remove(index)
 		scenarioCoreTilesLeft -= 1
-		var mapTile = mapTileInfo["CoreTiles"][mapTileId]
-		mapTileSceneInstance.setTile(rootSpritePath + mapTile["Sprite"]) 
+		mapTile = mapTileInfo["CoreTiles"][mapTileId]
 		emit_signal("setBrownTileCounter",scenarioCoreTilesLeft)
 	else:
 		var index = randi() % countrySideTileList.size()
 		var mapTileId = countrySideTileList[index]
 		countrySideTileList.remove(index)
-		var mapTile = mapTileInfo["CountrySideTiles"][mapTileId]
-		mapTileSceneInstance.setTile(rootSpritePath + mapTile["Sprite"]) 
-		
+		mapTile = mapTileInfo["CountrySideTiles"][mapTileId]
+		 
+
+	mapTileSceneInstance.setTile(rootSpritePath + mapTile["Sprite"])
+	mapTileSceneInstance.hexes = mapTile["Hexes"]
 	mapTileSceneInstance.global_position = explore
 	add_child(mapTileSceneInstance)
+	mapTileSceneInstance.connect("movement",self,"handleMovement")
 	explorableTilesInfo[key]["Explored"] = true
 	for tile in adjacentTiles:
 		if (explorableTilesInfo[key]["Adjacency"] >= 2):
@@ -115,6 +118,16 @@ func handleExploreTile(var explore, var key, var adjacentTiles):
 				if (adjacentTileNode != null):
 					adjacentTileNode.activate()
 		addAdjacency(tile["Id"])
+
+func addPortal():
+	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
+	var mapTileSceneInstance = mapTileScene.instance()
+	var mapTile = mapTileInfo["Portals"]["Wedge"]
+	mapTileSceneInstance.global_position = origin
+	mapTileSceneInstance.setTile(rootSpritePath + mapTile["Sprite"])
+	mapTileSceneInstance.hexes = mapTile["Hexes"]
+	add_child(mapTileSceneInstance)
+	mapTileSceneInstance.connect("movement",self,"handleMovement")
 
 #--------------------------END-------------------------------
 
@@ -159,4 +172,18 @@ func initializeMapTiles():
 	emit_signal("setGreenTileCounter",scenarioCountryTilesLeft)
 	emit_signal("setBrownTileCounter",scenarioCoreTilesLeft)
 
+#--------------------------END-------------------------------
+
+#--------------------------PLAYERS---------------------
+func initializePlayer():
+	var playerScene = load("res://Scenes/Players/Character/Knight.tscn")
+	var playerSceneInstance = playerScene.instance()
+	playerSceneInstance.set_name("Player1")
+	playerSceneInstance.global_position = origin
+	add_child(playerSceneInstance)
+#	playerSceneInstance.connect("exploreTile",self,"handleExploreTile")
+
+func handleMovement(var pos, var terrain):
+	var player = get_tree().get_root().get_node(root + "Player1")
+	player.position = origin + pos
 #--------------------------END-------------------------------

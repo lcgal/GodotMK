@@ -3,6 +3,9 @@ class_name MapTile
 
 var n = Vector2(105,180)
 var k = Vector2(-105,180)
+var hexes
+
+signal movement(position,key)
 
 func _ready():
 	hexes("W",1,-1)
@@ -17,6 +20,7 @@ func hexes(var key, var x, var y):
 	var hexScene = load("res://Scenes/Map/Tiles/Hex/Hex.tscn")
 	var hexSceneInstance = hexScene.instance()
 	hexSceneInstance.set_name(key)
+	hexSceneInstance.key = key
 	hexSceneInstance.position = x*n + y*k
 	add_child(hexSceneInstance)
 	hexSceneInstance.connect("movement",self,"handleMovement")
@@ -26,5 +30,6 @@ func setTile(var spritePath):
 	var spriteNode : Sprite = get_node("Sprite")
 	spriteNode.texture = sprite
 
-func handleMovement(var position):
-	print(position)
+func handleMovement(var pos, var key):
+	var terrain = hexes[key]["Terrain"]
+	emit_signal("movement", pos, terrain)

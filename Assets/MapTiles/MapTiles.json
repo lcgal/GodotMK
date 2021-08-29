@@ -1,61 +1,680 @@
 {
+	"Portals" :
+	{
+	"Wedge" :
+		{
+		"Sprite" : "PortalWedge.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
+		},
+	"Wide" :
+		{
+		"Sprite" : "PortalWide.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
+		}
+	},
 	"CountrySideTiles" :
 	{
 	"G1" :
 		{
-		"Sprite" : "countryside1.png"
+		"Sprite" : "countryside1.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G2" :
 		{
-		"Sprite" : "countryside2.png"
+		"Sprite" : "countryside2.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G3" :
 		{
-		"Sprite" : "countryside3.png"
+		"Sprite" : "countryside3.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G4" :
 		{
-		"Sprite" : "countryside4.png"
+		"Sprite" : "countryside4.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G5" :
 		{
-		"Sprite" : "countryside5.png"
+		"Sprite" : "countryside5.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G6" :
 		{
-		"Sprite" : "countryside6.png"
+		"Sprite" : "countryside6.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G7" :
 		{
-		"Sprite" : "countryside7.png"
+		"Sprite" : "countryside7.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G8" :
 		{
-		"Sprite" : "countryside8.png"
+		"Sprite" : "countryside8.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G9" :
 		{
-		"Sprite" : "countryside9.png"
+		"Sprite" : "countryside9.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G10" :
 		{
-		"Sprite" : "countryside10.png"
+		"Sprite" : "countryside10.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G11" :
 		{
-		"Sprite" : "countryside11.png"
+		"Sprite" : "countryside11.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G12" :
 		{
-		"Sprite" : "countryside12.png"
+		"Sprite" : "countryside12.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G13" :
 		{
-		"Sprite" : "countryside13.png"
+		"Sprite" : "countryside13.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"G14" :
 		{
-		"Sprite" : "countryside14.png"
+		"Sprite" : "countryside14.png",
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		}
 	},
 	"CoreTiles" :
@@ -63,57 +682,475 @@
 	"B1" :
 		{
 		"Sprite" : "core1.png",
-		"isCity" : false
+		"isCity" : false,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B2" :
 		{
 		"Sprite" : "core2.png",
-		"isCity" : false
+		"isCity" : false,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B3" :
 		{
 		"Sprite" : "core3.png",
-		"isCity" : false
+		"isCity" : false,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B4" :
 		{
 		"Sprite" : "core4.png",
-		"isCity" : false
+		"isCity" : false,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B9" :
 		{
 		"Sprite" : "core9.png",
-		"isCity" : false
+		"isCity" : false,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B10" :
 		{
 		"Sprite" : "core10.png",
-		"isCity" : false
+		"isCity" : false,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B5" :
 		{
 		"Sprite" : "core5.png",
-		"isCity" : true
+		"isCity" : true,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B6" :
 		{
 		"Sprite" : "core6.png",
-		"isCity" : true
+		"isCity" : true,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B7" :
 		{
 		"Sprite" : "core7.png",
-		"isCity" : true
+		"isCity" : true,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B8" :
 		{
 		"Sprite" : "core8.png",
-		"isCity" : true
+		"isCity" : true,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		},
 	"B11" :
 		{
 		"Sprite" : "core11.png",
-		"isCity" : true
+		"isCity" : true,
+		"Hexes" : 
+			{
+			"NE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"NW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"E" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"C" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"W" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SE" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				},
+			"SW" : 
+				{
+				"Terrain" : "Forest",
+				"Feature" : "None"
+				}
+			}
 		}
 	}
 }
