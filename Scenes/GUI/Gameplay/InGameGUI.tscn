@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/GUI/Gameplay/TilesCounters/TileCounters.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GUI/Gameplay/InGameGUI.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GUI/MovementCosts.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GUI/Gameplay/Buttons/Reset/Buttons.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GUI/Gameplay/Hand/HandArea.tscn" type="PackedScene" id=5]
+
+[node name="Control" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1025.12
+margin_right = -1.1225
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( -776.952, -122.255 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" parent="." instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -245.0
+margin_right = 0.0
+margin_bottom = 121.0
+
+[node name="MovementCosts" parent="." instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 6.73477
+margin_top = -47.8573
+margin_right = 48.7348
+margin_bottom = -7.8573
+
+[node name="Buttons" parent="." instance=ExtResource( 4 )]
+margin_left = 12.0136
+margin_top = 10.6787
+margin_right = 82.0136
+margin_bottom = 81.6787
+
+[node name="Hand" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[connection signal="reset" from="Buttons" to="." method="_on_Buttons_reset"]

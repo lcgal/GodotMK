@@ -4,7 +4,6 @@
 [ext_resource path="res://Scenes/Map/Board.gd" type="Script" id=4]
 
 [node name="Board" type="Node2D"]
-position = Vector2( 560, -1317 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_vertical_guides_": [  ]

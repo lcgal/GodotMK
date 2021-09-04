@@ -8,7 +8,7 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().get_root().get_node("/root/Node2D/Board").connect("setGreenTileCounter", self, "setCounter") 
+	get_tree().get_root().get_node("/root/Game/Board").connect("setCurrentMovementCost", self, "setCounter") 
 
 func setCounter(var value):
 	text = str(value)

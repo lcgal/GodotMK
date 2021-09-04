@@ -13,33 +13,33 @@
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Portal"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Lake",
+				"Feature" : "Coast"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Lake",
+				"Feature" : "Coast"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Lake",
+				"Feature" : "Coast"
 				}
 			}
 		},
@@ -55,33 +55,33 @@
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Portal"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Lake",
+				"Feature" : "Coast"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Mountains",
+				"Feature" : "Coast"
 				}
 			}
 		}
@@ -95,23 +95,23 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Rampaging"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Village"
 				},
 			"C" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Glade"
 				},
 			"W" : 
 				{
@@ -120,12 +120,12 @@
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				}
 			}
@@ -138,37 +138,37 @@
 			"NE" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Glade"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Rampaging"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Village"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineGreen"
 				}
 			}
 		},
@@ -179,17 +179,17 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Hold"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				},
 			"C" : 
@@ -199,18 +199,18 @@
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineWhite"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Village"
 				}
 			}
 		},
@@ -221,37 +221,37 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Desert",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Desert",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "WizardTower"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Rampaging"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Village"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				}
 			}
@@ -263,8 +263,8 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Monastery"
 				},
 			"NW" : 
 				{
@@ -273,23 +273,23 @@
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Rampaging"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Glade"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineBlue"
 				},
 			"SW" : 
 				{
@@ -310,32 +310,32 @@
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineRed"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Den"
 				},
 			"SE" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Rampaging"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				}
 			}
@@ -348,36 +348,36 @@
 			"NE" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Rampaging"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Glade"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Swamp",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Monastery"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Dungeon"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				}
 			}
@@ -390,22 +390,22 @@
 			"NE" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Ruins"
 				},
 			"NW" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Glade"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Swamp",
+				"Feature" : "Rampaging"
 				},
 			"W" : 
 				{
@@ -414,12 +414,12 @@
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Swamp",
+				"Feature" : "Village"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Swamp",
 				"Feature" : "None"
 				}
 			}
@@ -431,38 +431,38 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Dungeon"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Hold"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "WizardTower"
 				}
 			}
 		},
@@ -478,33 +478,33 @@
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Den"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Ruins"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Hold"
 				}
 			}
 		},
@@ -515,37 +515,37 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "WizardTower"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Ruins"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Rampaging"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				}
 			}
@@ -557,38 +557,38 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Wasteland",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Monastery"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MercCamp"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Maze"
 				}
 			}
 		},
@@ -599,8 +599,8 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Rampaging"
 				},
 			"NW" : 
 				{
@@ -609,27 +609,27 @@
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "WizardTower"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Swamp",
+				"Feature" : "Glade"
 				},
 			"SE" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "MineBlueGreen"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				}
 			}
@@ -641,37 +641,37 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Hold"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Desert",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Maze"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "MineRedWhite"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Village"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				}
 			}
@@ -687,37 +687,37 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "Tomb"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Desert",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "Monastery"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "SpawningGrounds"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Desert",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				}
 			}
@@ -730,22 +730,22 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Swamp",
+				"Feature" : "Ruins"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineGreen"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"W" : 
@@ -755,13 +755,13 @@
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Swamp",
+				"Feature" : "Dragon"
 				},
 			"SW" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "WizardTower"
 				}
 			}
 		},
@@ -773,38 +773,38 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Ruins"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "WizardTower"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Wasteland",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Tomb"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Wasteland",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineWhite"
 				}
 			}
 		},
@@ -816,38 +816,38 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineBlue"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Hold"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Mountains",
+				"Feature" : "Dragon"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Wasteland",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Wasteland",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Ruins"
 				}
 			}
 		},
@@ -859,37 +859,37 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "WizardTower"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Labyrinth"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Dragon"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Wasteland",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "MercCamp"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Desert",
 				"Feature" : "None"
 				}
 			}
@@ -902,38 +902,38 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Swamp",
+				"Feature" : "MineAll"
 				},
 			"E" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Labyrinth"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Swamp",
 				"Feature" : "None"
 				},
 			"W" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Hold"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Rampaging"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "Rampaging"
 				}
 			}
 		},
@@ -945,38 +945,38 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Village"
 				},
 			"NW" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Glade"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Swamp",
+				"Feature" : "Rampaging"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "CityGreen"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Swamp",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Rampaging"
 				}
 			}
 		},
@@ -988,8 +988,8 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "Monastery"
 				},
 			"NW" : 
 				{
@@ -998,27 +998,27 @@
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "CityBlue"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Mountains",
+				"Feature" : "Dragon"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				}
 			}
@@ -1031,13 +1031,13 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Grassland",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "SpawningGrounds"
 				},
 			"E" : 
 				{
@@ -1046,22 +1046,22 @@
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "CityWhite"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Hold"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Lake",
+				"Feature" : "Dragon"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				}
 			}
@@ -1074,37 +1074,37 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Hills",
+				"Feature" : "MineRed"
 				},
 			"NW" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "Ruins"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Desert",
 				"Feature" : "None"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "CityRed"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Dragon"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "Dragon"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Wasteland",
 				"Feature" : "None"
 				}
 			}
@@ -1117,37 +1117,37 @@
 			{
 			"NE" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Mountains",
 				"Feature" : "None"
 				},
 			"NW" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Feature" : "Rampaging"
 				},
 			"E" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Wasteland",
+				"Feature" : "Dragon"
 				},
 			"C" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Grassland",
+				"Feature" : "CityVolk"
 				},
 			"W" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Lake",
 				"Feature" : "None"
 				},
 			"SE" : 
 				{
-				"Terrain" : "Forest",
-				"Feature" : "None"
+				"Terrain" : "Desert",
+				"Feature" : "Village"
 				},
 			"SW" : 
 				{
-				"Terrain" : "Forest",
+				"Terrain" : "Hills",
 				"Feature" : "None"
 				}
 			}

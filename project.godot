@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Area2D",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Scenes/Cards/Card.gd"
+}, {
+"base": "Area2D",
 "class": "ExplorableTile",
 "language": "GDScript",
 "path": "res://Scenes/Map/ExplorableTile.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Map/Tiles/MapTile.gd"
 } ]
 _global_script_class_icons={
+"Card": "",
 "ExplorableTile": "",
 "MainCamera": "",
 "MapTile": ""
@@ -35,6 +41,13 @@ _global_script_class_icons={
 config/name="Mage Knight"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Constants="*res://Globals/Constants.gd"
+Configs="*res://Globals/Configs.gd"
+GameVariables="*res://Globals/GameVariables.gd"
+Assets="*res://Globals/Assets.gd"
 
 [physics]
 

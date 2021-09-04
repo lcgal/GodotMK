@@ -8,12 +8,12 @@ var hexes
 signal movement(position,key)
 
 func _ready():
-	hexes("W",1,-1)
-	hexes("E",-1,1)
+	hexes("E",1,-1)
+	hexes("W",-1,1)
 	hexes("SW",0,1)
 	hexes("NE",0,-1)
-	hexes("SE",-1,0)
-	hexes("NW",1,0)
+	hexes("NW",-1,0)
+	hexes("SE",1,0)
 	hexes("C",0,0)
 
 func hexes(var key, var x, var y):
@@ -25,8 +25,7 @@ func hexes(var key, var x, var y):
 	add_child(hexSceneInstance)
 	hexSceneInstance.connect("movement",self,"handleMovement")
 
-func setTile(var spritePath):
-	var sprite = load(spritePath)
+func setTile(var sprite):
 	var spriteNode : Sprite = get_node("Sprite")
 	spriteNode.texture = sprite
 

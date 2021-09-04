@@ -1,0 +1,27 @@
+{
+	"Day" :
+	{
+		"Grassland" : 2,
+		"Hills" : 3,
+		"Forest" : 3,
+		"Wasteland" : 4,
+		"Desert" : 5,
+		"Swamp" : 5,
+		"Mountains" : null,
+		"Lake" : null,
+		"Explore" : 2
+	},
+	"Night" :
+	{
+		"Grassland" : 2,
+		"Hills" : 3,
+		"Forest" : 5,
+		"Wasteland" : 4,
+		"Desert" : 3,
+		"Swamp" : 5,
+		"Mountains" : null,
+		"Lake" : null,
+		"Explore" : 2
+	}
+}
+		
