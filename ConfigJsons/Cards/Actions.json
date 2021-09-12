@@ -7,100 +7,173 @@
 			"Rage" : 
 			{
 				"Image" : "Rage.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Determination" : 
 			{
 				"Image" : "Determination.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Swiftness" : 
 			{
 				"Image" : "Swiftness.png",
-				"Effect" : null
-			},
-			"March" : 
-			{
-				"Image" : "March.png",
-				"Effect" : 
+				"Effects" : 
 				{
 					"Basic" : 
 					{
 						"Cost" : null,
-						"Type" : "Move",
-						"Value" : 2
+						"Types" : 
+						{
+							"Move" :
+							{
+								"Text" : "Move 2",
+								"Effect" : "AddMove",
+								"Value" : 2
+							}
+						}
+					},
+					"Advanced" : 
+						null
+				}
+			},
+			"March" : 
+			{
+				"Image" : "March.png",
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+							"Move" :
+							{
+								"Text" : "Move 2",
+								"Effect" : "AddMove",
+								"Value" : 2
+							}
+						}
 					},
 					"Advanced" : 
 					{
 						"Cost" : "G",
-						"Type" : "Move",
-						"Value" : 4
+						"Types" : 	
+						{
+							"Move" : 
+							{
+								"Text" : "Move 2",
+								"Effect" : "AddMove",
+								"Value" : 4
+							}
+						}
 					}
 				}
 			},
 			"Stamina" : 
 			{
 				"Image" : "Stamina.png",
-				"Effect" : 
+				"Effects" : 
 				{
 					"Basic" : 
 					{
 						"Cost" : null,
-						"Type" : "Move",
-						"Value" : 2
+						"Types" : 
+						{
+							"Move" :
+							{
+								"Text" : "Move 2",
+								"Effect" : "AddMove",
+								"Value" : 2
+							}
+						}
 					},
 					"Advanced" : 
 					{
 						"Cost" : "U",
-						"Type" : "Move",
-						"Value" : 4
+						"Types" : 	
+						{
+							"Move" : 
+							{
+								"Text" : "Move 2",
+								"Effect" : "AddMove",
+								"Value" : 4
+							}
+						}
 					}
 				}
 			},
 			"Tranquility" : 
 			{
 				"Image" : "Tranquility.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Promise" : 
 			{
 				"Image" : "Promise.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Threaten" : 
 			{
 				"Image" : "Threaten.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Crystallize" : 
 			{
 				"Image" : "Crystallize.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Mana Draw" : 
 			{
 				"Image" : "ManaDraw.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Concentration" : 
 			{
 				"Image" : "Concentration.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Improvisation" : 
 			{
 				"Image" : "Improvisation.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Cold Toughness" : 
 			{
 				"Image" : "ColdToughness.png",
-				"Effect" : null
+				"Effects" : null
 			},
 			"Instinct" : 
 			{
 				"Image" : "Instinct.png",
-				"Effect" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+							"Move" :
+							{
+								"Text" : "Move 2",
+								"Effect" : "AddMove",
+								"Value" : 2
+							}
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "G",
+						"Types" : 	
+						{
+							"Move" : 
+							{
+								"Text" : "Move 2",
+								"Effect" : "AddMove",
+								"Value" : 4
+							}
+						}
+					}
+				}
 			}
 		}
 	}

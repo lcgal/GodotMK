@@ -16,5 +16,11 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
+[node name="Outline" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( -250.356, -350, -249.729, 348.16, 246.68, 346.27, 246.62, -348.281, -250.51, -349.833 )
+default_color = Color( 1, 0, 0, 1 )
+
+[connection signal="input_event" from="." to="." method="_on_Card_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_Card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Card_mouse_exited"]

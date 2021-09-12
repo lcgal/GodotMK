@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/PlayCard.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Montserrat-Regular.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="PopupMenu" type="PopupMenu"]
+margin_right = 20.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 1 )

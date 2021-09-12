@@ -48,6 +48,13 @@ Constants="*res://Globals/Constants.gd"
 Configs="*res://Globals/Configs.gd"
 GameVariables="*res://Globals/GameVariables.gd"
 Assets="*res://Globals/Assets.gd"
+SceneInitializer="*res://Globals/SceneInitializer.gd"
+TurnManager="*res://Globals/TurnManager.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
 
 [physics]
 

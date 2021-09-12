@@ -23,5 +23,3 @@ mouse_filter = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 2 )
-
-[connection signal="reset" from="CanvasLayer/Control" to="Board" method="_on_Control_reset"]

@@ -1,17 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/GUI/Gameplay/TilesCounters/TileCounters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GUI/Gameplay/InGameGUI.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GUI/MovementCosts.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GUI/Gameplay/Buttons/Reset/Buttons.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/Gameplay/Hand/HandArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GUI/Gameplay/Deck/Deck.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/PlayCard.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/GUI/Gameplay/Panel/RightPanel.tscn" type="PackedScene" id=8]
 
 [node name="Control" type="Control"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -1025.12
-margin_right = -1.1225
-margin_bottom = 600.0
+margin_left = -1917.0
+margin_right = -1.0
+margin_bottom = 1079.0
 rect_pivot_offset = Vector2( -776.952, -122.255 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -33,16 +35,29 @@ margin_top = -47.8573
 margin_right = 48.7348
 margin_bottom = -7.8573
 
-[node name="Buttons" parent="." instance=ExtResource( 4 )]
-margin_left = 12.0136
-margin_top = 10.6787
-margin_right = 82.0136
-margin_bottom = 81.6787
-
 [node name="Hand" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 
-[connection signal="reset" from="Buttons" to="." method="_on_Buttons_reset"]
+[node name="Deck" parent="." instance=ExtResource( 6 )]
+margin_left = 8.01178
+margin_top = 795.698
+margin_right = 112.012
+margin_bottom = 942.698
+
+[node name="PopupMenu" parent="." instance=ExtResource( 7 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.5
+margin_top = -17.0
+margin_right = 31.5
+margin_bottom = 17.0
+items = [ "Item 0", null, 0, false, false, 0, 0, null, "", false ]
+
+[node name="VBoxContainer" parent="." instance=ExtResource( 8 )]
+margin_top = 161.635
+margin_bottom = 748.635

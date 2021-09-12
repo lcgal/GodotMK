@@ -1,21 +1,12 @@
 extends Node2D
 var root = "/root/Game/"
 
-var board
-
 func _ready():
-	board = $Board
 	_initializePlayer(Constants.Knights.TOVAK)
-	_drawCard()
-	_drawCard()
-	_drawCard()
-	_drawCard()
-	_drawCard()
-
-
+	TurnManager._startGame()
 
 func _drawCard():
-	var card = GameVariables.player1._draw()
+	var card = GameVariables.player1._drawCard()
 	var cardScene = load("res://Scenes/Cards/Card.tscn")
 	var cardSceneInstance = cardScene.instance()
 	var cardSprite = GameVariables.actionCards["Basic"]["Cards"][card]["Image"]
@@ -23,8 +14,6 @@ func _drawCard():
 	cardSceneInstance._setSprite(Assets._card(cardSprite))
 	var handGUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Hand")
 	handGUI._addCard(cardSceneInstance)
-
-
 
 
 func _initializePlayer(var knight):
