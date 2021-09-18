@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/GUI/Gameplay/TilesCounters/TileCounters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GUI/Gameplay/InGameGUI.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GUI/MovementCosts.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/ConfirmPopup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/Gameplay/Hand/HandArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GUI/Gameplay/Deck/Deck.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/GUI/Gameplay/PopUps/PlayCard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GUI/Gameplay/Panel/RightPanel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/DismissPopup.tscn" type="PackedScene" id=9]
 
 [node name="Control" type="Control"]
 anchor_left = 1.0
@@ -61,3 +63,15 @@ items = [ "Item 0", null, 0, false, false, 0, 0, null, "", false ]
 [node name="VBoxContainer" parent="." instance=ExtResource( 8 )]
 margin_top = 161.635
 margin_bottom = 748.635
+
+[node name="ConfirmationPopUp" parent="." instance=ExtResource( 4 )]
+margin_left = 1015.5
+margin_top = 487.416
+margin_right = 1516.5
+margin_bottom = 557.416
+
+[node name="AcceptDialog" parent="." instance=ExtResource( 9 )]
+margin_left = 850.228
+margin_top = 502.248
+margin_right = 933.228
+margin_bottom = 560.248

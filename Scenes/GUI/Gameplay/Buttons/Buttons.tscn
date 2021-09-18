@@ -43,6 +43,4 @@ expand = true
 script = SubResource( 1 )
 
 [connection signal="button_up" from="Reset" to="." method="_on_Reset_button_up"]
-[connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
 [connection signal="button_up" from="Reset3" to="." method="_on_Reset3_button_up"]
-[connection signal="pressed" from="Reset3" to="." method="_on_Reset3_pressed"]

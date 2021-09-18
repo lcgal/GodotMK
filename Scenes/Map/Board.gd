@@ -54,9 +54,17 @@ func _initializeExplorableTiles():
 
 
 func _handleExploreTile(var explore, var key, var adjacentTiles):
+	
 	var player = GameVariables.player1
-	if (player != null && player.position.distance_to(explore) > 385):
-		return
+	if (player != null):
+		if (player.position.distance_to(explore) > 385 || TurnManager.turnPhase != Constants.TurnPhase.MOVEMENT):
+			return
+		if (player.movementPoints < 2):
+			TurnManager.dismissPopup.dialog_text = "Not enough movement points"
+			TurnManager.dismissPopup.popup_centered_minsize(Vector2(300,200))
+			return
+		player.move(-2)
+		TurnManager._lockActions()
 	
 	randomize()
 	
@@ -157,7 +165,6 @@ func _handleMovement(var pos, var terrain):
 func _movementReset():
 	if (startPos != null):
 		GameVariables.player1.position = startPos
-		startPos = null
 		GameVariables.currentMovementCost = 0
 		emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
 

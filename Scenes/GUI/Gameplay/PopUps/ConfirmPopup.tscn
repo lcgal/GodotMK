@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/ConfirmPopup.gd" type="Script" id=1]
+
+[node name="ConfirmationDialog" type="ConfirmationDialog"]
+margin_right = 200.0
+margin_bottom = 70.0
+window_title = "Confirm actions"
+resizable = true
+dialog_text = "This action will reveal hidden information, and that means you can't undo it."
+script = ExtResource( 1 )

@@ -3,8 +3,6 @@ extends Node
 var player1
 var board
 var handGUI
-var playCardPopup
-
 
 
 

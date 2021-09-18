@@ -5,8 +5,12 @@ var phaseInfo
 
 var turnPhase
 
+var playCardPopup
+var dismissPopup
+var confirmationPopup
+
+
 func _startGame():
-	GameVariables.playCardPopup.connect("id_pressed",self,"_handleAction")
 	_startPhase(Constants.TurnPhase.MOVEMENT)
 
 func _confirm():
@@ -34,13 +38,19 @@ func endPhase():
 			GameVariables.player1.movementPoints = 0
 			_startPhase(Constants.TurnPhase.COMBAT)
 	elif turnPhase == Constants.TurnPhase.COMBAT:
+		_lockActions()
 		GameVariables.handGUI._discardCards()
 		_startPhase(Constants.TurnPhase.MOVEMENT)
-		
+
+func _lockActions():
+	GameVariables.board.startPos = GameVariables.player1.position
+	GameVariables.handGUI._lockPlayedCards()
 
 func _updateMovementPonts(var value):
 	if value < 0:
 		phaseInfo.bbcode_text = "Move points: [color=#FF1B00]" + str(value)
+	elif value > 0:
+		phaseInfo.bbcode_text = "Move points: [color=#00FF00]" + str(value)
 	else:
 		phaseInfo.bbcode_text = "Move points: " + str(value)
 
