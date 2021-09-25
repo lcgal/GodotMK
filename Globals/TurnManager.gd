@@ -54,3 +54,6 @@ func _updateMovementPonts(var value):
 	else:
 		phaseInfo.bbcode_text = "Move points: " + str(value)
 
+func _startCombat():
+	GameVariables.combatBoard._startCombat()
+	

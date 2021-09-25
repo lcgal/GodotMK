@@ -3,6 +3,7 @@ extends Node
 var player1
 var board
 var handGUI
+var combatBoard
 
 
 
@@ -22,6 +23,9 @@ var cityTiles = []
 var coreTiles = []
 var movementCosts
 var currentMovementCost = 0
+var hexFeatures = []
+var tileDistance = 200
+var hexDistance = 200
 
 
 #Cards

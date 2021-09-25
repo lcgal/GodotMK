@@ -7,7 +7,7 @@
 script = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -100.377, 55.4605, -99.6325, -59.0543, 0.0649033, -117.608, 100.781, -59.25, 100.903, 56.9962, -0.0078373, 115.216 )
+polygon = PoolVector2Array( -103.534, 55.2101, -103.84, -62.4772, 0.153038, -119.672, 104.803, -59.9525, 104.261, 57.4241, 0.154831, 116.834 )
 
 [node name="Line2D" type="Line2D" parent="CollisionPolygon2D"]
 visible = false

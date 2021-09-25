@@ -30,15 +30,16 @@ func _addPortal():
 	var mapTileSceneInstance = mapTileScene.instance()
 	var mapTile = GameVariables.mapTileInfo["Portals"]["Wedge"]
 	mapTileSceneInstance.setTile(Assets._mapTile(mapTile["Sprite"]))
-	mapTileSceneInstance.hexes = mapTile["Hexes"]
+	mapTileSceneInstance._setHexes(mapTile["Hexes"])
 	GameVariables.board.add_child(mapTileSceneInstance)
 	mapTileSceneInstance.connect("movement",GameVariables.board,"_handleMovement")
 
 func _addMapTile(var tile, var pos):
 	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
 	var mapTileSceneInstance = mapTileScene.instance()
-	mapTileSceneInstance.setTile(Assets._mapTile(tile["Sprite"]))
-	mapTileSceneInstance.hexes = tile["Hexes"]
-	mapTileSceneInstance.global_position = pos
 	GameVariables.board.add_child(mapTileSceneInstance)
+	mapTileSceneInstance.global_position = pos
+	mapTileSceneInstance.setTile(Assets._mapTile(tile["Sprite"]))
+	mapTileSceneInstance._setHexes(tile["Hexes"])
+	
 	mapTileSceneInstance.connect("movement",GameVariables.board,"_handleMovement")

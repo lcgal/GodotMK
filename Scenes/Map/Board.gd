@@ -54,7 +54,6 @@ func _initializeExplorableTiles():
 
 
 func _handleExploreTile(var explore, var key, var adjacentTiles):
-	
 	var player = GameVariables.player1
 	if (player != null):
 		if (player.position.distance_to(explore) > 385 || TurnManager.turnPhase != Constants.TurnPhase.MOVEMENT):
@@ -154,12 +153,19 @@ func _handleMovement(var pos, var terrain):
 	if (startPos == null):
 		startPos = GameVariables.player1.position
 	var destination = pos
-	if (GameVariables.player1.position.distance_to(destination) < 200 && GameVariables.player1.position != destination):
+	if (GameVariables.player1.position.distance_to(destination) < GameVariables.hexDistance && GameVariables.player1.position != destination):
 		var movementcost = GameVariables.movementCosts["Day"][terrain]
 		if (movementcost != null):
 			GameVariables.player1.move(-movementcost)
 			emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
 			GameVariables.player1.position = pos
+			_checkFeatures()
+
+func _checkFeatures():
+	for feature in GameVariables.hexFeatures:
+		if !feature["Revealed"]:
+			if GameVariables.player1.position.distance_to(feature["Position"]) < GameVariables.hexDistance:
+				feature["Hex"]._revealFeature()
 			
 
 func _movementReset():
