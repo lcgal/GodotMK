@@ -6,6 +6,9 @@ var _previousPosition: Vector2 = Vector2(0, 0);
 var _moveCamera: bool = false;
 var minZoom = Vector2(1,1)
 
+func _ready():
+	zoom = Vector2(2,2)
+
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseButton && event.button_index == BUTTON_MIDDLE:
 		get_tree().set_input_as_handled();

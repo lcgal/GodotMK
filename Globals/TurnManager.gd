@@ -12,6 +12,7 @@ var confirmationPopup
 
 func _startGame():
 	_startPhase(Constants.TurnPhase.MOVEMENT)
+	Configs._loadTokensInfo()
 
 func _confirm():
 	endPhase()
@@ -54,6 +55,6 @@ func _updateMovementPonts(var value):
 	else:
 		phaseInfo.bbcode_text = "Move points: " + str(value)
 
-func _startCombat():
-	GameVariables.combatBoard._startCombat()
+func _startCombat(var tokens):
+	GameVariables.combatBoard._startCombat(tokens)
 	

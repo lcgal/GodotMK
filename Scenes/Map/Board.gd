@@ -159,13 +159,14 @@ func _handleMovement(var pos, var terrain):
 			GameVariables.player1.move(-movementcost)
 			emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
 			GameVariables.player1.position = pos
-			_checkFeatures()
+			_checkTokens()
 
-func _checkFeatures():
-	for feature in GameVariables.hexFeatures:
+func _checkTokens():
+	for feature in GameVariables.boardTokens:
 		if !feature["Revealed"]:
 			if GameVariables.player1.position.distance_to(feature["Position"]) < GameVariables.hexDistance:
-				feature["Hex"]._revealFeature()
+				feature["Token"]._reveal()
+				feature["Revealed"] = true
 			
 
 func _movementReset():

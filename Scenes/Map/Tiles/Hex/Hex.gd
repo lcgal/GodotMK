@@ -2,7 +2,7 @@ extends Area2D
 
 var key
 signal movement(pos,key)
-var tileFeature
+var featureInfo
 var feature
 
 func _ready():
@@ -10,20 +10,21 @@ func _ready():
 
 func _on_Hex_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.pressed:
-		if tileFeature == null:
+		if featureInfo == null:
 			emit_signal("movement",global_position,key)
-		elif tileFeature["Type"] == "Hold" && tileFeature["Owner"] == null:
+		elif featureInfo["Type"] == "Hold" && featureInfo["Owner"] == null:
 			emit_signal("movement",global_position,key)
-			TurnManager._startCombat()
+			feature._startCombat()
+			
 		else:
 			emit_signal("movement",global_position,key)
 
-func _set_Feature(var feature):
-	if feature != null:
-		tileFeature = {"Type" : feature, "Owner" : null}
-		
-		var featureSceneInstance = load("res://Scenes/Map/Tiles/Hex/Token/Token.tscn").instance()
+func _set_Feature(var featureType):
+	if featureType != null && featureType == "Hold":
+		featureInfo = {"Type" : featureType, "Owner" : null}
+		var featureSceneInstance = load("res://Scenes/Map/Tiles/Hex/Feature/Feature.tscn").instance()
 		add_child(featureSceneInstance)
-		featureSceneInstance._setToken(feature)
-		feature = featureSceneInstance
-
+		featureSceneInstance._setFeature(featureType)
+		featureSceneInstance.set_name("Feature")
+		feature = get_node("Feature")
+		

@@ -28,3 +28,10 @@ func _loadTilesInfo():
 func _loadMovementInfo():
 	return _readJson(rootJsons + "MovementCosts.json")
 
+func _loadTokensInfo():
+	var tokens = _readJson(rootJsons + "Tokens.json")
+	GameVariables.tokensInfo = tokens
+	for token in tokens["Grey"]:
+		for i in range (0,tokens["Grey"][token]["Count"],1):
+			GameVariables.greyTokens.append(token)
+	print(GameVariables.greyTokens)

@@ -23,9 +23,11 @@ var cityTiles = []
 var coreTiles = []
 var movementCosts
 var currentMovementCost = 0
-var hexFeatures = []
+var boardTokens = []
 var tileDistance = 200
 var hexDistance = 200
+var tokensInfo
+var greyTokens = []
 
 
 #Cards
