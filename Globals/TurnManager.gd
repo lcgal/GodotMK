@@ -9,6 +9,7 @@ var playCardPopup
 var dismissPopup
 var confirmationPopup
 
+var combatLane
 
 func _startGame():
 	_startPhase(Constants.TurnPhase.MOVEMENT)

@@ -4,6 +4,8 @@ var color
 
 var creature
 
+var damage
+
 func _setToken(var tokenColor):
 	GameVariables.boardTokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
 	color = tokenColor
@@ -17,3 +19,12 @@ func _reveal():
 		GameVariables.countrySideTileList.remove(index)
 		creature = GameVariables.tokensInfo[color][creatureName]
 		$TokenFG.texture = Assets._Token(color , creature["Image"])
+
+func _addDamage(var damageValue, var damageType):
+	if(creature["Resistances"].has(damageType)):
+		damage += damageValue/2
+	elif(creature["Resistances"].has("ColdFire") && (damageType == "Fire" || damageType == "Cold")):
+		damage += damageValue/2
+	else:
+		damage += damageValue
+	return creature["Armor"] - damage
