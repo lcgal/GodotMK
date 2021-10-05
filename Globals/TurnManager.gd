@@ -57,5 +57,5 @@ func _updateMovementPonts(var value):
 		phaseInfo.bbcode_text = "Move points: " + str(value)
 
 func _startCombat(var tokens):
+	_startPhase(Constants.TurnPhase.COMBAT)
 	GameVariables.combatBoard._startCombat(tokens)
-	

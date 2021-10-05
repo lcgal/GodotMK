@@ -4,7 +4,7 @@ var color
 
 var creature
 
-var damage
+var damage = 0.0
 
 func _setToken(var tokenColor):
 	GameVariables.boardTokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
@@ -22,9 +22,9 @@ func _reveal():
 
 func _addDamage(var damageValue, var damageType):
 	if(creature["Resistances"].has(damageType)):
-		damage += damageValue/2
+		damage += damageValue/2.0
 	elif(creature["Resistances"].has("ColdFire") && (damageType == "Fire" || damageType == "Cold")):
-		damage += damageValue/2
+		damage += damageValue/2.0
 	else:
 		damage += damageValue
 	return creature["Armor"] - damage

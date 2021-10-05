@@ -49,6 +49,18 @@ func _on_Card_input_event(viewport, event, shape_idx):
 			TurnManager.playCardPopup.popup()
 			TurnManager.playCardPopup.connect("id_pressed",self,"_handleAction")
 			TurnManager.playCardPopup.connect("popup_hide",self,"_disconnectPopUp")
+		elif (TurnManager.turnPhase == Constants.TurnPhase.COMBAT):
+			if (effects != null && effects["Basic"]["Types"].has("Attack")):
+				TurnManager.playCardPopup.add_item(effects["Basic"]["Types"]["Attack"]["Text"],id)
+				actions[id] = effects["Basic"]["Types"]["Attack"]
+				id += 1
+				
+			TurnManager.playCardPopup.add_item("Play sideways to add 1 attack")
+			actions[id] = Constants.sidewayAttack
+			id += 1
+			TurnManager.playCardPopup.popup()
+			TurnManager.playCardPopup.connect("id_pressed",self,"_handleAction")
+			TurnManager.playCardPopup.connect("popup_hide",self,"_disconnectPopUp")
 
 func _handleAction(var id):
 	TurnManager.playCardPopup.clear()
@@ -56,6 +68,8 @@ func _handleAction(var id):
 	var effectType = actions[id]["Effect"]
 	if effectType == "AddMove":
 		GameVariables.player1.move(actions[id]["Value"])
+	elif effectType == "AddAttack":
+		TurnManager.combatLane._addAtack(actions[id]["Value"],actions[id]["Type"])
 
 func _disconnectPopUp():
 	$Outline.visible = false

@@ -14,3 +14,4 @@ enum TurnPhase {
 }
 
 var sidewayMove = {"Effect" : "AddMove", "Value" : 1}
+var sidewayAttack = {"Effect" : "AddAttack", "Value" : 1, "Type" : "Physical"}
