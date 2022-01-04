@@ -10,6 +10,14 @@ func _drawCard(var card):
 	var handGUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Hand")
 	handGUI._addCard(cardSceneInstance)
 
+func _drawBlood():
+	var cardScene = load("res://Scenes/Cards/Card.tscn")
+	var cardSceneInstance = cardScene.instance()
+	cardSceneInstance.name = "blood"
+	cardSceneInstance._setSprite(Assets._blood())
+	var handGUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Hand")
+	handGUI._addCard(cardSceneInstance)
+
 func _initializeExplorableTiles():
 	for key in GameVariables.explorableTilesInfo:
 		var info = GameVariables.explorableTilesInfo[key]

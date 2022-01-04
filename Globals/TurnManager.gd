@@ -33,6 +33,7 @@ func _startPhase(var phase):
 		turnPhase = Constants.TurnPhase.COMBAT_BEGIN
 		turnPhaseLabel.text = "Combat"
 		phaseInfo.text = ""
+		endPhase()
 	elif phase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
 		turnPhase = Constants.TurnPhase.COMBAT_RANGED_PHASE
 		turnPhaseLabel.text = "Combat"
@@ -50,16 +51,12 @@ func endPhase():
 			GameVariables.player1.movementPoints = 0
 			_startPhase(Constants.TurnPhase.COMBAT_BEGIN)
 	elif turnPhase == Constants.TurnPhase.COMBAT_BEGIN:
-#		_lockActions()
-#		GameVariables.handGUI._discardCards()
 		_startPhase(Constants.TurnPhase.COMBAT_RANGED_PHASE)
 	elif turnPhase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
-#		_lockActions()
-#		GameVariables.handGUI._discardCards()
+		GameVariables.combatBoard._endCombatPhase(turnPhase)
 		_startPhase(Constants.TurnPhase.COMBAT_BLOCK_PHASE)
 	elif turnPhase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
-#		_lockActions()
-#		GameVariables.handGUI._discardCards()
+		GameVariables.combatBoard._endCombatPhase(turnPhase)
 		_startPhase(Constants.TurnPhase.COMBAT_DAMAGE_PHASE)
 		
 
@@ -78,6 +75,7 @@ func _updateMovementPonts(var value):
 func _startCombat(var tokens):
 	_startPhase(Constants.TurnPhase.COMBAT_BEGIN)
 	GameVariables.combatBoard._startCombat(tokens)
-
-func _passCombatPhase():
-	GameVariables.combatBoard._passCombatPhase()
+	
+func _endTurn():
+	_lockActions()
+	GameVariables.handGUI._discardCards()

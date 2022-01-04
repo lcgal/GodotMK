@@ -37,3 +37,7 @@ func _resetTurn():
 func move(var movePoints):
 	movementPoints += movePoints
 	TurnManager._updateMovementPonts(movementPoints)
+	
+func _drawBlood(var qtd):
+	for i in range(0, qtd, 1):
+		SceneInitializer._drawBlood()

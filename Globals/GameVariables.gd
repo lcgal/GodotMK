@@ -5,9 +5,6 @@ var board
 var handGUI
 var combatBoard
 
-
-
-
 #Map
 var xVector = Vector2(381,-323)
 var yVector = Vector2(-95,-484)

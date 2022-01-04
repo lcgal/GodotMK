@@ -16,3 +16,10 @@ func _addAttack(var attackValue, var attackType):
 		$Label.bbcode_text = "Health left: [color=#FF1B00]" + str(healthLeft)
 	else:
 		$Label.bbcode_text = "Health left: [color=#00FF00]" + str(healthLeft)
+
+func _endCombatPhase(var phase):
+	if phase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
+		for attack in token.creature["Attack"]:
+			var damage = attack ["Value"]
+			GameVariables.player1._drawBlood(damage)
+			
