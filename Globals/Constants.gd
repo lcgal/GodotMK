@@ -10,7 +10,10 @@ enum Maps {
 
 enum TurnPhase {
 	MOVEMENT,
-	COMBAT,
+	COMBAT_BEGIN,
+	COMBAT_RANGED_PHASE,
+	COMBAT_BLOCK_PHASE,
+	COMBAT_DAMAGE_PHASE,
 }
 
 var sidewayMove = {"Effect" : "AddMove", "Value" : 1}

@@ -12,7 +12,31 @@
 			"Determination" : 
 			{
 				"Image" : "Determination.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+							"Attack" :
+							{
+								"Text" : "Attack 2",
+								"Effect" : "AddAttack",
+								"Type" : "Physical",
+								"Value" : 2
+							},
+							"Block" :
+							{
+								"Text" : "Block 2",
+								"Effect" : "AddBlock",
+								"Value" : 2
+							}
+						}
+					},
+					"Advanced" : 
+						null
+				}
 			},
 			"Swiftness" : 
 			{
@@ -140,7 +164,31 @@
 			"Cold Toughness" : 
 			{
 				"Image" : "ColdToughness.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+							"Attack" :
+							{
+								"Text" : "Attack 2",
+								"Effect" : "AddAttack",
+								"Type" : "Physical",
+								"Value" : 2
+							},
+							"Block" :
+							{
+								"Text" : "Block 2",
+								"Effect" : "AddBlock",
+								"Value" : 2
+							}
+						}
+					},
+					"Advanced" : 
+						null
+				}
 			},
 			"Instinct" : 
 			{
@@ -157,18 +205,56 @@
 								"Text" : "Move 2",
 								"Effect" : "AddMove",
 								"Value" : 2
+							},
+							"Attack" :
+							{
+								"Text" : "Attack 2",
+								"Type" : "Physical",
+								"Effect" : "AddAttack",
+								"Value" : 2
+							},
+							"Move" :
+							{
+								"Text" : "Block 2",
+								"Effect" : "AddBlock",
+								"Value" : 2
+							},
+							"Influence" :
+							{
+								"Text" : "Influence 2",
+								"Effect" : "AddInfluence",
+								"Value" : 2
 							}
 						}
 					},
 					"Advanced" : 
 					{
-						"Cost" : "G",
+						"Cost" : "R",
 						"Types" : 	
 						{
 							"Move" : 
 							{
-								"Text" : "Move 2",
+								"Text" : "Move 4",
 								"Effect" : "AddMove",
+								"Value" : 4
+							},
+							"Attack" :
+							{
+								"Text" : "Attack 4",
+								"Type" : "Physical",
+								"Effect" : "AddAttack",
+								"Value" : 4
+							},
+							"Block" :
+							{
+								"Text" : "Block 4",
+								"Effect" : "AddBlock",
+								"Value" : 4
+							},
+							"Influence" :
+							{
+								"Text" : "Influence 4",
+								"Effect" : "AddInfluence",
 								"Value" : 4
 							}
 						}

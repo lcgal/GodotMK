@@ -34,4 +34,3 @@ func _loadTokensInfo():
 	for token in tokens["Grey"]:
 		for i in range (0,tokens["Grey"][token]["Count"],1):
 			GameVariables.greyTokens.append(token)
-	print(GameVariables.greyTokens)
