@@ -5,6 +5,8 @@ var deck
 var discard = []
 var handSize = 0
 var handLimit = 5
+var armor = 3
+var experience = 0
 
 var movementPoints = 0
 
@@ -41,3 +43,8 @@ func move(var movePoints):
 func _drawBlood(var qtd):
 	for i in range(0, qtd, 1):
 		SceneInitializer._drawBlood()
+		handSize+=1
+
+func _gainFame(var value):
+	experience += value
+	

@@ -7,7 +7,51 @@
 			"Rage" : 
 			{
 				"Image" : "Rage.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+							"Attack" :
+							{
+								"Text" : "Attack 2",
+								"Effect" : "AddAttack",
+								"Type" : "Physical",
+								"Value" : 2
+							},
+							"Block" :
+							{
+								"Text" : "Block 2",
+								"Effect" : "AddBlock",
+								"Type" : "Physical",
+								"Value" : 2
+							}
+						}
+					},
+					"Advanced" : 
+{
+						"Cost" : "R",
+						"Types" : 
+						{
+							"Attack" :
+							{
+								"Text" : "Attack 4",
+								"Effect" : "AddAttack",
+								"Type" : "Physical",
+								"Value" : 4
+							},
+							"Block" :
+							{
+								"Text" : "Block 4",
+								"Effect" : "AddBlock",
+								"Type" : "Physical",
+								"Value" : 4
+							}
+						}
+					}
+				}
 			},
 			"Determination" : 
 			{
@@ -30,12 +74,25 @@
 							{
 								"Text" : "Block 2",
 								"Effect" : "AddBlock",
+								"Type" : "Physical",
 								"Value" : 2
 							}
 						}
 					},
 					"Advanced" : 
-						null
+					{
+						"Cost" : "U",
+						"Types" : 
+						{
+							"Block" :
+							{
+								"Text" : "Block 2",
+								"Effect" : "AddBlock",
+								"Type" : "Physical",
+								"Value" : 5
+							}
+						}
+					}
 				}
 			},
 			"Swiftness" : 
@@ -57,7 +114,19 @@
 						}
 					},
 					"Advanced" : 
-						null
+					{
+						"Cost" : "W",
+						"Types" : 
+						{
+							"Ranged" :
+							{
+								"Text" : "Ranged 3",
+								"Effect" : "AddRanged",
+								"Type" : "Physical",
+								"Value" : 3
+							}
+						}
+					}
 				}
 			},
 			"March" : 
@@ -182,6 +251,7 @@
 							{
 								"Text" : "Block 2",
 								"Effect" : "AddBlock",
+								"Type" : "Physical",
 								"Value" : 2
 							}
 						}
@@ -213,10 +283,11 @@
 								"Effect" : "AddAttack",
 								"Value" : 2
 							},
-							"Move" :
+							"Block" :
 							{
 								"Text" : "Block 2",
 								"Effect" : "AddBlock",
+								"Type" : "Physical",
 								"Value" : 2
 							},
 							"Influence" :
@@ -249,6 +320,7 @@
 							{
 								"Text" : "Block 4",
 								"Effect" : "AddBlock",
+								"Type" : "Physical",
 								"Value" : 4
 							},
 							"Influence" :
@@ -264,4 +336,3 @@
 		}
 	}
 }
-				

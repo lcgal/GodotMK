@@ -50,6 +50,7 @@ GameVariables="*res://Globals/GameVariables.gd"
 Assets="*res://Globals/Assets.gd"
 SceneInitializer="*res://Globals/SceneInitializer.gd"
 TurnManager="*res://Globals/TurnManager.gd"
+TextBuilder="*res://Globals/TextBuilder.gd"
 
 [display]
 

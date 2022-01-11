@@ -5,7 +5,7 @@ var phaseInfo
 
 var turnPhase
 
-var playCardPopup
+var optionsPopup
 var dismissPopup
 var confirmationPopup
 
@@ -41,8 +41,8 @@ func _startPhase(var phase):
 	elif phase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
 		turnPhase = Constants.TurnPhase.COMBAT_BLOCK_PHASE
 		phaseInfo.text = "Block Phase"
-	elif phase == Constants.TurnPhase.COMBAT_DAMAGE_PHASE:
-		turnPhase = Constants.TurnPhase.COMBAT_DAMAGE_PHASE
+	elif phase == Constants.TurnPhase.COMBAT_MELEE_PHASE:
+		turnPhase = Constants.TurnPhase.COMBAT_MELEE_PHASE
 		phaseInfo.text = "Attack Phase"
 
 func endPhase():
@@ -57,7 +57,7 @@ func endPhase():
 		_startPhase(Constants.TurnPhase.COMBAT_BLOCK_PHASE)
 	elif turnPhase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
 		GameVariables.combatBoard._endCombatPhase(turnPhase)
-		_startPhase(Constants.TurnPhase.COMBAT_DAMAGE_PHASE)
+		_startPhase(Constants.TurnPhase.COMBAT_MELEE_PHASE)
 		
 
 func _lockActions():

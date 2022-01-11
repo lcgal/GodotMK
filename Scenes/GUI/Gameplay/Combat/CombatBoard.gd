@@ -18,6 +18,6 @@ func _startCombat(var tokens):
 		combatlane._addToken(token)
 
 func _endCombatPhase(var phase):
-	if phase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
-		var teste = get_tree().get_nodes_in_group("combatLane")
-		get_tree().call_group("combatLane", "_endCombatPhase", phase)
+	var teste = get_tree().get_nodes_in_group("combatLane")
+	get_tree().call_group("combatLane", "_endCombatPhase", phase)
+

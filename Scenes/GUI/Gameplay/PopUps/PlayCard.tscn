@@ -11,4 +11,5 @@ font_data = ExtResource( 2 )
 margin_right = 20.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 1 )
+hide_on_item_selection = false
 script = ExtResource( 1 )
