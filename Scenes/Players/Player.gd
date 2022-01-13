@@ -47,4 +47,7 @@ func _drawBlood(var qtd):
 
 func _gainFame(var value):
 	experience += value
+	var experienceText = TextBuilder._experienceLabelText(experience) 
+	
+	GameVariables.player1Panel._setExperienceText(experienceText)
 	

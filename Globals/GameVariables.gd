@@ -1,6 +1,7 @@
 extends Node
 
 var player1
+var player1Panel
 var board
 var handGUI
 var combatBoard
