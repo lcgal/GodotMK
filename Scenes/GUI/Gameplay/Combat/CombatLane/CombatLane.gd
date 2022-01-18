@@ -21,12 +21,15 @@ func _addBlock(var attackValue, var attackType):
 	token._addBlock(attackValue, attackType)
 
 func _endCombatPhase(var phase):
-	if phase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
-		for attack in token.creature["Attack"]:
-			if attack["Block"] < attack["Value"]:
-				var armor = GameVariables.player1.armor
-				var damage = ceil(attack["Value"]/armor)
-				GameVariables.player1._drawBlood(damage)
-	elif phase == Constants.TurnPhase.COMBAT_RANGED_PHASE || phase == Constants.TurnPhase.COMBAT_MELEE_PHASE:
-		if token.creature["Armor"] - token.damage <= 0:
-			token._kill()
+	match phase:
+		Constants.TurnPhase.COMBAT_BLOCK_PHASE:
+			for attack in token.creature["Attack"]:
+				if attack["Block"] < attack["Value"]:
+					var armor = GameVariables.player1.armor
+					var damage = ceil(attack["Value"]/armor)
+					GameVariables.player1._drawBlood(damage)
+					
+		Constants.TurnPhase.COMBAT_RANGED_PHASE, Constants.TurnPhase.COMBAT_MELEE_PHASE:
+			if token.creature["Armor"] - token.damage <= 0:
+				token._kill()
+	

@@ -21,3 +21,5 @@ func _endCombatPhase(var phase):
 	var teste = get_tree().get_nodes_in_group("combatLane")
 	get_tree().call_group("combatLane", "_endCombatPhase", phase)
 
+func _endCombat():
+	pass

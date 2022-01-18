@@ -7,6 +7,7 @@ var attacks
 var health
 var currentBlock
 var lane
+var active
 
 func _setToken(var tokenColor):
 	GameVariables.boardTokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
@@ -27,6 +28,7 @@ func _reveal():
 		creature = GameVariables.tokensInfo[color][creatureName]
 		$TokenFG.texture = Assets._Token(color , creature["Image"])
 		_getCreatureAttributes()
+		active = true
 
 func _addDamage(var damageValue, var damageType):
 	if(creature["Resistances"].has(damageType)):
@@ -68,3 +70,4 @@ func _disconnectPopUp():
 func _kill():
 	GameVariables.player1._gainFame(creature["Fame"])
 	self.visible = false
+	active = false
