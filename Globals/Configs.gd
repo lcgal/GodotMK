@@ -3,6 +3,7 @@ extends Node
 var rootJsons = "res://ConfigJsons/"
 var pathKnights = "Knights/"
 var pathCards = "Cards/"
+var savePath = "Saves/"
 
 func _readJson(var json):
 	var file = File.new()
@@ -32,5 +33,19 @@ func _loadTokensInfo():
 	var tokens = _readJson(rootJsons + "Tokens.json")
 	GameVariables.tokensInfo = tokens
 	for token in tokens["Grey"]:
-		for i in range (0,tokens["Grey"][token]["Count"],1):
+		for _i in range (0,tokens["Grey"][token]["Count"],1):
 			GameVariables.greyTokens.append(token)
+
+func _load():
+	return _readJson(rootJsons + savePath +"save1.save")
+	
+
+func _save():
+	var save_dict = StateController._save()
+	var save_game = File.new()
+	
+	save_game.open(rootJsons + savePath + "save1.save", File.WRITE)
+	save_game.store_line(to_json(save_dict))
+	save_game.close()
+	
+	

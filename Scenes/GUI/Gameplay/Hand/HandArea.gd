@@ -11,7 +11,7 @@ var highlightScale = Vector2(0.6,0.6)
 
 
 func _ready():
-	GameVariables.handGUI = self
+	StateController.handGUI = self
 
 func _resetTurn():
 	for handCard in get_tree().get_nodes_in_group("cards"):
@@ -19,7 +19,7 @@ func _resetTurn():
 			handCard._setAsPlayStatus(false)
 
 func _addCard(var card):
-	card.number = GameVariables.player1.handSize
+	card.number = StateController.player1.handSize
 	card.scale = normalScale
 	if CardSize == null:
 		CardSize = card.get_node("Sprite").texture.get_size()
@@ -44,7 +44,7 @@ func _reorganize(var highlight, var highlightedcard):
 	for handCard in get_tree().get_nodes_in_group("cards"):
 		handCard.number = i
 		i += 1
-		var angle = -PI/2 + CardSpread*(float(GameVariables.player1.handSize - 1)/2 - handCard.number)
+		var angle = -PI/2 + CardSpread*(float(StateController.player1.handSize - 1)/2 - handCard.number)
 		if (highlight && handCard.number > highlightedcard):
 			angle -= CardSpread*0.8
 		elif (highlight && handCard.number < highlightedcard):
@@ -69,5 +69,5 @@ func _discardCards():
 	for handCard in get_tree().get_nodes_in_group("cards"):
 		if handCard.played:
 			handCard.queue_free()
-			GameVariables.player1.handSize -= 1
+			StateController.player1.handSize -= 1
 	_reorganize(false, null)

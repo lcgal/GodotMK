@@ -7,10 +7,23 @@ var attacks
 var health
 var currentBlock
 var lane
-var active
+var active = true
+var revealed = false
 
-func _setToken(var tokenColor):
-	GameVariables.boardTokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
+func _save():
+	var save_dict = {}
+	save_dict["Active"] = active
+	save_dict["revealed"] = revealed
+	return save_dict
+	
+func _load(var save_dict):
+	if !save_dict["Active"]:
+		_removeToken()
+	elif save_dict["revealed"]:
+		_reveal()
+
+func _createToken(var tokenColor):
+	StateController.boardTokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
 	color = tokenColor
 	$TokenBG.texture = Assets._Token(color, "Background.png")
 	$TokenFG.texture = Assets._Token(color, "Hold.png")
@@ -20,15 +33,19 @@ func _getCreatureAttributes():
 	for attack in attacks:
 		attack["Block"] = 0
 
-func _reveal():
+func _setToken():
 	if color == "Grey":
 		var index = randi() % GameVariables.greyTokens.size()
 		var creatureName = GameVariables.greyTokens[index]
 		GameVariables.countrySideTileList.remove(index)
 		creature = GameVariables.tokensInfo[color][creatureName]
+
+func _reveal():
+	_setToken()
+	if color == "Grey":
 		$TokenFG.texture = Assets._Token(color , creature["Image"])
 		_getCreatureAttributes()
-		active = true
+		revealed = true
 
 func _addDamage(var damageValue, var damageType):
 	if(creature["Resistances"].has(damageType)):
@@ -41,7 +58,7 @@ func _addDamage(var damageValue, var damageType):
 	lane._setText(text)
  
 
-func _addBlock(var blockValue, var blockType):
+func _addBlock(var blockValue, var _blockType):
 	currentBlock = blockValue
 	
 	TurnManager.optionsPopup.clear()
@@ -68,6 +85,9 @@ func _disconnectPopUp():
 	TurnManager.optionsPopup.disconnect("popup_hide",self,"_disconnectPopUp")
 
 func _kill():
-	GameVariables.player1._gainFame(creature["Fame"])
+	StateController.player1._gainFame(creature["Fame"])
+	_removeToken()
+
+func _removeToken():
 	self.visible = false
 	active = false

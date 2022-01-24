@@ -11,24 +11,36 @@ var confirmationPopup
 
 var combatLane
 
+func _ready():
+	StateController.turnManager = self
+
 func _startGame():
 	_startPhase(Constants.TurnPhase.MOVEMENT)
 	Configs._loadTokensInfo()
+
+func _save():
+	var save_dict = {}
+	save_dict["turnPhase"] = turnPhase
+	return save_dict
+
+func _load(var save_dict):
+	var phase = save_dict["turnPhase"]
+	_startPhase(phase)
 
 func _confirm():
 	endPhase()
 
 func _resetActions():
-	GameVariables.board._movementReset()
-	GameVariables.player1._resetTurn()
-	GameVariables.handGUI._resetTurn()
+	StateController.board._movementReset()
+	StateController.player1._resetTurn()
+	StateController.handGUI._resetTurn()
 
 func _startPhase(var phase):
 	turnPhase = phase
 	if phase == Constants.TurnPhase.MOVEMENT:
 		turnPhaseLabel.text = "Movement"
 		phaseInfo.text = "Move points: " + str(0)
-		GameVariables.player1._drawToHandLimit()
+		StateController.player1._drawToHandLimit()
 	elif phase == Constants.TurnPhase.COMBAT_BEGIN:
 		turnPhase = Constants.TurnPhase.COMBAT_BEGIN
 		turnPhaseLabel.text = "Combat"
@@ -46,23 +58,24 @@ func _startPhase(var phase):
 		phaseInfo.text = "Attack Phase"
 
 func endPhase():
+	Configs._save()
 	if turnPhase == Constants.TurnPhase.MOVEMENT:
-		if GameVariables.player1.movementPoints >= 0:
-			GameVariables.player1.movementPoints = 0
+		if StateController.player1.movementPoints >= 0:
+			StateController.player1.movementPoints = 0
 			_startPhase(Constants.TurnPhase.COMBAT_BEGIN)
 	elif turnPhase == Constants.TurnPhase.COMBAT_BEGIN:
 		_startPhase(Constants.TurnPhase.COMBAT_RANGED_PHASE)
 	elif turnPhase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
-		GameVariables.combatBoard._endCombatPhase(turnPhase)
+		StateController.combatBoard._endCombatPhase(turnPhase)
 		_startPhase(Constants.TurnPhase.COMBAT_BLOCK_PHASE)
 	elif turnPhase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
-		GameVariables.combatBoard._endCombatPhase(turnPhase)
+		StateController.combatBoard._endCombatPhase(turnPhase)
 		_startPhase(Constants.TurnPhase.COMBAT_MELEE_PHASE)
 		
 
 func _lockActions():
-	GameVariables.board.startPos = GameVariables.player1.position
-	GameVariables.handGUI._lockPlayedCards()
+	StateController.board.startPos = StateController.player1.position
+	StateController.handGUI._lockPlayedCards()
 
 func _updateMovementPonts(var value):
 	if value < 0:
@@ -74,8 +87,8 @@ func _updateMovementPonts(var value):
 
 func _startCombat(var tokens):
 	_startPhase(Constants.TurnPhase.COMBAT_BEGIN)
-	GameVariables.combatBoard._startCombat(tokens)
+	StateController.combatBoard._startCombat(tokens)
 	
 func _endTurn():
 	_lockActions()
-	GameVariables.handGUI._discardCards()
+	StateController.handGUI._discardCards()

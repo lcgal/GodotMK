@@ -24,7 +24,11 @@ var RelevantEffects = {
 }
 
 var sidewayEffects = {
-	"Move" : {"Effect" : "AddMove", "Value" : 1, "Text" : "Play sideways to add 1 movement"},
-	"Attack" : {"Effect" : "AddAttack", "Value" : 1, "Type" : "Physical", "Text" : "Play sideways to add 1 attack"},
-	"Block" : {"Effect" : "AddBlock", "Value" : 1, "Type" : "Physical", "Text" : "Play sideways to add 1 block"}
+	"Move" : {"Effect" : "AddMove", "Value" : 2, "Text" : "Play sideways to add 1 movement"},
+	"Attack" : {"Effect" : "AddAttack", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 attack"},
+	"Block" : {"Effect" : "AddBlock", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 block"}
+}
+
+var features = {
+	"Hold" : {"Type" : "Hold", "Owner" : null, "Token" : "Grey", "Revealed" : false, "AutoCombat" : true}
 }

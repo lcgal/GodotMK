@@ -13,10 +13,20 @@ var active = false
 
 var key
 
-func _ready():
-	pass # Replace with function body.
+func _save():
+	var save_dict = {}
+	save_dict["key"] = key
+	save_dict["active"] = active
+	save_dict["adjacentTiles"] = adjacentTiles
+	save_dict["adjacency"] = adjacency
 
-func _on_ExplorableTile_input_event(viewport, event, shape_idx):
+func _load(var save_dict):
+	key = save_dict["key"]
+	key = save_dict["active"]
+	key = save_dict["adjacentTiles"]
+	key = save_dict["adjacency"]
+
+func _on_ExplorableTile_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.pressed && active:
 		explore()
 

@@ -7,8 +7,6 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureButton
 
-signal reset()
-
 func _ready():
 	pass # Replace with function body.
 "

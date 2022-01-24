@@ -41,7 +41,7 @@ func move(var movePoints):
 	TurnManager._updateMovementPonts(movementPoints)
 	
 func _drawBlood(var qtd):
-	for i in range(0, qtd, 1):
+	for _i in range(0, qtd, 1):
 		SceneInitializer._drawBlood()
 		handSize+=1
 
@@ -49,5 +49,5 @@ func _gainFame(var value):
 	experience += value
 	var experienceText = TextBuilder._experienceLabelText(experience) 
 	
-	GameVariables.player1Panel._setExperienceText(experienceText)
+	StateController.player1Panel._setExperienceText(experienceText)
 	

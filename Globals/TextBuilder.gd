@@ -19,3 +19,6 @@ func _attackPhaseInfo(var healthLeft):
 
 func _experienceLabelText(var experience):
 	return "Experience : " + str(experience)
+
+func _turnText(var turn):
+	return "Turn: " + str(turn)

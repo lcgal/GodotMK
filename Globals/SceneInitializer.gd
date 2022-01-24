@@ -30,24 +30,46 @@ func _initializeExplorableTiles():
 		exploreTileSceneInstance.key = key
 		exploreTileSceneInstance.adjacentTiles = adjacentTiles
 		exploreTileSceneInstance.global_position = y*GameVariables.yVector + x*GameVariables.xVector
-		GameVariables.board.add_child(exploreTileSceneInstance)
-		exploreTileSceneInstance.connect("exploreTile",GameVariables.board,"_handleExploreTile")
+		StateController.board.add_child(exploreTileSceneInstance)
+		exploreTileSceneInstance.connect("exploreTile",StateController.board,"_handleExploreTile")
 
 func _addPortal():
 	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
 	var mapTileSceneInstance = mapTileScene.instance()
 	var mapTile = GameVariables.mapTileInfo["Portals"]["Wedge"]
-	mapTileSceneInstance.setTile(Assets._mapTile(mapTile["Sprite"]))
-	mapTileSceneInstance._setHexes(mapTile["Hexes"])
-	GameVariables.board.add_child(mapTileSceneInstance)
-	mapTileSceneInstance.connect("movement",GameVariables.board,"_handleMovement")
+	mapTileSceneInstance.setTile(mapTile)
+	StateController.board.add_child(mapTileSceneInstance)
+	mapTileSceneInstance.connect("movement",StateController.board,"_handleMovement")
 
-func _addMapTile(var tile, var pos):
+func _addMapTile(var key, var tile, var pos, var savedInfo = null):
 	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
 	var mapTileSceneInstance = mapTileScene.instance()
-	GameVariables.board.add_child(mapTileSceneInstance)
+	mapTileSceneInstance.set_name("explored"+key)
+	StateController.board.add_child(mapTileSceneInstance)
 	mapTileSceneInstance.global_position = pos
-	mapTileSceneInstance.setTile(Assets._mapTile(tile["Sprite"]))
-	mapTileSceneInstance._setHexes(tile["Hexes"])
+	mapTileSceneInstance.setTile(tile, savedInfo)
 	
-	mapTileSceneInstance.connect("movement",GameVariables.board,"_handleMovement")
+	mapTileSceneInstance.connect("movement",StateController.board,"_handleMovement")
+
+func _initializePlayer(var knight):
+	var parsedPlayerData = Configs._loadKnight(knight)
+	var playerScene = load("res://Scenes/Players/Player.tscn")
+	var playerSceneInstance = playerScene.instance()
+	playerSceneInstance.set_name("Player1")
+	playerSceneInstance.deck = parsedPlayerData["Deck"]
+	add_child(playerSceneInstance)
+	StateController.player1 = playerSceneInstance
+
+func _initializeFeature(var featureInfo, var hex):
+	var featureSceneInstance = load("res://Scenes/Map/Tiles/Hex/Feature/Feature.tscn").instance()
+	hex.add_child(featureSceneInstance)
+	featureSceneInstance._setFeature(featureInfo)
+	featureSceneInstance.set_name("Feature")
+	hex.feature = hex.get_node("Feature")
+
+func _initializeToken(var featureInfo, var feature):
+		var tokenSceneInstance = load("res://Scenes/Map/Tiles/Hex/Feature/Token.tscn").instance()
+		feature.add_child(tokenSceneInstance)
+		tokenSceneInstance._createToken(featureInfo["Token"])
+		tokenSceneInstance.set_name("token")
+		feature.hexToken = feature.get_node("token")

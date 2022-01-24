@@ -26,17 +26,24 @@ position = Vector2( 173.613, 295.54 )
 scale = Vector2( 1.01804, 1.22198 )
 texture = ExtResource( 4 )
 
-[node name="Buttons" parent="." instance=ExtResource( 1 )]
-margin_left = 166.0
-margin_top = 520.0
-margin_right = 333.0
-margin_bottom = 582.0
+[node name="TurnLabel" type="Label" parent="."]
+margin_left = 21.5089
+margin_top = 17.9291
+margin_right = 128.509
+margin_bottom = 55.9291
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.341176, 0.176471, 0.109804, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Turn: 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
-margin_left = 17.019
-margin_top = 38.1334
-margin_right = 124.019
-margin_bottom = 76.1334
+margin_left = 20.3864
+margin_top = 61.7051
+margin_right = 127.386
+margin_bottom = 99.7051
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.341176, 0.176471, 0.109804, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -46,10 +53,10 @@ __meta__ = {
 }
 
 [node name="CurrentPhase" type="Label" parent="."]
-margin_left = 138.884
-margin_top = 39.0132
-margin_right = 245.884
-margin_bottom = 77.0132
+margin_left = 136.639
+margin_top = 62.5849
+margin_right = 243.639
+margin_bottom = 100.585
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.572549, 0.12549, 0.0823529, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -60,10 +67,10 @@ __meta__ = {
 }
 
 [node name="PhaseInfo" type="RichTextLabel" parent="."]
-margin_left = 34.6123
-margin_top = 88.1631
-margin_right = 326.612
-margin_bottom = 134.163
+margin_left = 20.0203
+margin_top = 106.122
+margin_right = 312.02
+margin_bottom = 152.122
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.341176, 0.176471, 0.109804, 1 )
 bbcode_enabled = true
@@ -73,3 +80,9 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Buttons" parent="." instance=ExtResource( 1 )]
+margin_left = 166.0
+margin_top = 520.0
+margin_right = 333.0
+margin_bottom = 582.0

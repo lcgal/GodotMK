@@ -25,9 +25,9 @@ func _endCombatPhase(var phase):
 		Constants.TurnPhase.COMBAT_BLOCK_PHASE:
 			for attack in token.creature["Attack"]:
 				if attack["Block"] < attack["Value"]:
-					var armor = GameVariables.player1.armor
+					var armor = StateController.player1.armor
 					var damage = ceil(attack["Value"]/armor)
-					GameVariables.player1._drawBlood(damage)
+					StateController.player1._drawBlood(damage)
 					
 		Constants.TurnPhase.COMBAT_RANGED_PHASE, Constants.TurnPhase.COMBAT_MELEE_PHASE:
 			if token.creature["Armor"] - token.damage <= 0:

@@ -47,6 +47,10 @@ func _showEffectOptions():
 			TurnManager.optionsPopup.add_item(effects["Basic"]["Types"][effect]["Text"],id)
 			actions[id] = effects["Basic"]["Types"][effect]
 			id += 1
+		if (effects != null && effects["Advanced"]["Types"].has(effect)):
+			TurnManager.optionsPopup.add_item(effects["Advanced"]["Types"][effect]["Text"],id)
+			actions[id] = effects["Advanced"]["Types"][effect]
+			id += 1
 		if effect in Constants.sidewayEffects:
 			actions[id] = Constants.sidewayEffects[effect]
 			TurnManager.optionsPopup.add_item(actions[id]["Text"])
@@ -63,7 +67,7 @@ func _handleAction(var id):
 	_setAsPlayStatus(true)
 	var effectType = actions[id]["Effect"]
 	if effectType == "AddMove":
-		GameVariables.player1.move(actions[id]["Value"])
+		StateController.player1.move(actions[id]["Value"])
 	elif effectType == "AddAttack":
 		TurnManager.combatLane._addDamage(actions[id]["Value"],actions[id]["Type"])
 	elif effectType == "AddRanged":

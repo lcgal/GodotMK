@@ -44,8 +44,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Constants="*res://Globals/Constants.gd"
+Converter="*res://Globals/Converter.gd"
+StateController="*res://Globals/StateController.gd"
 Configs="*res://Globals/Configs.gd"
+Constants="*res://Globals/Constants.gd"
 GameVariables="*res://Globals/GameVariables.gd"
 Assets="*res://Globals/Assets.gd"
 SceneInitializer="*res://Globals/SceneInitializer.gd"
