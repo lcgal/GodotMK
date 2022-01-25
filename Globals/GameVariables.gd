@@ -59,3 +59,34 @@ func _save():
 func _load(var save_dict):
 	for key in save_dict:
 		set(key, save_dict[key])
+
+func _InitializeMapData(var mapData, var tilesData, var movementData):
+	explorableTilesInfo = mapData["ExplorableTiles"]
+	scenarioCountryTilesLeft = mapData["CountrysideTiles"]
+	scenarioCoreTilesLeft = mapData["CoreTiles"]
+	scenarioCityCount = mapData["Cities"]
+	mapTileInfo =tilesData
+	movementCosts = movementData
+	loadMapTileOptions()
+		
+func loadMapTileOptions():
+	randomize()
+	for tile in mapTileInfo["CountrySideTiles"]:
+		countrySideTileList.append(tile)
+	
+	for tile in mapTileInfo["CoreTiles"]:
+		if (mapTileInfo["CoreTiles"][tile]["isCity"]):
+			cityTiles.append(tile)
+		else:
+			coreTiles.append(tile)
+
+	for _i in range(0,scenarioCityCount,1):
+		var index = randi() % cityTiles.size()
+		var tile = cityTiles[index]
+		cityTiles.remove(index)
+		coreTileList.append(tile)
+	for _i in range(0,scenarioCoreTilesLeft - scenarioCityCount,1):
+		var index = randi() % coreTiles.size()
+		var tile = coreTiles[index]
+		coreTiles.remove(index)
+		coreTileList.append(tile)

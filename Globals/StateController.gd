@@ -32,3 +32,4 @@ func _save():
 func _load(var save_dict):
 	for key in savableClasses:
 		get(key)._load(save_dict[key])
+

@@ -41,13 +41,13 @@ func _addPortal():
 	StateController.board.add_child(mapTileSceneInstance)
 	mapTileSceneInstance.connect("movement",StateController.board,"_handleMovement")
 
-func _addMapTile(var key, var tile, var pos, var savedInfo = null):
+func _addMapTile(var key, var tile, var pos, var savedFeatures = null):
 	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
 	var mapTileSceneInstance = mapTileScene.instance()
 	mapTileSceneInstance.set_name("explored"+key)
 	StateController.board.add_child(mapTileSceneInstance)
 	mapTileSceneInstance.global_position = pos
-	mapTileSceneInstance.setTile(tile, savedInfo)
+	mapTileSceneInstance.setTile(tile, savedFeatures)
 	
 	mapTileSceneInstance.connect("movement",StateController.board,"_handleMovement")
 

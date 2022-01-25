@@ -25,21 +25,19 @@ func _load(var features_info):
 	for key in features_info:
 		pass
 
-func setTile(var tile, var savedInfo = null):
+func setTile(var tile, var savedFeatureInfo = null):
 	tile_info = tile
 	var spriteNode : Sprite = get_node("Sprite")
 	spriteNode.texture = Assets._mapTile(tile["Sprite"])
 	_setHexes(tile["Hexes"])
+	if savedFeatureInfo != null:
+		for hex in savedFeatureInfo:
+			get_node(hex)._load(savedFeatureInfo[hex])
 
 func _setHexes(var hexesInfo):
 	var hexes = hexesInfo
-	_hexes("E",1,-1,hexes["E"]["Feature"])
-	_hexes("W",-1,1,hexes["W"]["Feature"])
-	_hexes("SW",0,1,hexes["SW"]["Feature"])
-	_hexes("NE",0,-1,hexes["NE"]["Feature"])
-	_hexes("NW",-1,0,hexes["NW"]["Feature"])
-	_hexes("SE",1,0,hexes["SE"]["Feature"])
-	_hexes("C",0,0,hexes["C"]["Feature"])
+	for key in Constants.hexes:
+		_hexes(key,Constants.hexes[key]["x"],Constants.hexes[key]["y"],hexes[key]["Feature"])
 
 func _hexes(var key, var x, var y, var feature):
 	var hexScene = load("res://Scenes/Map/Tiles/Hex/Hex.tscn")

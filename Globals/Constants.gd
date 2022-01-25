@@ -16,6 +16,16 @@ enum TurnPhase {
 	COMBAT_MELEE_PHASE,
 }
 
+var hexes = {
+	"E" : {"x" : 1,"y" :-1},
+	"W" : {"x" : -1,"y" :1},
+	"SW" : {"x" : 0,"y" :1},
+	"NE" : {"x" : 0,"y" :-1},
+	"NW" : {"x" : -1,"y" :0},
+	"SE" : {"x" : 1,"y" :0},
+	"C" : {"x" : 0,"y" :0},
+}
+
 var RelevantEffects = {
 	TurnPhase.MOVEMENT : ["Move"],
 	TurnPhase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack"],

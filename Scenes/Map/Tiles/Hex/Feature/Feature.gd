@@ -25,3 +25,7 @@ func _save():
 	if hexToken != null:
 		save_dict = hexToken._save()
 		return save_dict
+
+func _load(var savedFeatureInfo):
+	if hexToken != null:
+		hexToken._load(savedFeatureInfo)

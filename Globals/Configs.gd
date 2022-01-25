@@ -18,8 +18,11 @@ func _loadKnight(var knight):
 
 func _loadMap(var map):
 	if map == Constants.Maps.WEDGE:
-		return _readJson(rootJsons + "WedgeMapTiles.json")
-
+		var mapData = _readJson(rootJsons + "WedgeMapTiles.json")
+		var tilesData = _loadTilesInfo()
+		var movementData = _loadMovementInfo()
+		GameVariables._InitializeMapData(mapData, tilesData, movementData)
+		
 func _loadCardsActions():
 	return _readJson(rootJsons + pathCards + "Actions.json")
 
@@ -37,8 +40,8 @@ func _loadTokensInfo():
 			GameVariables.greyTokens.append(token)
 
 func _load():
-	return _readJson(rootJsons + savePath +"save1.save")
-	
+	var load_dict = _readJson(rootJsons + savePath +"save1.save")
+	StateController._load(load_dict)
 
 func _save():
 	var save_dict = StateController._save()

@@ -23,3 +23,5 @@ func _save():
 	if feature != null:
 		return feature._save()
 	
+func _load(var savedFeatureInfo):
+	feature._load(savedFeatureInfo)

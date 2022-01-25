@@ -7,9 +7,9 @@ extends Node2D
 func _ready():
 	StateController.board = self
 
-func _initialize():
-	_readConfigfies()
-	_initializeMapTiles()
+func _initializeNew():
+#	emit_signal("setGreenTileCounter",GameVariables.scenarioCountryTilesLeft)
+#	emit_signal("setBrownTileCounter",GameVariables.scenarioCoreTilesLeft)
 	_initializeExplorableTiles()
 	SceneInitializer._addPortal()
 	var tile : ExplorableTile = get_node("B1")
@@ -17,18 +17,6 @@ func _initialize():
 	tile = get_node("A2")
 	tile.explore()
 	GameVariables.currentMovementCost = 0
-	
-func _readConfigfies():
-	_readScenarioInfo()
-	GameVariables.mapTileInfo = Configs._loadTilesInfo()
-	GameVariables.movementCosts = Configs._loadMovementInfo()
-
-func _readScenarioInfo():
-	var parsedData = Configs._loadMap(Constants.Maps.WEDGE)
-	GameVariables.explorableTilesInfo = parsedData["ExplorableTiles"]
-	GameVariables.scenarioCountryTilesLeft = parsedData["CountrysideTiles"]
-	GameVariables.scenarioCoreTilesLeft = parsedData["CoreTiles"]
-	GameVariables.scenarioCityCount = parsedData["Cities"]
 
 func _save():
 	var save_dict = {}
@@ -43,13 +31,13 @@ func _save():
 	
 	return save_dict
 
-func _load(var save_dict):
+func _load(var load_dict):
 	SceneInitializer._addPortal()
 	_initializeExplorableTiles()
-	for key in save_dict["tiles"]:
-		var tile = save_dict["tiles"][key]
+	for key in load_dict["tiles"]:
+		var tile = load_dict["tiles"][key]
 		var position = Converter._string_to_vector2(tile["position"])
-		SceneInitializer._addMapTile(key, tile["tile_info"], position)
+		SceneInitializer._addMapTile(key, tile["tile_info"], position, tile["features_info"])
 
 	
 	for key in GameVariables.explorableTilesInfo:
@@ -134,33 +122,6 @@ func _handleExploreTile(var explore, var key, var adjacentTiles):
 
 signal setGreenTileCounter(values)
 signal setBrownTileCounter(values)
-
-func _initializeMapTiles():
-	#Creating Tile options lists
-	randomize()
-	for tile in GameVariables.mapTileInfo["CountrySideTiles"]:
-		GameVariables.countrySideTileList.append(tile)
-	
-	for tile in GameVariables.mapTileInfo["CoreTiles"]:
-		if (GameVariables.mapTileInfo["CoreTiles"][tile]["isCity"]):
-			GameVariables.cityTiles.append(tile)
-		else:
-			GameVariables.coreTiles.append(tile)
-
-	for _i in range(0,GameVariables.scenarioCityCount,1):
-		var index = randi() % GameVariables.cityTiles.size()
-		var tile = GameVariables.cityTiles[index]
-		GameVariables.cityTiles.remove(index)
-		GameVariables.coreTileList.append(tile)
-	for _i in range(0,GameVariables.scenarioCoreTilesLeft - GameVariables.scenarioCityCount,1):
-		var index = randi() % GameVariables.coreTiles.size()
-		var tile = GameVariables.coreTiles[index]
-		GameVariables.coreTiles.remove(index)
-		GameVariables.coreTileList.append(tile)
-	#END
-	
-	emit_signal("setGreenTileCounter",GameVariables.scenarioCountryTilesLeft)
-	emit_signal("setBrownTileCounter",GameVariables.scenarioCoreTilesLeft)
 
 #--------------------------END-------------------------------
 

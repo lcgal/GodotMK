@@ -58,7 +58,7 @@ func _startPhase(var phase):
 		phaseInfo.text = "Attack Phase"
 
 func endPhase():
-	Configs._save()
+	#Configs._save()
 	if turnPhase == Constants.TurnPhase.MOVEMENT:
 		if StateController.player1.movementPoints >= 0:
 			StateController.player1.movementPoints = 0
