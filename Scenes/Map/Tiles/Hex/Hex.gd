@@ -1,16 +1,15 @@
 extends Area2D
 
 var key
-signal movement(pos,key)
 var feature
+var terrain
 
 func _on_Hex_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.pressed:
 		if feature == null:
-			emit_signal("movement",global_position,key)
+			StateController.board._handleMovement(global_position,terrain)
 		else:
-			emit_signal("movement",global_position,key)
-			feature._moveInto()
+			feature._moveInto(global_position,terrain)
 
 
 func _set_Feature(var featureType):

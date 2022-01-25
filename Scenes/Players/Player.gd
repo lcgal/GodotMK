@@ -32,13 +32,12 @@ func _drawToHandLimit():
 		_drawCard()
 
 func _resetTurn():
-	print(movementPoints)
 	movementPoints = 0
-	TurnManager._updateMovementPonts(movementPoints)
+	TurnManager._updateMovementPoints(movementPoints)
 
 func move(var movePoints):
 	movementPoints += movePoints
-	TurnManager._updateMovementPonts(movementPoints)
+	TurnManager._updateMovementPoints(movementPoints)
 	
 func _drawBlood(var qtd):
 	for _i in range(0, qtd, 1):

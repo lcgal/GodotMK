@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scenes/GUI/Gameplay/TilesCounters/CoreTileLabel.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GUI/Gameplay/TilesCounters/GreenTileLabel.gd" type="Script" id=2]
-[ext_resource path="res://Assets/MapTiles/Tiles/coreBack.png" type="Texture" id=3]
-[ext_resource path="res://Assets/MapTiles/Tiles/countrysideback.png" type="Texture" id=4]
+[ext_resource path="res://Assets/MapTiles/Tiles/CoreBack.png" type="Texture" id=3]
+[ext_resource path="res://Assets/MapTiles/Tiles/Countrysideback.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Montserrat-Regular.otf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]

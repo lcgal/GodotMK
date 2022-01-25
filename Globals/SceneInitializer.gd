@@ -39,7 +39,6 @@ func _addPortal():
 	var mapTile = GameVariables.mapTileInfo["Portals"]["Wedge"]
 	mapTileSceneInstance.setTile(mapTile)
 	StateController.board.add_child(mapTileSceneInstance)
-	mapTileSceneInstance.connect("movement",StateController.board,"_handleMovement")
 
 func _addMapTile(var key, var tile, var pos, var savedFeatures = null):
 	var mapTileScene = load("res://Scenes/Map/Tiles/MapTile.tscn")
@@ -48,8 +47,6 @@ func _addMapTile(var key, var tile, var pos, var savedFeatures = null):
 	StateController.board.add_child(mapTileSceneInstance)
 	mapTileSceneInstance.global_position = pos
 	mapTileSceneInstance.setTile(tile, savedFeatures)
-	
-	mapTileSceneInstance.connect("movement",StateController.board,"_handleMovement")
 
 func _initializePlayer(var knight):
 	var parsedPlayerData = Configs._loadKnight(knight)

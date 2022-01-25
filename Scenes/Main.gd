@@ -2,8 +2,7 @@ extends Node2D
 var root = "/root/Game/"
 
 func _ready():
-	var load_dict
-	if 1 == 1:
+	if 1 == 2:
 		Configs._load()
 	else:
 		Configs._loadMap(Constants.Maps.WEDGE)

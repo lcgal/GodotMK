@@ -14,6 +14,7 @@ enum TurnPhase {
 	COMBAT_RANGED_PHASE,
 	COMBAT_BLOCK_PHASE,
 	COMBAT_MELEE_PHASE,
+	INTERACTION,
 }
 
 var hexes = {
@@ -27,10 +28,11 @@ var hexes = {
 }
 
 var RelevantEffects = {
-	TurnPhase.MOVEMENT : ["Move"],
+	TurnPhase.MOVEMENT : ["Move","Support"],
 	TurnPhase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack"],
 	TurnPhase.COMBAT_BLOCK_PHASE : ["Block"],
-	TurnPhase.COMBAT_MELEE_PHASE : ["Attack"]
+	TurnPhase.COMBAT_MELEE_PHASE : ["Attack"],
+	TurnPhase.INTERACTION : ["Support"]
 }
 
 var sidewayEffects = {

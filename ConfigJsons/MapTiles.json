@@ -90,7 +90,7 @@
 	{
 	"G1" :
 		{
-		"Sprite" : "countryside1.png",
+		"Sprite" : "Countryside1.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -132,7 +132,7 @@
 		},
 	"G2" :
 		{
-		"Sprite" : "countryside2.png",
+		"Sprite" : "Countryside2.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -174,7 +174,7 @@
 		},
 	"G3" :
 		{
-		"Sprite" : "countryside3.png",
+		"Sprite" : "Countryside3.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -216,7 +216,7 @@
 		},
 	"G4" :
 		{
-		"Sprite" : "countryside4.png",
+		"Sprite" : "Countryside4.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -258,7 +258,7 @@
 		},
 	"G5" :
 		{
-		"Sprite" : "countryside5.png",
+		"Sprite" : "Countryside5.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -300,7 +300,7 @@
 		},
 	"G6" :
 		{
-		"Sprite" : "countryside6.png",
+		"Sprite" : "Countryside6.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -342,7 +342,7 @@
 		},
 	"G7" :
 		{
-		"Sprite" : "countryside7.png",
+		"Sprite" : "Countryside7.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -384,7 +384,7 @@
 		},
 	"G8" :
 		{
-		"Sprite" : "countryside8.png",
+		"Sprite" : "Countryside8.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -426,7 +426,7 @@
 		},
 	"G9" :
 		{
-		"Sprite" : "countryside9.png",
+		"Sprite" : "Countryside9.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -468,7 +468,7 @@
 		},
 	"G10" :
 		{
-		"Sprite" : "countryside10.png",
+		"Sprite" : "Countryside10.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -510,7 +510,7 @@
 		},
 	"G11" :
 		{
-		"Sprite" : "countryside11.png",
+		"Sprite" : "Countryside11.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -552,7 +552,7 @@
 		},
 	"G12" :
 		{
-		"Sprite" : "countryside12.png",
+		"Sprite" : "Countryside12.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -594,7 +594,7 @@
 		},
 	"G13" :
 		{
-		"Sprite" : "countryside13.png",
+		"Sprite" : "Countryside13.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -636,7 +636,7 @@
 		},
 	"G14" :
 		{
-		"Sprite" : "countryside14.png",
+		"Sprite" : "Countryside14.png",
 		"Hexes" : 
 			{
 			"NE" : 
@@ -681,7 +681,7 @@
 	{
 	"B1" :
 		{
-		"Sprite" : "core1.png",
+		"Sprite" : "Core1.png",
 		"isCity" : false,
 		"Hexes" : 
 			{
@@ -724,7 +724,7 @@
 		},
 	"B2" :
 		{
-		"Sprite" : "core2.png",
+		"Sprite" : "Core2.png",
 		"isCity" : false,
 		"Hexes" : 
 			{
@@ -767,7 +767,7 @@
 		},
 	"B3" :
 		{
-		"Sprite" : "core3.png",
+		"Sprite" : "Core3.png",
 		"isCity" : false,
 		"Hexes" : 
 			{
@@ -810,7 +810,7 @@
 		},
 	"B4" :
 		{
-		"Sprite" : "core4.png",
+		"Sprite" : "Core4.png",
 		"isCity" : false,
 		"Hexes" : 
 			{
@@ -853,7 +853,7 @@
 		},
 	"B9" :
 		{
-		"Sprite" : "core9.png",
+		"Sprite" : "Core9.png",
 		"isCity" : false,
 		"Hexes" : 
 			{
@@ -896,7 +896,7 @@
 		},
 	"B10" :
 		{
-		"Sprite" : "core10.png",
+		"Sprite" : "Core10.png",
 		"isCity" : false,
 		"Hexes" : 
 			{
@@ -939,7 +939,7 @@
 		},
 	"B5" :
 		{
-		"Sprite" : "core5.png",
+		"Sprite" : "Core5.png",
 		"isCity" : true,
 		"Hexes" : 
 			{
@@ -982,7 +982,7 @@
 		},
 	"B6" :
 		{
-		"Sprite" : "core6.png",
+		"Sprite" : "Core6.png",
 		"isCity" : true,
 		"Hexes" : 
 			{
@@ -1025,7 +1025,7 @@
 		},
 	"B7" :
 		{
-		"Sprite" : "core7.png",
+		"Sprite" : "Core7.png",
 		"isCity" : true,
 		"Hexes" : 
 			{
@@ -1068,7 +1068,7 @@
 		},
 	"B8" :
 		{
-		"Sprite" : "core8.png",
+		"Sprite" : "Core8.png",
 		"isCity" : true,
 		"Hexes" : 
 			{
@@ -1111,7 +1111,7 @@
 		},
 	"B11" :
 		{
-		"Sprite" : "core11.png",
+		"Sprite" : "Core11.png",
 		"isCity" : true,
 		"Hexes" : 
 			{

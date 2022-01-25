@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/countryside9.png-6e657f1fc8a493f1fc4079356b643ceb.stex"
+path="res://.import/Countryside9.png-7448e2be01c7a0cd5026319d2ea0223c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MapTiles/Tiles/countryside9.png"
-dest_files=[ "res://.import/countryside9.png-6e657f1fc8a493f1fc4079356b643ceb.stex" ]
+source_file="res://Assets/MapTiles/Tiles/Countryside9.png"
+dest_files=[ "res://.import/Countryside9.png-7448e2be01c7a0cd5026319d2ea0223c.stex" ]
 
 [params]
 

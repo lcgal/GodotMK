@@ -70,12 +70,10 @@ func _handleExploreTile(var explore, var key, var adjacentTiles):
 	if (player != null):
 		if (player.position.distance_to(explore) > 385 || TurnManager.turnPhase != Constants.TurnPhase.MOVEMENT):
 			return
-		if (player.movementPoints < 2):
-			TurnManager.dismissPopup.dialog_text = "Not enough movement points"
-			TurnManager.dismissPopup.popup_centered_minsize(Vector2(300,200))
-			return
 		player.move(-2)
-		TurnManager._lockActions()
+		if (!TurnManager._lockActions()):
+			player.move(+2)
+			return
 	
 	randomize()
 	
@@ -129,25 +127,40 @@ signal setBrownTileCounter(values)
 signal setCurrentMovementCost(value)
 var startPos
 
-func _handleMovement(var pos, var terrain):
+func _handleMovement(var pos, var terrain, lock = false):
 	if (startPos == null):
 		startPos = StateController.player1.position
+	var origin = StateController.player1.position 
 	var destination = pos
 	if (StateController.player1.position.distance_to(destination) < GameVariables.hexDistance && StateController.player1.position != destination):
 		var movementcost = GameVariables.movementCosts["Day"][terrain]
 		if (movementcost != null):
+			StateController.player1.position = destination
 			StateController.player1.move(-movementcost)
+			if lock:
+				if (!TurnManager._lockActions()):
+					StateController.player1.position = origin
+					StateController.player1.move(+movementcost)
+					return false
+			if !_checkTokens():
+				StateController.player1.position = origin
+				StateController.player1.move(+movementcost)
+				return false
+				
 			emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
-			StateController.player1.position = pos
-			_checkTokens()
+			return true
+
 
 func _checkTokens():
 	for feature in StateController.boardTokens:
 		if !feature["Revealed"]:
 			if StateController.player1.position.distance_to(Converter._string_to_vector2(feature["Position"])) < GameVariables.hexDistance:
-				feature["Token"]._reveal()
-				feature["Revealed"] = true
-			
+				if (TurnManager._lockActions()):
+					feature["Token"]._reveal()
+					feature["Revealed"] = true
+				else:
+					return false
+	return true
 
 func _movementReset():
 	if (startPos != null):

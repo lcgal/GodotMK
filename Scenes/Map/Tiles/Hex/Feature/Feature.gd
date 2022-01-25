@@ -10,10 +10,13 @@ func _setFeature(var info):
 	if featureInfo != null && featureInfo["Token"] != null:
 		SceneInitializer._initializeToken(featureInfo, self)
 
-func _moveInto():
+func _moveInto(var global_position, var terrain):
 	if featureInfo != null:
 		if featureInfo["AutoCombat"]:
-			_startCombat()
+			if(StateController.board._handleMovement(global_position, terrain, true)):
+				_startCombat()
+	else:
+		StateController.board._handleMovement(global_position, terrain)
 
 func _startCombat():
 	if hexToken != null:

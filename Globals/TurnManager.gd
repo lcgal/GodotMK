@@ -1,5 +1,7 @@
 extends Node
 
+var currentTurn = 0
+var turnLabel
 var turnPhaseLabel
 var phaseInfo
 
@@ -15,8 +17,8 @@ func _ready():
 	StateController.turnManager = self
 
 func _startGame():
-	_startPhase(Constants.TurnPhase.MOVEMENT)
 	Configs._loadTokensInfo()
+	_startTurn()
 
 func _save():
 	var save_dict = {}
@@ -28,9 +30,11 @@ func _load(var save_dict):
 	_startPhase(phase)
 
 func _confirm():
-	endPhase()
+	if _lockActions():
+		endPhase()
 
 func _resetActions():
+	StateController._reset()
 	StateController.board._movementReset()
 	StateController.player1._resetTurn()
 	StateController.handGUI._resetTurn()
@@ -56,13 +60,16 @@ func _startPhase(var phase):
 	elif phase == Constants.TurnPhase.COMBAT_MELEE_PHASE:
 		turnPhase = Constants.TurnPhase.COMBAT_MELEE_PHASE
 		phaseInfo.text = "Attack Phase"
+	elif phase == Constants.TurnPhase.INTERACTION:
+		turnPhase = Constants.TurnPhase.INTERACTION
+		turnPhaseLabel.text = "Interaction"
+		phaseInfo.text = "Interaction Phase"
 
 func endPhase():
 	#Configs._save()
 	if turnPhase == Constants.TurnPhase.MOVEMENT:
-		if StateController.player1.movementPoints >= 0:
-			StateController.player1.movementPoints = 0
-			_startPhase(Constants.TurnPhase.COMBAT_BEGIN)
+		StateController.player1.movementPoints = 0
+		_startPhase(Constants.TurnPhase.INTERACTION)
 	elif turnPhase == Constants.TurnPhase.COMBAT_BEGIN:
 		_startPhase(Constants.TurnPhase.COMBAT_RANGED_PHASE)
 	elif turnPhase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
@@ -71,13 +78,21 @@ func endPhase():
 	elif turnPhase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
 		StateController.combatBoard._endCombatPhase(turnPhase)
 		_startPhase(Constants.TurnPhase.COMBAT_MELEE_PHASE)
-		
+	elif turnPhase == Constants.TurnPhase.INTERACTION:
+		_endTurn()
+
 
 func _lockActions():
-	StateController.board.startPos = StateController.player1.position
-	StateController.handGUI._lockPlayedCards()
+	if turnPhase == Constants.TurnPhase.MOVEMENT:
+		if (StateController.player1.movementPoints < 0):
+			TurnManager.dismissPopup.dialog_text = "Not enough movement points"
+			TurnManager.dismissPopup.popup_centered_minsize(Vector2(300,200))
+			return false
+		StateController.board.startPos = StateController.player1.position
+		StateController.handGUI._lockPlayedCards()
+	return true
 
-func _updateMovementPonts(var value):
+func _updateMovementPoints(var value):
 	if value < 0:
 		phaseInfo.bbcode_text = "Move points: [color=#FF1B00]" + str(value)
 	elif value > 0:
@@ -92,3 +107,10 @@ func _startCombat(var tokens):
 func _endTurn():
 	_lockActions()
 	StateController.handGUI._discardCards()
+	_startTurn()
+
+func _startTurn():
+	currentTurn += 1
+	_startPhase(Constants.TurnPhase.MOVEMENT)
+	turnLabel.text = TextBuilder._turnText(currentTurn)
+	

@@ -33,3 +33,7 @@ func _load(var save_dict):
 	for key in savableClasses:
 		get(key)._load(save_dict[key])
 
+func _reset():
+	for key in savableClasses:
+		if get(key).has_method("_reset"):
+			get(key)._reset()

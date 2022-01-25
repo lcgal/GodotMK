@@ -5,7 +5,6 @@ var n = Vector2(105,180)
 var k = Vector2(-105,180)
 var tile_info
 
-signal movement(position,key)
 
 func _save():
 	var save_dict = {}
@@ -46,9 +45,5 @@ func _hexes(var key, var x, var y, var feature):
 	hexSceneInstance.set_name(key)
 	hexSceneInstance.key = key
 	hexSceneInstance.position = x*n + y*k
+	hexSceneInstance.terrain = tile_info["Hexes"][key]["Terrain"]
 	hexSceneInstance._set_Feature(feature)
-	hexSceneInstance.connect("movement",self,"handleMovement")
-
-func handleMovement(var pos, var key):
-	var terrain = tile_info["Hexes"][key]["Terrain"]
-	emit_signal("movement", pos, terrain)

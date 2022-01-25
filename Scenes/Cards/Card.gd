@@ -32,9 +32,8 @@ func _setAsPlayStatus(var boolean):
 	else:
 		modulate.a = 1
 
-func _on_Card_input_event(var viewport, var event, var shape_idx):
+func _on_Card_input_event(var _viewport, var event, var _shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.pressed && !played:
-		$Outline.visible = true
 		_showEffectOptions()
 
 
@@ -43,22 +42,24 @@ func _showEffectOptions():
 	TurnManager.optionsPopup.clear()
 	var id = 0
 	for effect in Constants.RelevantEffects[TurnManager.turnPhase]:
-		if (effects != null && effects["Basic"]["Types"].has(effect)):
-			TurnManager.optionsPopup.add_item(effects["Basic"]["Types"][effect]["Text"],id)
-			actions[id] = effects["Basic"]["Types"][effect]
-			id += 1
-		if (effects != null && effects["Advanced"]["Types"].has(effect)):
-			TurnManager.optionsPopup.add_item(effects["Advanced"]["Types"][effect]["Text"],id)
-			actions[id] = effects["Advanced"]["Types"][effect]
-			id += 1
-		if effect in Constants.sidewayEffects:
-			actions[id] = Constants.sidewayEffects[effect]
-			TurnManager.optionsPopup.add_item(actions[id]["Text"])
-			id += 1
-			
-	TurnManager.optionsPopup.popup()
-	TurnManager.optionsPopup.connect("id_pressed",self,"_handleAction")
-	TurnManager.optionsPopup.connect("popup_hide",self,"_disconnectPopUp")
+		if effects != null:
+			if (effects["Basic"] != null && effects["Basic"]["Types"].has(effect)):
+				TurnManager.optionsPopup.add_item(effects["Basic"]["Types"][effect]["Text"],id)
+				actions[id] = effects["Basic"]["Types"][effect]
+				id += 1
+			if (effects["Advanced"] != null && effects["Advanced"]["Types"].has(effect)):
+				TurnManager.optionsPopup.add_item(effects["Advanced"]["Types"][effect]["Text"],id)
+				actions[id] = effects["Advanced"]["Types"][effect]
+				id += 1
+			if effect in Constants.sidewayEffects:
+				actions[id] = Constants.sidewayEffects[effect]
+				TurnManager.optionsPopup.add_item(actions[id]["Text"])
+				id += 1
+	if id > 0:
+		$Outline.visible = true
+		TurnManager.optionsPopup.popup()
+		TurnManager.optionsPopup.connect("id_pressed",self,"_handleAction")
+		TurnManager.optionsPopup.connect("popup_hide",self,"_disconnectPopUp")
 	
 
 func _handleAction(var id):
