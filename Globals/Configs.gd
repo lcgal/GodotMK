@@ -43,12 +43,32 @@ func _load():
 	var load_dict = _readJson(rootJsons + savePath +"save1.save")
 	StateController._load(load_dict)
 
+func load_file(var file):
+	var load_dict = _readJson(rootJsons + savePath + file)
+	StateController._load(load_dict)
+
 func _save():
 	var save_dict = StateController._save()
 	var save_game = File.new()
 	
-	save_game.open(rootJsons + savePath + "save1.save", File.WRITE)
+	save_game.open(rootJsons + savePath + GameVariables.gameName + ".save", File.WRITE)
 	save_game.store_line(to_json(save_dict))
 	save_game.close()
-	
-	
+
+
+func get_saved_files():
+	var files = []
+	var dir = Directory.new()
+	dir.open(rootJsons + savePath)
+	dir.list_dir_begin()
+
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with("."):
+			files.append(file)
+
+	dir.list_dir_end()
+
+	return files

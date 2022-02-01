@@ -1,5 +1,7 @@
 extends Node
 
+var gameName
+
 #Map
 var xVector = Vector2(381,-323)
 var yVector = Vector2(-95,-484)
@@ -29,6 +31,7 @@ func _ready():
 	StateController.gameVariables = self
 
 var savableProperties = [
+	"gameName",
 	"explorableTilesInfo",
 	"mapTileInfo",
 	"countrySideTileList",

@@ -66,7 +66,6 @@ func _startPhase(var phase):
 		phaseInfo.text = "Interaction Phase"
 
 func endPhase():
-	#Configs._save()
 	if turnPhase == Constants.TurnPhase.MOVEMENT:
 		StateController.player1.movementPoints = 0
 		_startPhase(Constants.TurnPhase.INTERACTION)

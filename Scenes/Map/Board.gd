@@ -8,8 +8,6 @@ func _ready():
 	StateController.board = self
 
 func _initializeNew():
-#	emit_signal("setGreenTileCounter",GameVariables.scenarioCountryTilesLeft)
-#	emit_signal("setBrownTileCounter",GameVariables.scenarioCoreTilesLeft)
 	_initializeExplorableTiles()
 	SceneInitializer._addPortal()
 	var tile : ExplorableTile = get_node("B1")
@@ -17,6 +15,8 @@ func _initializeNew():
 	tile = get_node("A2")
 	tile.explore()
 	GameVariables.currentMovementCost = 0
+	emit_signal("setGreenTileCounter",GameVariables.scenarioCountryTilesLeft)
+	emit_signal("setBrownTileCounter",GameVariables.scenarioCoreTilesLeft)
 
 func _save():
 	var save_dict = {}
@@ -67,7 +67,7 @@ func _initializeExplorableTiles():
 
 func _handleExploreTile(var explore, var key, var adjacentTiles):
 	var player = StateController.player1
-	if (player != null):
+	if is_instance_valid(player):
 		if (player.position.distance_to(explore) > 385 || TurnManager.turnPhase != Constants.TurnPhase.MOVEMENT):
 			return
 		player.move(-2)
@@ -168,6 +168,8 @@ func _movementReset():
 		GameVariables.currentMovementCost = 0
 		emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
 
+func _quit():
+	queue_free()
 #--------------------------END-------------------------------
 
 

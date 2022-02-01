@@ -50,3 +50,5 @@ func _gainFame(var value):
 	
 	StateController.player1Panel._setExperienceText(experienceText)
 	
+func _quit():
+	queue_free()

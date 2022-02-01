@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/GUI/Gameplay/Combat/CombatLane/CombatLane.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GUI/Gameplay/Combat/CombatLane/TokenZone.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GUI/Gameplay/Combat/CombatLane/combat_lane.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GUI/Gameplay/Combat/CombatLane/token_zone.gd" type="Script" id=2]
 [ext_resource path="res://Assets/GUI/teste.png" type="Texture" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 124.429, 332.445 )

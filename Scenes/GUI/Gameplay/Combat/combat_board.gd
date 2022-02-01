@@ -17,6 +17,3 @@ func _startCombat(var token):
 
 func _endCombatPhase(var phase):
 	get_tree().call_group("combatLane", "_endCombatPhase", phase)
-
-func _endCombat():
-	pass

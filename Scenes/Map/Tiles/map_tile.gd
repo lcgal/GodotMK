@@ -39,7 +39,7 @@ func _setHexes(var hexesInfo):
 		_hexes(key,Constants.hexes[key]["x"],Constants.hexes[key]["y"],hexes[key]["Feature"])
 
 func _hexes(var key, var x, var y, var feature):
-	var hexScene = load("res://Scenes/Map/Tiles/Hex/Hex.tscn")
+	var hexScene = load("res://Scenes/Map/Tiles/Hex/hex.tscn")
 	var hexSceneInstance = hexScene.instance()
 	add_child(hexSceneInstance)
 	hexSceneInstance.set_name(key)

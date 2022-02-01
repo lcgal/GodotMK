@@ -1,25 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene format=2]
 
-[ext_resource path="res://Scenes/Map/Board.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Camera2D.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/GUI/Gameplay/InGameGUI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Main.gd" type="Script" id=5]
-
-[node name="Game" type="Node2D"]
-script = ExtResource( 5 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 3 )]
-anchor_left = 0.0
+[node name="Control" type="Control"]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
-mouse_filter = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-script = ExtResource( 2 )
-
-[node name="Board" parent="." instance=ExtResource( 1 )]
+__meta__ = {
+"_edit_use_anchors_": false
+}
