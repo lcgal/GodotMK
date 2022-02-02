@@ -16,9 +16,8 @@ func _newGame():
 	TurnManager._startGame()
 
 func _loadGame():
-	Configs.load_file(StateController.loadedGame)
-
 	SceneInitializer._initializePlayer(Constants.Knights.TOVAK)
+	Configs.load_file(StateController.loadedGame)
 	TurnManager._startGame()
 
 func _close():

@@ -8,3 +8,7 @@ func _on_NewGameBtn_pressed():
 
 func _on_QuitBtb_pressed():
 	get_tree().quit()
+
+
+func _on_LoadBtn_pressed():
+	$LoadMenu.visible = true

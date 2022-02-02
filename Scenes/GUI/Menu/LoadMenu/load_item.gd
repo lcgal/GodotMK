@@ -10,6 +10,6 @@ func set_item(var item):
 func _on_Button_pressed():
 	StateController.loadedGame = file
 	var game = get_tree().get_root().get_node("/root/Game")
-	game._close()
+	if is_instance_valid(game):
+		game._close()
 	get_tree().change_scene("res://Scenes/game.tscn")
-	Configs.load_file(file)
