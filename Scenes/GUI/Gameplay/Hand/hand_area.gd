@@ -1,9 +1,10 @@
 extends Control
 var origin = Vector2(-560,1317)
 
-onready var CentreCardOval = get_viewport().size * Vector2(0, 0.95)
-onready var Hor_rad = get_viewport().size.x*1
-onready var Ver_rad = get_viewport().size.y*0.8
+var DefaultResolution = Vector2(1920,1062)
+onready var CentreCardOval = DefaultResolution * Vector2(0, 0.95)
+onready var Hor_rad = DefaultResolution.x*1
+onready var Ver_rad = DefaultResolution.y*0.8
 var CardSize
 var CardSpread
 var normalScale = Vector2(0.4,0.4)
