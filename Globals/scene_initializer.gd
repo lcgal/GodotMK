@@ -55,8 +55,7 @@ func _addMapTile(var key, var tile, var pos, var savedFeatures = null):
 
 func _initializePlayer(var knight):
 	var parsedPlayerData = Configs._loadKnight(knight)
-	var playerScene = load("res://Scenes/Players/player.tscn")
-	var playerSceneInstance = playerScene.instance()
+	var playerSceneInstance = load("res://Scenes/Players/player.tscn").instance()
 	playerSceneInstance.set_name("Player1")
 	playerSceneInstance.deck = parsedPlayerData["Deck"]
 	add_child(playerSceneInstance)

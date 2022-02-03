@@ -20,6 +20,7 @@ var tileDistance = 200
 var hexDistance = 200
 var tokensInfo
 var greyTokens = []
+var available_tokens = {}
 
 
 
@@ -41,11 +42,10 @@ var savableProperties = [
 	"scenarioCityCount",
 	"cityTiles",
 	"coreTiles",
-	"greyTokens",
 	"movementCosts",
 	"tokensInfo",
-	"greyTokens",
-	"actionCards"
+	"actionCards",
+	"availabe_tokens"
 ]
 
 var savableObjects = [

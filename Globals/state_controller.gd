@@ -2,10 +2,11 @@ extends Node
 
 var loadedGame
 
+var hand_area
+
 var player1
 var player1Panel
 var board
-var handGUI
 var combatBoard
 var gameVariables
 var boardTokens = []

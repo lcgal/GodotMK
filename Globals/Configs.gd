@@ -35,9 +35,13 @@ func _loadMovementInfo():
 func _loadTokensInfo():
 	var tokens = _readJson(rootJsons + "Tokens.json")
 	GameVariables.tokensInfo = tokens
-	for token in tokens["Grey"]:
-		for _i in range (0,tokens["Grey"][token]["Count"],1):
-			GameVariables.greyTokens.append(token)
+	for key in tokens:
+		var token_list = []
+		for token in tokens[key]:
+			for _i in range (0,tokens[key][token]["Count"],1):
+				token_list.append(token)
+		GameVariables.available_tokens[key] = token_list
+
 
 func _load():
 	var load_dict = _readJson(rootJsons + savePath +"save1.save")

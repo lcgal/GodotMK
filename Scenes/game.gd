@@ -4,7 +4,7 @@ func _ready():
 	if StateController.loadedGame == null:
 		_newGame()
 	else:
-		 _loadGame()
+		_loadGame()
 
 func _newGame():
 	Configs._loadMap(Constants.Maps.WEDGE)

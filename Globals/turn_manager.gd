@@ -37,7 +37,6 @@ func _resetActions():
 	StateController._reset()
 	StateController.board._movementReset()
 	StateController.player1._resetTurn()
-	StateController.handGUI._resetTurn()
 
 func _startPhase(var phase):
 	turnPhase = phase
@@ -88,7 +87,7 @@ func _lockActions():
 			TurnManager.dismissPopup.popup_centered_minsize(Vector2(300,200))
 			return false
 		StateController.board.startPos = StateController.player1.position
-		StateController.handGUI._lockPlayedCards()
+		StateController.player1.lock_cards()
 	return true
 
 func _updateMovementPoints(var value):
@@ -105,7 +104,7 @@ func _startCombat(var tokens):
 	
 func _endTurn():
 	_lockActions()
-	StateController.handGUI._discardCards()
+	StateController.player1.discard_cards()
 	_startTurn()
 
 func _startTurn():

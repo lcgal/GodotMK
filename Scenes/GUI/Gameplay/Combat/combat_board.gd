@@ -9,7 +9,7 @@ func _ready():
 	
 func _startCombat(var token):
 	visible = true
-	var combatlane = load("res://Scenes/GUI/Gameplay/Combat/CombatLane/CombatLane.tscn").instance()
+	var combatlane = load("res://Scenes/GUI/Gameplay/Combat/CombatLane/combat_lane.tscn").instance()
 	combatlane.add_to_group("combatLane")
 	add_child(combatlane)
 	combatlane.position = $Sprite.texture.get_size()/3

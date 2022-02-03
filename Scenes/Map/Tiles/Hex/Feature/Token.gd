@@ -34,11 +34,10 @@ func _getCreatureAttributes():
 		attack["Block"] = 0
 
 func _setToken():
-	if color == "Grey":
-		var index = randi() % GameVariables.greyTokens.size()
-		var creatureName = GameVariables.greyTokens[index]
-		GameVariables.countrySideTileList.remove(index)
-		creature = GameVariables.tokensInfo[color][creatureName]
+	var index = randi() % GameVariables.available_tokens[color].size()
+	var creatureName = GameVariables.available_tokens[color][index]
+	GameVariables.available_tokens[color].remove(index)
+	creature = GameVariables.tokensInfo[color][creatureName]
 
 func _reveal():
 	_setToken()

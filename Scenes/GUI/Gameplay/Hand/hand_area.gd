@@ -12,7 +12,7 @@ var highlightScale = Vector2(0.6,0.6)
 
 
 func _ready():
-	StateController.handGUI = self
+	StateController.hand_area = self
 
 func _resetTurn():
 	for handCard in get_tree().get_nodes_in_group("cards"):
