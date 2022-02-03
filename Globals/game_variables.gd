@@ -28,7 +28,7 @@ var available_tokens = {}
 var actionCards 
 
 func _ready():
-	actionCards = Configs._loadCardsActions()
+	actionCards = Configs.get_actions_cards_info()
 	StateController.gameVariables = self
 
 var savableProperties = [

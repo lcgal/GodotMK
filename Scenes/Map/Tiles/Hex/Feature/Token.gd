@@ -25,8 +25,8 @@ func _load(var save_dict):
 func _createToken(var tokenColor):
 	StateController.boardTokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
 	color = tokenColor
-	$TokenBG.texture = Assets._Token(color, "Background.png")
-	$TokenFG.texture = Assets._Token(color, "Hold.png")
+	$TokenBG.texture = Assets.token(color, "Background.png")
+	$TokenFG.texture = Assets.token(color, "Hold.png")
 	
 func _getCreatureAttributes():
 	attacks = creature["Attack"]
@@ -42,7 +42,7 @@ func _setToken():
 func _reveal():
 	_setToken()
 	if color == "Grey":
-		$TokenFG.texture = Assets._Token(color , creature["Image"])
+		$TokenFG.texture = Assets.token(color , creature["Image"])
 		_getCreatureAttributes()
 		revealed = true
 

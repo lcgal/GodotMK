@@ -8,7 +8,7 @@ func _ready():
 		_loadGame()
 
 func _newGame():
-	Configs._loadMap(Constants.Maps.WEDGE)
+	Configs.get_map_info(Constants.Maps.WEDGE)
 	StateController.board._initializeNew()
 
 	SceneInitializer._initializePlayer(Constants.Knights.TOVAK)

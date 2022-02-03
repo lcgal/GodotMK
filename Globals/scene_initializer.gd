@@ -11,7 +11,7 @@ func _drawCard(var card):
 	var cardSprite = GameVariables.actionCards["Basic"]["Cards"][card]["Image"]
 	cardSceneInstance.name = card
 	cardSceneInstance.effects = GameVariables.actionCards["Basic"]["Cards"][card]["Effects"]
-	cardSceneInstance._setSprite(Assets._card(cardSprite))
+	cardSceneInstance._setSprite(Assets.card(cardSprite))
 	var handGUI = StateController.hand_area
 	handGUI._addCard(cardSceneInstance)
 
@@ -19,7 +19,7 @@ func _drawBlood():
 	var cardScene = load("res://Scenes/Cards/card.tscn")
 	var cardSceneInstance = cardScene.instance()
 	cardSceneInstance.name = "blood"
-	cardSceneInstance._setSprite(Assets._blood())
+	cardSceneInstance._setSprite(Assets.blood())
 	var handGUI = StateController.hand_area
 	handGUI._addCard(cardSceneInstance)
 
@@ -55,7 +55,7 @@ func _addMapTile(var key, var tile, var pos, var savedFeatures = null):
 	mapTileSceneInstance.setTile(tile, savedFeatures)
 
 func _initializePlayer(var knight):
-	var parsedPlayerData = Configs._loadKnight(knight)
+	var parsedPlayerData = Configs.get_knight_info(knight)
 	var playerSceneInstance = load("res://Scenes/Players/player.tscn").instance()
 	playerSceneInstance.set_name("Player1")
 	playerSceneInstance.deck = parsedPlayerData["Deck"]

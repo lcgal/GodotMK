@@ -27,7 +27,7 @@ func _load(var features_info):
 func setTile(var tile, var savedFeatureInfo = null):
 	tile_info = tile
 	var spriteNode : Sprite = get_node("Sprite")
-	spriteNode.texture = Assets._mapTile(tile["Sprite"])
+	spriteNode.texture = Assets.map_tile(tile["Sprite"])
 	_setHexes(tile["Hexes"])
 	if savedFeatureInfo != null:
 		for hex in savedFeatureInfo:
