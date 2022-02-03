@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	StateController.game = self
 	if StateController.loadedGame == null:
 		_newGame()
 	else:
@@ -18,7 +19,8 @@ func _newGame():
 func _loadGame():
 	SceneInitializer._initializePlayer(Constants.Knights.TOVAK)
 	Configs.load_file(StateController.loadedGame)
-	TurnManager._startGame()
+	
+
 
 func _close():
 	StateController._quit()

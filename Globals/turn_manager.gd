@@ -23,11 +23,15 @@ func _startGame():
 func _save():
 	var save_dict = {}
 	save_dict["turnPhase"] = turnPhase
+	save_dict["turnPhaseLabel"] = turnPhaseLabel.text
+	save_dict["phaseInfo"] = phaseInfo.text
+	
 	return save_dict
 
 func _load(var save_dict):
 	var phase = save_dict["turnPhase"]
-	_startPhase(phase)
+	turnPhaseLabel.text = save_dict["turnPhaseLabel"]
+	phaseInfo.text = save_dict["phaseInfo"]
 
 func _confirm():
 	if _lockActions():
@@ -44,11 +48,6 @@ func _startPhase(var phase):
 		turnPhaseLabel.text = "Movement"
 		phaseInfo.text = "Move points: " + str(0)
 		StateController.player1._drawToHandLimit()
-	elif phase == Constants.TurnPhase.COMBAT_BEGIN:
-		turnPhase = Constants.TurnPhase.COMBAT_BEGIN
-		turnPhaseLabel.text = "Combat"
-		phaseInfo.text = ""
-		endPhase()
 	elif phase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
 		turnPhase = Constants.TurnPhase.COMBAT_RANGED_PHASE
 		turnPhaseLabel.text = "Combat"
@@ -68,8 +67,6 @@ func endPhase():
 	if turnPhase == Constants.TurnPhase.MOVEMENT:
 		StateController.player1.movementPoints = 0
 		_startPhase(Constants.TurnPhase.INTERACTION)
-	elif turnPhase == Constants.TurnPhase.COMBAT_BEGIN:
-		_startPhase(Constants.TurnPhase.COMBAT_RANGED_PHASE)
 	elif turnPhase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
 		StateController.combatBoard._endCombatPhase(turnPhase)
 		_startPhase(Constants.TurnPhase.COMBAT_BLOCK_PHASE)
@@ -99,7 +96,7 @@ func _updateMovementPoints(var value):
 		phaseInfo.bbcode_text = "Move points: " + str(value)
 
 func _startCombat(var tokens):
-	_startPhase(Constants.TurnPhase.COMBAT_BEGIN)
+	_startPhase(Constants.TurnPhase.COMBAT_RANGED_PHASE)
 	StateController.combatBoard._startCombat(tokens)
 	
 func _endTurn():

@@ -38,10 +38,12 @@ func _load(var load_dict):
 		var tile = load_dict["tiles"][key]
 		var position = Converter._string_to_vector2(tile["position"])
 		SceneInitializer._addMapTile(key, tile["tile_info"], position, tile["features_info"])
+	emit_signal("setGreenTileCounter",GameVariables.scenarioCountryTilesLeft)
+	emit_signal("setBrownTileCounter",GameVariables.scenarioCoreTilesLeft)
 
-	
+
 	for key in GameVariables.explorableTilesInfo:
-		if GameVariables.explorableTilesInfo[key]["Adjacency"] >= 2:
+		if GameVariables.explorableTilesInfo[key]["Adjacency"] >= 2 && !GameVariables.explorableTilesInfo[key]["Explored"]:
 			var adjacentTileNode : ExplorableTile = get_node(key)
 			if (adjacentTileNode != null):
 				adjacentTileNode.activate()

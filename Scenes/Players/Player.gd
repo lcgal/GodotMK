@@ -8,7 +8,7 @@ var hand = []
 var discard = []
 var handSize = 0
 var handLimit = 5
-var armor = 3
+var armor = 2
 var experience = 0
 
 var movementPoints = 0
@@ -25,7 +25,6 @@ var savable_attr = [
 	"armor",
 	"experience",
 	"movementPoints",
-	"position",
 ]
 
 func _ready():
@@ -39,10 +38,22 @@ func _save():
 	var save_dict = {}
 	for key in savable_attr:
 		save_dict[key] = get(key)
+	
+	save_dict["position"] = position
+	
 	return save_dict
 
-func load_player(var load_dict):
-	pass
+func _load(var load_dict):
+	for key in savable_attr:
+		set(key, load_dict[key])
+	
+	for card in hand:
+		SceneInitializer._drawCard(card)
+		
+	position = Converter._string_to_vector2(load_dict["position"])
+
+
+
 
 func _drawCard():
 	randomize()

@@ -1,5 +1,7 @@
 extends Node
 
+var game
+
 var loadedGame
 
 var hand_area
@@ -34,6 +36,8 @@ func _save():
 	return save_dict
 
 func _load(var save_dict):
+#	FIXME better way to clear previous game data
+	boardTokens = []
 	for key in savableClasses:
 		if get(key).has_method("_load"):
 			get(key)._load(save_dict[key])

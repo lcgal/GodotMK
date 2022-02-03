@@ -12,31 +12,32 @@ func _drawCard(var card):
 	cardSceneInstance.name = card
 	cardSceneInstance.effects = GameVariables.actionCards["Basic"]["Cards"][card]["Effects"]
 	cardSceneInstance._setSprite(Assets._card(cardSprite))
-	var handGUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Hand")
+	var handGUI = StateController.hand_area
 	handGUI._addCard(cardSceneInstance)
 
 func _drawBlood():
-	var cardScene = load("res://Scenes/Cards/Card.tscn")
+	var cardScene = load("res://Scenes/Cards/card.tscn")
 	var cardSceneInstance = cardScene.instance()
 	cardSceneInstance.name = "blood"
 	cardSceneInstance._setSprite(Assets._blood())
-	var handGUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/hand")
+	var handGUI = StateController.hand_area
 	handGUI._addCard(cardSceneInstance)
 
 func _initializeExplorableTiles():
 	for key in GameVariables.explorableTilesInfo:
 		var info = GameVariables.explorableTilesInfo[key]
-		var y = info["Y"]
-		var x = info["X"]
-		var adjacentTiles = info["AdjacentTiles"]
-		var exploreTileScene = load("res://Scenes/Map/explorable_tile.tscn")
-		var exploreTileSceneInstance = exploreTileScene.instance()
-		exploreTileSceneInstance.set_name(key)
-		exploreTileSceneInstance.key = key
-		exploreTileSceneInstance.adjacentTiles = adjacentTiles
-		exploreTileSceneInstance.global_position = y*GameVariables.yVector + x*GameVariables.xVector
-		StateController.board.add_child(exploreTileSceneInstance)
-		exploreTileSceneInstance.connect("exploreTile",StateController.board,"_handleExploreTile")
+		if !info.Explored:
+			var y = info["Y"]
+			var x = info["X"]
+			var adjacentTiles = info["AdjacentTiles"]
+			var exploreTileScene = load("res://Scenes/Map/explorable_tile.tscn")
+			var exploreTileSceneInstance = exploreTileScene.instance()
+			exploreTileSceneInstance.set_name(key)
+			exploreTileSceneInstance.key = key
+			exploreTileSceneInstance.adjacentTiles = adjacentTiles
+			exploreTileSceneInstance.global_position = y*GameVariables.yVector + x*GameVariables.xVector
+			StateController.board.add_child(exploreTileSceneInstance)
+			exploreTileSceneInstance.connect("exploreTile",StateController.board,"_handleExploreTile")
 
 func _addPortal():
 	var mapTileScene = load("res://Scenes/Map/Tiles/map_tile.tscn")
