@@ -2,4 +2,4 @@ extends RichTextLabel
 
 
 func _ready():
-	TurnManager.phaseInfo = self
+	TurnManager.phase_info = self

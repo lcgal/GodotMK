@@ -1,95 +1,91 @@
 extends Node
 
-var gameName
+var game_name
 
 #Map
-var xVector = Vector2(381,-323)
-var yVector = Vector2(-95,-484)
-var explorableTilesInfo = {}
-var mapTileInfo = {}
-var countrySideTileList = []
-var coreTileList = []
-var scenarioCountryTilesLeft
-var scenarioCoreTilesLeft
-var scenarioCityCount
-var cityTiles = []
-var coreTiles = []
-var movementCosts
-var currentMovementCost = 0
-var tileDistance = 200
-var hexDistance = 200
-var tokensInfo
-var greyTokens = []
+var DefaultResolution = Vector2(1920,1062)
+var x_vector = Vector2(381,-323)
+var y_vector = Vector2(-95,-484)
+var explorable_tiles_info = {}
+var map_tile_info = {}
+var countryside_tile_list = []
+var core_tile_list = []
+var countryside_tiles_left
+var core_tiles_left
+var city_count
+var city_tiles = []
+var core_tiles = []
+var movement_costs
+var current_movement_cost = 0
+var tile_distance = 200
+var hex_distance = 200
+var tokens_info
 var available_tokens = {}
 
 
 
 #Cards
-var actionCards 
+var action_cards 
 
 func _ready():
-	actionCards = Configs.get_actions_cards_info()
-	StateController.gameVariables = self
+	action_cards = Configs.get_actions_cards_info()
+	StateController.game_variables = self
 
-var savableProperties = [
-	"gameName",
-	"explorableTilesInfo",
-	"mapTileInfo",
-	"countrySideTileList",
-	"coreTileList",
-	"scenarioCountryTilesLeft",
-	"scenarioCoreTilesLeft",
-	"scenarioCityCount",
-	"cityTiles",
-	"coreTiles",
-	"movementCosts",
-	"tokensInfo",
-	"actionCards",
-	"availabe_tokens"
+var savable_properties = [
+	"game_name",
+	"explorable_tiles_info",
+	"map_tile_info",
+	"countryside_tile_list",
+	"core_tile_list",
+	"countryside_tiles_left",
+	"core_tiles_left",
+	"city_count",
+	"city_tiles",
+	"core_tiles",
+	"movement_costs",
+	"tokens_info",
+	"action_cards",
+	"available_tokens"
 ]
 
-var savableObjects = [
-	"board",
-]
-
-func _save():
+func save_game():
 	var save_dict = {}
-	for key in savableProperties:
+	for key in savable_properties:
 		save_dict[key] = get(key)
 	
 	return save_dict
 
-func _load(var save_dict):
+func load_game(var save_dict):
 	for key in save_dict:
 		set(key, save_dict[key])
 
-func _InitializeMapData(var mapData, var tilesData, var movementData):
-	explorableTilesInfo = mapData["ExplorableTiles"]
-	scenarioCountryTilesLeft = mapData["CountrysideTiles"]
-	scenarioCoreTilesLeft = mapData["CoreTiles"]
-	scenarioCityCount = mapData["Cities"]
-	mapTileInfo =tilesData
-	movementCosts = movementData
-	loadMapTileOptions()
+func set_map_data(var map_data, var tiles_data, var movement_data):
+	explorable_tiles_info = map_data["ExplorableTiles"]
+	countryside_tiles_left = map_data["CountrysideTiles"]
+	core_tiles_left = map_data["CoreTiles"]
+	city_count = map_data["Cities"]
+	map_tile_info = tiles_data
+	movement_costs = movement_data
+	_set_map_tile_options()
 		
-func loadMapTileOptions():
+func _set_map_tile_options():
 	randomize()
-	for tile in mapTileInfo["CountrySideTiles"]:
-		countrySideTileList.append(tile)
+	for tile in map_tile_info["CountrySideTiles"]:
+		countryside_tile_list.append(tile)
 	
-	for tile in mapTileInfo["CoreTiles"]:
-		if (mapTileInfo["CoreTiles"][tile]["isCity"]):
-			cityTiles.append(tile)
+	for tile in map_tile_info["CoreTiles"]:
+		if (map_tile_info["CoreTiles"][tile]["isCity"]):
+			city_tiles.append(tile)
 		else:
-			coreTiles.append(tile)
+			core_tiles.append(tile)
 
-	for _i in range(0,scenarioCityCount,1):
-		var index = randi() % cityTiles.size()
-		var tile = cityTiles[index]
-		cityTiles.remove(index)
-		coreTileList.append(tile)
-	for _i in range(0,scenarioCoreTilesLeft - scenarioCityCount,1):
-		var index = randi() % coreTiles.size()
-		var tile = coreTiles[index]
-		coreTiles.remove(index)
-		coreTileList.append(tile)
+	for _i in range(0,city_count,1):
+		var index = randi() % city_tiles.size()
+		var tile = city_tiles[index]
+		city_tiles.remove(index)
+		core_tile_list.append(tile)
+	for _i in range(0,core_tiles_left - city_count,1):
+		var index = randi() % core_tiles.size()
+		var tile = core_tiles[index]
+		core_tiles.remove(index)
+		core_tile_list.append(tile)

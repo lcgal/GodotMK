@@ -3,7 +3,6 @@
 [ext_resource path="res://Scenes/Map/line_2D.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map/explorable_tile.gd" type="Script" id=2]
 
-
 [node name="ExplorableTile" type="Area2D"]
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 2 )

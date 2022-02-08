@@ -1,74 +1,73 @@
 extends Control
 var origin = Vector2(-560,1317)
 
-var DefaultResolution = Vector2(1920,1062)
-onready var CentreCardOval = DefaultResolution * Vector2(0, 0.95)
-onready var Hor_rad = DefaultResolution.x*1
-onready var Ver_rad = DefaultResolution.y*0.8
-var CardSize
-var CardSpread
-var normalScale = Vector2(0.4,0.4)
-var highlightScale = Vector2(0.6,0.6)
+onready var center_card_oval = GameVariables.DefaultResolution * Vector2(0, 0.95)
+onready var hor_rad = GameVariables.DefaultResolution.x*1
+onready var ver_rad = GameVariables.DefaultResolution.y*0.8
+var card_size
+var card_spread
+var normal_scale = Vector2(0.4,0.4)
+var highlight_scale = Vector2(0.6,0.6)
 
 
 func _ready():
 	StateController.hand_area = self
 
-func _resetTurn():
-	for handCard in get_tree().get_nodes_in_group("cards"):
-		if !handCard.locked:
-			handCard._setAsPlayStatus(false)
+func reset_actions():
+	for hand_card in get_tree().get_nodes_in_group("cards"):
+		if !hand_card.locked:
+			hand_card.set_played_status(false)
 
 func _addCard(var card):
-	card.number = StateController.player1.handSize
-	card.scale = normalScale
-	if CardSize == null:
-		CardSize = card.get_node("Sprite").texture.get_size()
-	if CardSpread == null:
-		CardSpread = 0.0004*CardSize.x
+	card.number = StateController.player1.hand_size
+	card.scale = normal_scale
+	if card_size == null:
+		card_size = card.get_node("Sprite").texture.get_size()
+	if card_spread == null:
+		card_spread = 0.0004*card_size.x
 	add_child(card)
 	card.add_to_group("cards")
-	card.connect("highlight",self,"_handleHighlight")
+	card.connect("highlight",self,"handle_highlight")
 	
 	_reorganize(false, null)
 
 
-func _handleHighlight(var highlight, cardNumber):
+func handle_highlight(var highlight, card_number):
 	if (highlight):
-		_reorganize(true, cardNumber)
+		_reorganize(true, card_number)
 	else:
-		_reorganize(false, cardNumber)
+		_reorganize(false, card_number)
 	
 #TODO FIXME when fastly swapping between cards this does not work properly
-func _reorganize(var highlight, var highlightedcard):
+func _reorganize(var highlight, var highlighted_card):
 	var i = 0
-	for handCard in get_tree().get_nodes_in_group("cards"):
-		handCard.number = i
+	for hand_card in get_tree().get_nodes_in_group("cards"):
+		hand_card.number = i
 		i += 1
-		var angle = -PI/2 + CardSpread*(float(StateController.player1.handSize - 1)/2 - handCard.number)
-		if (highlight && handCard.number > highlightedcard):
-			angle -= CardSpread*0.8
-		elif (highlight && handCard.number < highlightedcard):
-			angle += CardSpread*0.8
-		elif (highlightedcard != null && handCard.number == highlightedcard):
+		var angle = -PI/2 + card_spread*(float(StateController.player1.hand_size - 1)/2 - hand_card.number)
+		if (highlight && hand_card.number > highlighted_card):
+			angle -= card_spread*0.8
+		elif (highlight && hand_card.number < highlighted_card):
+			angle += card_spread*0.8
+		elif (highlighted_card != null && hand_card.number == highlighted_card):
 			if (highlight):
-				handCard.scale = highlightScale
+				hand_card.scale = highlight_scale
 			else:
-				handCard.scale = normalScale
+				hand_card.scale = normal_scale
 		
-		var OvalAngleVector = Vector2(Hor_rad * cos(angle),Ver_rad * sin(angle))
-		var pos = CentreCardOval + OvalAngleVector - Vector2(CardSize.x/2,CardSize.y)
-		handCard.position = pos
-		handCard.rotation = (90+rad2deg(angle))/90
+		var oval_angle_vector = Vector2(hor_rad * cos(angle),ver_rad * sin(angle))
+		var pos = center_card_oval + oval_angle_vector - Vector2(card_size.x/2,card_size.y)
+		hand_card.position = pos
+		hand_card.rotation = (90+rad2deg(angle))/90
 
-func _lockPlayedCards():
-	for handCard in get_tree().get_nodes_in_group("cards"):
-		if handCard.played:
-			handCard.locked = true
+func lock_played_cards():
+	for hand_card in get_tree().get_nodes_in_group("cards"):
+		if hand_card.played:
+			hand_card.locked = true
 
-func _discardCards():
-	for handCard in get_tree().get_nodes_in_group("cards"):
-		if handCard.played:
-			handCard.queue_free()
-			StateController.player1.handSize -= 1
+func discard_cards():
+	for hand_card in get_tree().get_nodes_in_group("cards"):
+		if hand_card.played:
+			hand_card.queue_free()
+			StateController.player1.hand_size -= 1
 	_reorganize(false, null)

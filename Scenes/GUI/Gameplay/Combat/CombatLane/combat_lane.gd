@@ -3,33 +3,33 @@ extends Area2D
 var token
 
 func _ready():
-	TurnManager.combatLane = self
+	TurnManager.combat_lane = self
 
-func _addToken(var creatureToken):
+func add_token(var creatureToken):
 	token = creatureToken
 	token.lane = self
-	$TokenZone._addToken(token)
+	$TokenZone.add_token(token)
 	#$Label.bbcode_text = "Health left: [color=#FF1B00]" + str(token.creature["Armor"])
 
-func _addDamage(var attackValue, var attackType):
-	token._addDamage(attackValue, attackType)
+func add_damage(var attack_value, var attack_type):
+	token.add_damage(attack_value, attack_type)
 
-func _setText(var text):
+func set_text(var text):
 	$Label.bbcode_text =  text
 
-func _addBlock(var attackValue, var attackType):
-	token._addBlock(attackValue, attackType)
+func add_block(var attack_value, var attack_type):
+	token.add_block(attack_value, attack_type)
 
-func _endCombatPhase(var phase):
+func end_combat_phase(var phase):
 	match phase:
-		Constants.TurnPhase.COMBAT_BLOCK_PHASE:
+		Constants.turn_phase.COMBAT_BLOCK_PHASE:
 			for attack in token.creature["Attack"]:
 				if attack["Block"] < attack["Value"]:
 					var armor = StateController.player1.armor
 					var damage = ceil(attack["Value"]/armor)
-					StateController.player1._drawBlood(damage)
+					StateController.player1.draw_blood(damage)
 					
-		Constants.TurnPhase.COMBAT_RANGED_PHASE, Constants.TurnPhase.COMBAT_MELEE_PHASE:
+		Constants.turn_phase.COMBAT_RANGED_PHASE, Constants.turn_phase.COMBAT_MELEE_PHASE:
 			if token.creature["Armor"] - token.damage <= 0:
 				token._kill()
 	

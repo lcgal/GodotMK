@@ -1,6 +1,6 @@
 extends Node
 
-func _string_to_vector2(var vector) -> Vector2:
+func string_to_vector2(var vector) -> Vector2:
 	if vector is String:
 		var new_string: String = vector
 		new_string.erase(0, 1)

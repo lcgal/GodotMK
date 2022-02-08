@@ -2,4 +2,4 @@ extends ConfirmationDialog
 
 
 func _ready():
-	TurnManager.confirmationPopup = self
+	TurnManager.confirmation_popup = self

@@ -8,7 +8,7 @@ enum Maps {
 	WEDGE,
 }
 
-enum TurnPhase {
+enum turn_phase {
 	MOVEMENT,
 	COMBAT_RANGED_PHASE,
 	COMBAT_BLOCK_PHASE,
@@ -26,15 +26,15 @@ var hexes = {
 	"C" : {"x" : 0,"y" :0},
 }
 
-var RelevantEffects = {
-	TurnPhase.MOVEMENT : ["Move","Support"],
-	TurnPhase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack"],
-	TurnPhase.COMBAT_BLOCK_PHASE : ["Block"],
-	TurnPhase.COMBAT_MELEE_PHASE : ["Attack"],
-	TurnPhase.INTERACTION : ["Support"]
+var relevant_effects = {
+	turn_phase.MOVEMENT : ["Move","Support"],
+	turn_phase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack"],
+	turn_phase.COMBAT_BLOCK_PHASE : ["Block"],
+	turn_phase.COMBAT_MELEE_PHASE : ["Attack"],
+	turn_phase.INTERACTION : ["Support"]
 }
 
-var sidewayEffects = {
+var sideway_effects = {
 	"Move" : {"Effect" : "AddMove", "Value" : 2, "Text" : "Play sideways to add 1 movement"},
 	"Attack" : {"Effect" : "AddAttack", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 attack"},
 	"Block" : {"Effect" : "AddBlock", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 block"}

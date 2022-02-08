@@ -1,6 +1,6 @@
 extends Node
 
-func _blockPhaseInfo(var attacks):
+func block_phase_info(var attacks):
 	var text = ""
 	for attack in attacks:
 		var unblocked = attack["Value"] - attack["Block"]
@@ -11,14 +11,14 @@ func _blockPhaseInfo(var attacks):
 	return text
 
 
-func _attackPhaseInfo(var healthLeft):
-	if healthLeft > 0:
-		return "Health left: [color=#FF1B00]" + str(healthLeft)
+func attack_phase_info(var health_left):
+	if health_left > 0:
+		return "Health left: [color=#FF1B00]" + str(health_left)
 	else:
-		return "Health left: [color=#00FF00]" + str(healthLeft)
+		return "Health left: [color=#00FF00]" + str(health_left)
 
-func _experienceLabelText(var experience):
+func experience_label_text(var experience):
 	return "Experience : " + str(experience)
 
-func _turnText(var turn):
+func turn_text(var turn):
 	return "Turn: " + str(turn)

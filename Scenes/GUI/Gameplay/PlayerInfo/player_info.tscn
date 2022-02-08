@@ -5,7 +5,6 @@
 [ext_resource path="res://Assets/MontserratAlternates-ExtraBold.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scenes/GUI/Gameplay/PlayerInfo/player_info.gd" type="Script" id=4]
 
-
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
 
@@ -33,14 +32,14 @@ __meta__ = {
 
 [node name="LevelToken" type="TextureRect" parent="VBoxContainer"]
 margin_right = 318.0
-margin_bottom = 298.0
+margin_bottom = 299.0
 texture = ExtResource( 2 )
 stretch_mode = 4
 
 [node name="ExperienceLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 302.0
+margin_top = 303.0
 margin_right = 318.0
-margin_bottom = 324.0
+margin_bottom = 325.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Experience = 0"

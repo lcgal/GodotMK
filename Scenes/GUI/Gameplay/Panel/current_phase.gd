@@ -2,4 +2,4 @@ extends Label
 
 
 func _ready():
-	TurnManager.turnPhaseLabel = self
+	TurnManager.turn_phase_label = self

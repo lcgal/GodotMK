@@ -1,5 +1,5 @@
 extends AcceptDialog
 
 func _ready():
-	TurnManager.dismissPopup = self
+	TurnManager.dismiss_popup = self
 	get_close_button().visible = false

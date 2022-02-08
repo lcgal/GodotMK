@@ -2,23 +2,23 @@ extends Node
 
 var game
 
-var loadedGame
+var loaded_game
 
 var hand_area
 
 var player1
-var player1Panel
+var player_panel
 var board
-var combatBoard
-var gameVariables
-var boardTokens = []
+var combat_board
+var game_variables
+var board_tokens = []
 
-var turnManager
+var turn_manager
 
-var savableClasses = [
-	"gameVariables",
+var savable_classes = [
+	"game_variables",
 	"board",
-	"turnManager",
+	"turn_manager",
 	"player1",
 #	"",
 #	"",
@@ -27,27 +27,27 @@ var savableClasses = [
 #	"",
 ]
 
-func _save():
+func save_game():
 	var save_dict = {}
-	for key in savableClasses:
-		if get(key).has_method("_save"):
-			save_dict[key] = get(key)._save()
+	for key in savable_classes:
+		if get(key).has_method("save_game"):
+			save_dict[key] = get(key).save_game()
 	
 	return save_dict
 
-func _load(var save_dict):
+func load_game(var save_dict):
 #	FIXME better way to clear previous game data
-	boardTokens = []
-	for key in savableClasses:
-		if get(key).has_method("_load"):
-			get(key)._load(save_dict[key])
+	board_tokens = []
+	for key in savable_classes:
+		if get(key).has_method("load_game"):
+			get(key).load_game(save_dict[key])
 
-func _reset():
-	for key in savableClasses:
-		if get(key).has_method("_reset"):
-			get(key)._reset()
+func reset_actions():
+	for key in savable_classes:
+		if get(key).has_method("reset_actions"):
+			get(key).reset_actions()
 
-func _quit():
-	for key in savableClasses:
-		if get(key).has_method("_quit"):
-			get(key)._quit()
+func quit_game():
+	for key in savable_classes:
+		if get(key).has_method("quit_game"):
+			get(key).quit_game()

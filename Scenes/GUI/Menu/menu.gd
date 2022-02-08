@@ -1,6 +1,6 @@
 extends Control
 
-signal openLoadMenu()
+signal open_load_menu()
 
 func _on_Resume_pressed():
 	visible = false
@@ -8,7 +8,7 @@ func _on_Resume_pressed():
 
 func _on_Main_Menu_pressed():
 	# warning-ignore:return_value_discarded
-	Configs._save()
+	Configs.save_game()
 	var game = get_tree().get_root().get_node("/root/Game")
 	game._close()
 	
@@ -17,4 +17,4 @@ func _on_Main_Menu_pressed():
 
 
 func _on_LoadBtn_pressed():
-	emit_signal("openLoadMenu")
+	emit_signal("open_load_menu")

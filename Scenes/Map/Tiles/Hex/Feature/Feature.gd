@@ -2,33 +2,33 @@ extends Node2D
 
 var type
 var tokens = []
-var hexToken
-var featureInfo
+var hex_token
+var feature_info
 
 func _setFeature(var info):
-	featureInfo = info
-	if featureInfo != null && featureInfo["Token"] != null:
-		SceneInitializer._initializeToken(featureInfo, self)
+	feature_info = info
+	if feature_info != null && feature_info["Token"] != null:
+		SceneInitializer.token(feature_info, self)
 
 func _moveInto(var global_position, var terrain):
-	if featureInfo != null:
-		if featureInfo["AutoCombat"]:
-			if(StateController.board._handleMovement(global_position, terrain, true)):
-				_startCombat()
+	if feature_info != null:
+		if feature_info["AutoCombat"]:
+			if(StateController.board.handle_movement(global_position, terrain, true)):
+				start_combat()
 	else:
-		StateController.board._handleMovement(global_position, terrain)
+		StateController.board.handle_movement(global_position, terrain)
 
-func _startCombat():
-	if hexToken != null:
-		remove_child(hexToken)
-		TurnManager._startCombat(hexToken)
+func start_combat():
+	if hex_token != null:
+		remove_child(hex_token)
+		TurnManager.start_combat(hex_token)
 
-func _save():
+func save_game():
 	var save_dict = {}
-	if hexToken != null:
-		save_dict = hexToken._save()
+	if hex_token != null:
+		save_dict = hex_token.save_game()
 		return save_dict
 
-func _load(var savedFeatureInfo):
-	if hexToken != null:
-		hexToken._load(savedFeatureInfo)
+func load_game(var saved_feature_info):
+	if hex_token != null:
+		hex_token.load_game(saved_feature_info)

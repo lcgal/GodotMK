@@ -135,5 +135,5 @@ margin_top = -449.5
 margin_right = 348.0
 margin_bottom = 449.5
 
-[connection signal="openLoadMenu" from="OptionsMenu" to="." method="_on_OptionsMenu_openLoadMenu"]
+[connection signal="open_load_menu" from="OptionsMenu" to="." method="_on_OptionsMenu_open_load_menu"]
 [connection signal="pressed" from="OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

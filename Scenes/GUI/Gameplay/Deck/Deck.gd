@@ -1,8 +1,8 @@
 extends TextureRect
 
 func _connect(var player):
-	player.connect("updateDeckCount", self,  "_setCounter")
+	player.connect("update_deck_count", self,  "set_counter")
 
-func _setCounter(var value):
+func set_counter(var value):
 	$HandCount.text = str(value)
 	

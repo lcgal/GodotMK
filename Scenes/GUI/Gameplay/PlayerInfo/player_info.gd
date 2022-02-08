@@ -1,12 +1,12 @@
 extends MarginContainer
 
-var levelToken
-var experienceLabel
+var level_token
+var experience_label
 
 func _ready():
-	StateController.player1Panel = self
-	levelToken = $VBoxContainer/LevelToken
-	experienceLabel = $VBoxContainer/ExperienceLabel
+	StateController.player_panel = self
+	level_token = $VBoxContainer/LevelToken
+	experience_label = $VBoxContainer/ExperienceLabel
 
-func _setExperienceText(var text):
-	experienceLabel.bbcode_text = text
+func set_experience_text(var text):
+	experience_label.bbcode_text = text

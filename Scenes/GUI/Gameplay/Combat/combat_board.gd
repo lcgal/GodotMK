@@ -1,19 +1,17 @@
 extends Control
 
 func _ready():
-	StateController.combatBoard = self
-	var viewportWidth = get_viewport().size.x
-	#var viewportHeight = get_viewport().size.y
-	var scale = viewportWidth / $Sprite.texture.get_size().x
+	StateController.combat_board = self
+	var scale = GameVariables.DefaultResolution.x / $Sprite.texture.get_size().x
 	$Sprite.set_scale(Vector2(scale, scale))
 	
-func _startCombat(var token):
+func start_combat(var token):
 	visible = true
-	var combatlane = load("res://Scenes/GUI/Gameplay/Combat/CombatLane/combat_lane.tscn").instance()
-	combatlane.add_to_group("combatLane")
-	add_child(combatlane)
-	combatlane.position = $Sprite.texture.get_size()/3
-	combatlane._addToken(token)
+	var combat_lane = load("res://Scenes/GUI/Gameplay/Combat/CombatLane/combat_lane.tscn").instance()
+	combat_lane.add_to_group("combat_lane")
+	add_child(combat_lane)
+	combat_lane.position = $Sprite.texture.get_size()/3
+	combat_lane.add_token(token)
 
-func _endCombatPhase(var phase):
-	get_tree().call_group("combatLane", "_endCombatPhase", phase)
+func end_combat_phase(var phase):
+	get_tree().call_group("combat_lane", "end_combat_phase", phase)

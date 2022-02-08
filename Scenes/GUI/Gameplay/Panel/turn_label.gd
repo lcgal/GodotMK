@@ -2,5 +2,5 @@ extends Label
 
 
 func _ready():
-	TurnManager.turnLabel = self
+	TurnManager.turn_label = self
 

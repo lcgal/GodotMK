@@ -1,111 +1,110 @@
 extends Node
 
-var currentTurn = 0
-var turnLabel
-var turnPhaseLabel
-var phaseInfo
+var current_turn = 0
+var turn_label
+var turn_phase_label
+var phase_info
 
-var turnPhase
+var turn_phase
 
-var optionsPopup
-var dismissPopup
-var confirmationPopup
+var options_popup
+var dismiss_popup
+var confirmation_popup
 
-var combatLane
+var combat_lane
 
 func _ready():
-	StateController.turnManager = self
+	StateController.turn_manager = self
 
 func _startGame():
 	Configs.load_tokens_info()
-	_startTurn()
+	_start_turn()
 
-func _save():
+func save_game():
 	var save_dict = {}
-	save_dict["turnPhase"] = turnPhase
-	save_dict["turnPhaseLabel"] = turnPhaseLabel.text
-	save_dict["phaseInfo"] = phaseInfo.text
+	save_dict["turn_phase"] = turn_phase
+	save_dict["turn_phase_label"] = turn_phase_label.text
+	save_dict["phase_info"] = phase_info.text
 	
 	return save_dict
 
-func _load(var save_dict):
-	var phase = save_dict["turnPhase"]
-	turnPhaseLabel.text = save_dict["turnPhaseLabel"]
-	phaseInfo.text = save_dict["phaseInfo"]
+func load_game(var save_dict):
+	turn_phase = int(save_dict["turn_phase"])
+	turn_phase_label.text = save_dict["turn_phase_label"]
+	phase_info.text = save_dict["phase_info"]
 
-func _confirm():
-	if _lockActions():
-		endPhase()
+func confirm():
+	if lock_actions():
+		end_phase()
 
-func _resetActions():
-	StateController._reset()
-	StateController.board._movementReset()
-	StateController.player1._resetTurn()
-
-func _startPhase(var phase):
-	turnPhase = phase
-	if phase == Constants.TurnPhase.MOVEMENT:
-		turnPhaseLabel.text = "Movement"
-		phaseInfo.text = "Move points: " + str(0)
-		StateController.player1._drawToHandLimit()
-	elif phase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
-		turnPhase = Constants.TurnPhase.COMBAT_RANGED_PHASE
-		turnPhaseLabel.text = "Combat"
-		phaseInfo.text = "Ranged Phase"
-	elif phase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
-		turnPhase = Constants.TurnPhase.COMBAT_BLOCK_PHASE
-		phaseInfo.text = "Block Phase"
-	elif phase == Constants.TurnPhase.COMBAT_MELEE_PHASE:
-		turnPhase = Constants.TurnPhase.COMBAT_MELEE_PHASE
-		phaseInfo.text = "Attack Phase"
-	elif phase == Constants.TurnPhase.INTERACTION:
-		turnPhase = Constants.TurnPhase.INTERACTION
-		turnPhaseLabel.text = "Interaction"
-		phaseInfo.text = "Interaction Phase"
-
-func endPhase():
-	if turnPhase == Constants.TurnPhase.MOVEMENT:
-		StateController.player1.movementPoints = 0
-		_startPhase(Constants.TurnPhase.INTERACTION)
-	elif turnPhase == Constants.TurnPhase.COMBAT_RANGED_PHASE:
-		StateController.combatBoard._endCombatPhase(turnPhase)
-		_startPhase(Constants.TurnPhase.COMBAT_BLOCK_PHASE)
-	elif turnPhase == Constants.TurnPhase.COMBAT_BLOCK_PHASE:
-		StateController.combatBoard._endCombatPhase(turnPhase)
-		_startPhase(Constants.TurnPhase.COMBAT_MELEE_PHASE)
-	elif turnPhase == Constants.TurnPhase.INTERACTION:
-		_endTurn()
+func reset_actions():
+	pass
 
 
-func _lockActions():
-	if turnPhase == Constants.TurnPhase.MOVEMENT:
-		if (StateController.player1.movementPoints < 0):
-			TurnManager.dismissPopup.dialog_text = "Not enough movement points"
-			TurnManager.dismissPopup.popup_centered_minsize(Vector2(300,200))
+func start_phase(var phase):
+	turn_phase = phase
+	if phase == Constants.turn_phase.MOVEMENT:
+		turn_phase_label.text = "Movement"
+		phase_info.text = "Move points: " + str(0)
+		StateController.player1.draw_to_hand_limit()
+	elif phase == Constants.turn_phase.COMBAT_RANGED_PHASE:
+		turn_phase = Constants.turn_phase.COMBAT_RANGED_PHASE
+		turn_phase_label.text = "Combat"
+		phase_info.text = "Ranged Phase"
+	elif phase == Constants.turn_phase.COMBAT_BLOCK_PHASE:
+		turn_phase = Constants.turn_phase.COMBAT_BLOCK_PHASE
+		phase_info.text = "Block Phase"
+	elif phase == Constants.turn_phase.COMBAT_MELEE_PHASE:
+		turn_phase = Constants.turn_phase.COMBAT_MELEE_PHASE
+		phase_info.text = "Attack Phase"
+	elif phase == Constants.turn_phase.INTERACTION:
+		turn_phase = Constants.turn_phase.INTERACTION
+		turn_phase_label.text = "Interaction"
+		phase_info.text = "Interaction Phase"
+
+func end_phase():
+	if turn_phase == Constants.turn_phase.MOVEMENT:
+		StateController.player1.movement_points = 0
+		start_phase(Constants.turn_phase.INTERACTION)
+	elif turn_phase == Constants.turn_phase.COMBAT_RANGED_PHASE:
+		StateController.combat_board.end_combat_phase(turn_phase)
+		start_phase(Constants.turn_phase.COMBAT_BLOCK_PHASE)
+	elif turn_phase == Constants.turn_phase.COMBAT_BLOCK_PHASE:
+		StateController.combat_board.end_combat_phase(turn_phase)
+		start_phase(Constants.turn_phase.COMBAT_MELEE_PHASE)
+	elif turn_phase == Constants.turn_phase.INTERACTION:
+		_end_turn()
+
+
+func lock_actions():
+	if turn_phase == Constants.turn_phase.MOVEMENT:
+		if (StateController.player1.movement_points < 0):
+			TurnManager.dismiss_popup.dialog_text = "Not enough movement points"
+			TurnManager.dismiss_popup.popup_centered_minsize(Vector2(300,200))
 			return false
-		StateController.board.startPos = StateController.player1.position
+		StateController.board.start_pos = StateController.player1.position
 		StateController.player1.lock_cards()
 	return true
 
-func _updateMovementPoints(var value):
+func update_movement_points(var value):
 	if value < 0:
-		phaseInfo.bbcode_text = "Move points: [color=#FF1B00]" + str(value)
+		phase_info.bbcode_text = "Move points: [color=#FF1B00]" + str(value)
 	elif value > 0:
-		phaseInfo.bbcode_text = "Move points: [color=#00FF00]" + str(value)
+		phase_info.bbcode_text = "Move points: [color=#00FF00]" + str(value)
 	else:
-		phaseInfo.bbcode_text = "Move points: " + str(value)
+		phase_info.bbcode_text = "Move points: " + str(value)
 
-func _startCombat(var tokens):
-	_startPhase(Constants.TurnPhase.COMBAT_RANGED_PHASE)
-	StateController.combatBoard._startCombat(tokens)
+func start_combat(var tokens):
+	start_phase(Constants.turn_phase.COMBAT_RANGED_PHASE)
+	StateController.combat_board.start_combat(tokens)
 	
-func _endTurn():
-	_lockActions()
+func _end_turn():
+	lock_actions()
 	StateController.player1.discard_cards()
-	_startTurn()
+	_start_turn()
 
-func _startTurn():
-	currentTurn += 1
-	_startPhase(Constants.TurnPhase.MOVEMENT)
-	turnLabel.text = TextBuilder._turnText(currentTurn)
+func _start_turn():
+	current_turn += 1
+	start_phase(Constants.turn_phase.MOVEMENT)
+	turn_label.text = TextBuilder.turn_text(current_turn)
 	

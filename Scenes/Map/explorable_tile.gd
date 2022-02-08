@@ -1,29 +1,29 @@
 extends Area2D
 class_name ExplorableTile
 
-signal exploreTile(location,key,adjacentTiles)
+signal exploreTile(location,key,adjacent_tiles)
 
 signal activate()
 
 var adjacency = 0
 
-var adjacentTiles
+var adjacent_tiles
 
 var active = false
 
 var key
 
-func _save():
+func save_game():
 	var save_dict = {}
 	save_dict["key"] = key
 	save_dict["active"] = active
-	save_dict["adjacentTiles"] = adjacentTiles
+	save_dict["adjacent_tiles"] = adjacent_tiles
 	save_dict["adjacency"] = adjacency
 
-func _load(var save_dict):
+func load_game(var save_dict):
 	key = save_dict["key"]
 	key = save_dict["active"]
-	key = save_dict["adjacentTiles"]
+	key = save_dict["adjacent_tiles"]
 	key = save_dict["adjacency"]
 
 func _on_ExplorableTile_input_event(_viewport, event, _shape_idx):
@@ -31,7 +31,7 @@ func _on_ExplorableTile_input_event(_viewport, event, _shape_idx):
 		explore()
 
 func explore():
-	emit_signal("exploreTile",position,key,adjacentTiles)
+	emit_signal("exploreTile",position,key,adjacent_tiles)
 
 func activate():
 	active = true
