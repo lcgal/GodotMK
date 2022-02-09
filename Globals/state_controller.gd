@@ -20,7 +20,7 @@ var savable_classes = [
 	"board",
 	"turn_manager",
 	"player1",
-#	"",
+	"hand_area",
 #	"",
 #	"",
 #	"",

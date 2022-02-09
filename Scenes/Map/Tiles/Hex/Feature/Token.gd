@@ -46,7 +46,8 @@ func _draw_token():
 
 
 func _set_token(var saved_info):
-	creature = GameVariables.tokens_info[color][saved_info["token_name"]]
+	token_name = saved_info["token_name"]
+	creature = GameVariables.tokens_info[color][token_name]
 	_set_token_status(saved_info)
 
 

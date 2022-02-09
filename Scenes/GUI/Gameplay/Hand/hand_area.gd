@@ -13,6 +13,27 @@ var highlight_scale = Vector2(0.6,0.6)
 func _ready():
 	StateController.hand_area = self
 
+
+func save_game():
+	var save_dict = {}
+	var locked_cards = []
+	for hand_card in get_tree().get_nodes_in_group("cards"):
+		if hand_card.locked:
+			locked_cards.append(hand_card.name)
+	
+	save_dict["locked_cards"] = locked_cards
+	return save_dict
+
+
+func load_game(var load_dict):
+	for key in load_dict["locked_cards"]:
+		var card_node = get_node(key)
+		card_node.set_played_status(true)
+		card_node.locked = true
+		
+	pass
+
+
 func reset_actions():
 	for hand_card in get_tree().get_nodes_in_group("cards"):
 		if !hand_card.locked:
