@@ -21,7 +21,8 @@ func get_map_info(var map):
 		var map_data = read_json(JSONS_ROOT + "WedgeMapTiles.json")
 		var tiles_data = _get_tiles_info()
 		var movement_data = _get_movement_info()
-		GameVariables.set_map_data(map_data, tiles_data, movement_data)
+		var token_data = get_tokens_info()
+		GameVariables.set_map_data(map_data, tiles_data, movement_data, token_data)
 		
 func get_actions_cards_info():
 	return read_json(CARDS_PATH + "Actions.json")
@@ -32,15 +33,9 @@ func _get_tiles_info():
 func _get_movement_info():
 	return read_json(JSONS_ROOT + "MovementCosts.json")
 
-func load_tokens_info():
-	var tokens = read_json(JSONS_ROOT + "Tokens.json")
-	GameVariables.tokens_info = tokens
-	for key in tokens:
-		var token_list = []
-		for token in tokens[key]:
-			for _i in range (0,tokens[key][token]["Count"],1):
-				token_list.append(token)
-		GameVariables.available_tokens[key] = token_list
+func get_tokens_info():
+	return read_json(JSONS_ROOT + "Tokens.json")
+
 
 
 func load_file(var file):

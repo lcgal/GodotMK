@@ -59,13 +59,23 @@ func load_game(var save_dict):
 	for key in save_dict:
 		set(key, save_dict[key])
 
-func set_map_data(var map_data, var tiles_data, var movement_data):
+func set_map_data(var map_data, var tiles_data, var movement_data, var token_data):
 	explorable_tiles_info = map_data["ExplorableTiles"]
 	countryside_tiles_left = map_data["CountrysideTiles"]
 	core_tiles_left = map_data["CoreTiles"]
 	city_count = map_data["Cities"]
 	map_tile_info = tiles_data
 	movement_costs = movement_data
+	
+	tokens_info = token_data
+	for key in tokens_info:
+		var token_list = []
+		for token in tokens_info[key]:
+			for _i in range (0,tokens_info[key][token]["Count"],1):
+				token_list.append(token)
+		available_tokens[key] = token_list
+	
+	
 	_set_map_tile_options()
 		
 func _set_map_tile_options():

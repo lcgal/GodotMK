@@ -1,7 +1,7 @@
 extends Area2D
 class_name ExplorableTile
 
-signal exploreTile(location,key,adjacent_tiles)
+signal explore_tile(location,key,adjacent_tiles)
 
 signal activate()
 
@@ -31,7 +31,7 @@ func _on_ExplorableTile_input_event(_viewport, event, _shape_idx):
 		explore()
 
 func explore():
-	emit_signal("exploreTile",position,key,adjacent_tiles)
+	emit_signal("explore_tile",position,key,adjacent_tiles)
 
 func activate():
 	active = true

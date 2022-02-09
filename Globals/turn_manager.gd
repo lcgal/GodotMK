@@ -17,7 +17,6 @@ func _ready():
 	StateController.turn_manager = self
 
 func _startGame():
-	Configs.load_tokens_info()
 	_start_turn()
 
 func save_game():

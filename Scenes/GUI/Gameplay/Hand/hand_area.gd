@@ -18,7 +18,7 @@ func reset_actions():
 		if !hand_card.locked:
 			hand_card.set_played_status(false)
 
-func _addCard(var card):
+func add_card(var card):
 	card.number = StateController.player1.hand_size
 	card.scale = normal_scale
 	if card_size == null:
@@ -68,6 +68,7 @@ func lock_played_cards():
 func discard_cards():
 	for hand_card in get_tree().get_nodes_in_group("cards"):
 		if hand_card.played:
+			StateController.player1.hand.erase(hand_card.name)
 			hand_card.queue_free()
 			StateController.player1.hand_size -= 1
 	_reorganize(false, null)

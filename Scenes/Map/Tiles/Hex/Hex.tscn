@@ -3,7 +3,6 @@
 [ext_resource path="res://Scenes/Map/Tiles/Hex/line_2D.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map/Tiles/Hex/hex.gd" type="Script" id=3]
 
-
 [node name="Hex" type="Area2D"]
 script = ExtResource( 3 )
 

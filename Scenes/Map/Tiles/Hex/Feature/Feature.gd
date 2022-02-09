@@ -5,10 +5,10 @@ var tokens = []
 var hex_token
 var feature_info
 
-func _setFeature(var info):
+func _setFeature(var info, var saved_info):
 	feature_info = info
 	if feature_info != null && feature_info["Token"] != null:
-		SceneInitializer.token(feature_info, self)
+		SceneInitializer.token(feature_info, saved_info, self)
 
 func _moveInto(var global_position, var terrain):
 	if feature_info != null:

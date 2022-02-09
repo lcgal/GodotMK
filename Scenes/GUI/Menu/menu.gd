@@ -8,6 +8,7 @@ func _on_Resume_pressed():
 
 func _on_Main_Menu_pressed():
 	# warning-ignore:return_value_discarded
+	StateController.reset_actions()
 	Configs.save_game()
 	var game = get_tree().get_root().get_node("/root/Game")
 	game._close()

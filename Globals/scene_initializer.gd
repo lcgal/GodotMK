@@ -10,13 +10,13 @@ func card(var card):
 	card_scene_instance.name = card
 	card_scene_instance.effects = GameVariables.action_cards["Basic"]["Cards"][card]["Effects"]
 	card_scene_instance.set_sprite(Assets.card(card_sprite))
-	StateController.hand_area._addCard(card_scene_instance)
+	StateController.hand_area.add_card(card_scene_instance)
 
 func blood():
 	var card_scene_instance = load("res://Scenes/Cards/card.tscn").instance()
 	card_scene_instance.name = "blood"
 	card_scene_instance.set_sprite(Assets.blood())
-	StateController.hand_area._addCard(card_scene_instance)
+	StateController.hand_area.add_card(card_scene_instance)
 
 func explorable_tiles():
 	for key in GameVariables.explorable_tiles_info:
@@ -31,7 +31,7 @@ func explorable_tiles():
 			explore_tile_instance.adjacent_tiles = adjacent_tiles
 			explore_tile_instance.global_position = y*GameVariables.y_vector + x*GameVariables.x_vector
 			StateController.board.add_child(explore_tile_instance)
-			explore_tile_instance.connect("exploreTile",StateController.board,"handle_explore_tile")
+			explore_tile_instance.connect("explore_tile",StateController.board,"handle_explore_tile")
 
 func portal():
 	var map_tile_instance = load("res://Scenes/Map/Tiles/map_tile.tscn").instance()
@@ -54,19 +54,19 @@ func player(var knight):
 	add_child(player_instance)
 	StateController.player1 = player_instance
 
-func feature(var feature_info, var hex):
+func feature(var feature_info, var saved_feature, var hex):
 	var feature_instance = load("res://Scenes/Map/Tiles/Hex/Feature/feature.tscn").instance()
 	hex.add_child(feature_instance)
-	feature_instance._setFeature(feature_info)
+	feature_instance._setFeature(feature_info, saved_feature)
 	feature_instance.set_name("Feature")
 	hex.feature = hex.get_node("Feature")
 
-func token(var feature_info, var feature):
-		var token_instance = load("res://Scenes/Map/Tiles/Hex/Feature/token.tscn").instance()
-		feature.add_child(token_instance)
-		token_instance.create_token(feature_info["Token"])
-		token_instance.set_name("token")
-		feature.hex_token = feature.get_node("token")
+func token(var feature_info, saved_info, var feature):
+	var token_instance = load("res://Scenes/Map/Tiles/Hex/Feature/token.tscn").instance()
+	feature.add_child(token_instance)
+	token_instance.create_token(feature_info["Token"], saved_info)
+	token_instance.set_name("token")
+	feature.hex_token = feature.get_node("token")
 
 func load_item(var item):
 	var load_item_instance = load("res://Scenes/GUI/Menu/LoadMenu/load_item.tscn").instance()

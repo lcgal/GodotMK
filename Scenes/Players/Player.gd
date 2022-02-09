@@ -51,6 +51,7 @@ func load_game(var load_dict):
 		SceneInitializer.card(card)
 		
 	position = Converter.string_to_vector2(load_dict["position"])
+	emit_signal("update_deck_count",deck.size())
 
 
 

@@ -12,11 +12,11 @@ func _on_Hex_input_event(_viewport, event, _shape_idx):
 			feature._moveInto(global_position,terrain)
 
 
-func _set_Feature(var feature_type):
+func _set_Feature(var feature_type, var saved_feature):
 	if feature_type in Constants.features:
 		var feature_info = Constants.features[feature_type]
 		if feature_info != null:
-			SceneInitializer.feature(feature_info, self)
+			SceneInitializer.feature(feature_info, saved_feature, self)
 
 func save_game():
 	if feature != null:

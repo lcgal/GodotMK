@@ -24,25 +24,25 @@ func load_game(var features_info):
 	for key in features_info:
 		pass
 
-func set_tile(var tile, var saved_feature_info = null):
+func set_tile(var tile, var saved_features_info = null):
 	tile_info = tile
 	var spriteNode : Sprite = get_node("Sprite")
 	spriteNode.texture = Assets.map_tile(tile["Sprite"])
-	_set_hexes(tile["Hexes"])
-	if saved_feature_info != null:
-		for hex in saved_feature_info:
-			get_node(hex).load_game(saved_feature_info[hex])
+	_set_hexes(tile["Hexes"],saved_features_info)
 
-func _set_hexes(var hexes_info):
+func _set_hexes(var hexes_info, var saved_features_info):
 	var hexes = hexes_info
 	for key in Constants.hexes:
-		_hexes(key,Constants.hexes[key]["x"],Constants.hexes[key]["y"],hexes[key]["Feature"])
+		var saved_feature
+		if saved_features_info != null and key in saved_features_info:
+			saved_feature = saved_features_info[key]
+		_hexes(key,Constants.hexes[key]["x"],Constants.hexes[key]["y"],hexes[key]["Feature"], saved_feature)
 
-func _hexes(var key, var x, var y, var feature):
+func _hexes(var key, var x, var y, var feature, var saved_feature):
 	var hex_scene_instance = load("res://Scenes/Map/Tiles/Hex/hex.tscn").instance()
 	add_child(hex_scene_instance)
 	hex_scene_instance.set_name(key)
 	hex_scene_instance.key = key
 	hex_scene_instance.position = x*n + y*k
 	hex_scene_instance.terrain = tile_info["Hexes"][key]["Terrain"]
-	hex_scene_instance._set_Feature(feature)
+	hex_scene_instance._set_Feature(feature, saved_feature)

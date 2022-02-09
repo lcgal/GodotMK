@@ -9,42 +9,64 @@ var current_block
 var lane
 var active = true
 var revealed = false
+var token_name
 
 func save_game():
 	var save_dict = {}
 	save_dict["Active"] = active
 	save_dict["revealed"] = revealed
+	save_dict["color"] = color
+	save_dict["token_name"] = token_name
+
 	return save_dict
 	
-func load_game(var save_dict):
+
+
+func create_token(var tokenColor, var saved_info):
+	StateController.board_tokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
+	color = tokenColor
+	$TokenBG.texture = Assets.token(color, "Background.png")
+	$TokenFG.texture = Assets.token(color, "ForeGround.png")
+	
+	if saved_info == null:
+		_draw_token()
+	else:
+		_set_token(saved_info)
+	
+	_get_creature_attributes()
+
+
+
+func _draw_token():
+	var index = randi() % GameVariables.available_tokens[color].size()
+	token_name = GameVariables.available_tokens[color][index]
+	GameVariables.available_tokens[color].remove(index)
+	creature = GameVariables.tokens_info[color][token_name]
+	
+
+
+func _set_token(var saved_info):
+	creature = GameVariables.tokens_info[color][saved_info["token_name"]]
+	_set_token_status(saved_info)
+
+
+func _set_token_status(var save_dict):
 	if !save_dict["Active"]:
 		_remove_token()
 	elif save_dict["revealed"]:
 		_reveal()
 
-func create_token(var tokenColor):
-	StateController.board_tokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
-	color = tokenColor
-	$TokenBG.texture = Assets.token(color, "Background.png")
-	$TokenFG.texture = Assets.token(color, "Hold.png")
-	
-func get_creature_attributes():
+
+func _get_creature_attributes():
 	attacks = creature["Attack"]
 	for attack in attacks:
 		attack["Block"] = 0
 
-func _set_token():
-	var index = randi() % GameVariables.available_tokens[color].size()
-	var creature_name = GameVariables.available_tokens[color][index]
-	GameVariables.available_tokens[color].remove(index)
-	creature = GameVariables.tokens_info[color][creature_name]
 
 func _reveal():
-	_set_token()
-	if color == "Grey":
-		$TokenFG.texture = Assets.token(color , creature["Image"])
-		get_creature_attributes()
-		revealed = true
+	$TokenFG.texture = Assets.token(color , creature["Image"])
+	revealed = true
+
 
 func add_damage(var damage_value, var damage_type):
 	if(creature["Resistances"].has(damage_type)):
