@@ -154,7 +154,7 @@
 						{
 							"Move" : 
 							{
-								"Text" : "Move 2",
+								"Text" : "Move 4",
 								"Effect" : "AddMove",
 								"Value" : 4
 							}
@@ -187,7 +187,7 @@
 						{
 							"Move" : 
 							{
-								"Text" : "Move 2",
+								"Text" : "Move 4",
 								"Effect" : "AddMove",
 								"Value" : 4
 							}

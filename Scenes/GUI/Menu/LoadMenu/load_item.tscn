@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/GUI/Menu/LoadMenu/load_item.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1220.0
+margin_bottom = -980.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.036
+anchor_top = 0.143
+anchor_right = 0.964
+anchor_bottom = 1.0
+margin_left = -0.200001
+margin_top = -0.0100002
+margin_right = 0.199951
+margin_bottom = -5.71
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

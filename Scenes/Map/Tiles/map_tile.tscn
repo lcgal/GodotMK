@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Map/Tiles/map_tile.gd" type="Script" id=1]
+[ext_resource path="res://Assets/MapTiles/Portal/PortalWide.png" type="Texture" id=3]
+
+[node name="MapTile" type="Area2D"]
+scale = Vector2( 0.9, 0.9 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.04609, 1.023 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2( 4.76837e-07, 0 )
+polygon = PoolVector2Array( -211.452, 239.18, -212.285, 120.98, -316.334, 61.0474, -317.999, -57.5686, -210.62, -119.998, -211.869, -238.198, -103.242, -299.795, -0.0248045, -238.198, 108.602, -299.795, 212.235, -236.949, 213.076, -120.529, 318.365, -60.0657, 319.198, 58.9665, 211.819, 120.147, 212.236, 239.18, 107.77, 298.696, 1.64015, 238.763, -105.739, 299.528 )

@@ -4,177 +4,170 @@ extends Node2D
 #MapTiles
 #PlayerMovement
 
-var root = "/root/Game/Board/"
-var rootJsons = "res://ConfigJsons/"
-
 func _ready():
-	GameVariables.board = self
-	_initialize()
-	SceneInitializer._addPortal()
-	var tile : ExplorableTile = get_tree().get_root().get_node(root + "B1")
+	StateController.board = self
+
+func _initializeNew():
+	SceneInitializer.explorable_tiles()
+	SceneInitializer.portal()
+	var tile : ExplorableTile = get_node("B1")
 	tile.explore()
-	tile = get_tree().get_root().get_node(root + "A2")
+	tile = get_node("A2")
 	tile.explore()
-	GameVariables.currentMovementCost = 0
+	GameVariables.current_movement_cost = 0
+	emit_signal("set_greentiles_counter",GameVariables.countryside_tiles_left)
+	emit_signal("set_browntiles_counter",GameVariables.core_tiles_left)
 
-func _initialize():
-	_readConfigfies()
-	_initializeMapTiles()
-	_initializeExplorableTiles()
+func save_game():
+	var save_dict = {}
+	
+	var explored_tiles_dict = {}
+	for key in GameVariables.explorable_tiles_info:
+		if GameVariables.explorable_tiles_info[key]["Explored"]:
+			var tile = get_node("explored" + key)
+			explored_tiles_dict[key] = tile.save_game()
+		
+	save_dict["tiles"] = explored_tiles_dict
+	
+	return save_dict
 
-func _readConfigfies():
-	_readScenarioInfo()
-	GameVariables.mapTileInfo = Configs._loadTilesInfo()
-	GameVariables.movementCosts = Configs._loadMovementInfo()
+func load_game(var load_dict):
+	SceneInitializer.portal()
+	SceneInitializer.explorable_tiles()
+	for key in load_dict["tiles"]:
+		var tile = load_dict["tiles"][key]
+		var position = Converter.string_to_vector2(tile["position"])
+		SceneInitializer.map_tile(key, tile["tile_info"], position, tile["features_info"])
+	emit_signal("set_greentiles_counter",GameVariables.countryside_tiles_left)
+	emit_signal("set_browntiles_counter",GameVariables.core_tiles_left)
 
-func _readScenarioInfo():
-	var parsedData = Configs._loadMap(Constants.Maps.WEDGE)
-	GameVariables.explorableTilesInfo = parsedData["ExplorableTiles"]
-	GameVariables.scenarioCountryTilesLeft = parsedData["CountrysideTiles"]
-	GameVariables.scenarioCoreTilesLeft = parsedData["CoreTiles"]
-	GameVariables.scenarioCityCount = parsedData["Cities"]
+
+	for key in GameVariables.explorable_tiles_info:
+		if GameVariables.explorable_tiles_info[key]["Adjacency"] >= 2 && !GameVariables.explorable_tiles_info[key]["Explored"]:
+			var adjacent_tile_node : ExplorableTile = get_node(key)
+			if (adjacent_tile_node != null):
+				adjacent_tile_node.activate()
+	pass
 
 #--------------------------BOARD-------------------------------
-func _addAdjacency(var key):
-	var adjacency = GameVariables.explorableTilesInfo[key]["Adjacency"] + 1
-	GameVariables.explorableTilesInfo[key]["Adjacency"] = adjacency
-	if (adjacency == 2 && GameVariables.explorableTilesInfo[key]["Explored"]):
-		for adjacentTile in GameVariables.explorableTilesInfo[key]["AdjacentTiles"]:
-			if (!GameVariables.explorableTilesInfo[adjacentTile["Id"]]["Explored"]):
-				var adjacentTileNode : ExplorableTile = get_tree().get_root().get_node(root + adjacentTile["Id"])
-				if (adjacentTileNode != null):
-					adjacentTileNode.activate()
+func _add_adjacency(var key):
+	var adjacency = GameVariables.explorable_tiles_info[key]["Adjacency"] + 1
+	GameVariables.explorable_tiles_info[key]["Adjacency"] = adjacency
+	if (adjacency == 2 && GameVariables.explorable_tiles_info[key]["Explored"]):
+		for adjacent_tile in GameVariables.explorable_tiles_info[key]["AdjacentTiles"]:
+			if (!GameVariables.explorable_tiles_info[adjacent_tile["Id"]]["Explored"]):
+				var adjacent_tile_node : ExplorableTile = get_node(adjacent_tile["Id"])
+				if (adjacent_tile_node != null):
+					adjacent_tile_node.activate()
 #--------------------------END-------------------------------
 
 #--------------------------EXPLORABLETILES---------------------
 
-
-func _initializeExplorableTiles():
-	SceneInitializer._initializeExplorableTiles()
-
-
-func _handleExploreTile(var explore, var key, var adjacentTiles):
-	var player = GameVariables.player1
-	if (player != null):
-		if (player.position.distance_to(explore) > 385 || TurnManager.turnPhase != Constants.TurnPhase.MOVEMENT):
-			return
-		if (player.movementPoints < 2):
-			TurnManager.dismissPopup.dialog_text = "Not enough movement points"
-			TurnManager.dismissPopup.popup_centered_minsize(Vector2(300,200))
+func handle_explore_tile(var explore, var key, var adjacent_tiles):
+	var player = StateController.player1
+	if is_instance_valid(player):
+		if (player.position.distance_to(explore) > 385 || TurnManager.turn_phase != Constants.turn_phase.MOVEMENT):
 			return
 		player.move(-2)
-		TurnManager._lockActions()
+		if (!TurnManager._lockActions()):
+			player.move(+2)
+			return
 	
 	randomize()
 	
 	var mapTile 
-	if (GameVariables.scenarioCountryTilesLeft > 0) :
-		var index = randi() % GameVariables.countrySideTileList.size()
-		var mapTileId = GameVariables.countrySideTileList[index]
-		GameVariables.countrySideTileList.remove(index)
-		GameVariables.scenarioCountryTilesLeft -= 1
-		mapTile = GameVariables.mapTileInfo["CountrySideTiles"][mapTileId]
-		emit_signal("setGreenTileCounter",GameVariables.scenarioCountryTilesLeft)
-	elif (GameVariables.scenarioCoreTilesLeft > 0) :
-		var index = randi() % GameVariables.coreTileList.size()
-		var mapTileId = GameVariables.coreTileList[index]
-		GameVariables.coreTileList.remove(index)
-		GameVariables.scenarioCoreTilesLeft -= 1
-		mapTile = GameVariables.mapTileInfo["CoreTiles"][mapTileId]
-		emit_signal("setBrownTileCounter",GameVariables.scenarioCoreTilesLeft)
+	if (GameVariables.countryside_tiles_left > 0) :
+		var index = randi() % GameVariables.countryside_tile_list.size()
+		var mapTileId = GameVariables.countryside_tile_list[index]
+		GameVariables.countryside_tile_list.remove(index)
+		GameVariables.countryside_tiles_left -= 1
+		mapTile = GameVariables.map_tile_info["CountrySideTiles"][mapTileId]
+		emit_signal("set_greentiles_counter",GameVariables.countryside_tiles_left)
+	elif (GameVariables.core_tiles_left > 0) :
+		var index = randi() % GameVariables.core_tile_list.size()
+		var mapTileId = GameVariables.core_tile_list[index]
+		GameVariables.core_tile_list.remove(index)
+		GameVariables.core_tiles_left -= 1
+		mapTile = GameVariables.map_tile_info["core_tiles"][mapTileId]
+		emit_signal("set_browntiles_counter",GameVariables.core_tiles_left)
 	else:
-		var index = randi() % GameVariables.countrySideTileList.size()
-		var mapTileId = GameVariables.countrySideTileList[index]
-		GameVariables.countrySideTileList.remove(index)
-		mapTile = GameVariables.mapTileInfo["CountrySideTiles"][mapTileId]
+		var index = randi() % GameVariables.countryside_tile_list.size()
+		var mapTileId = GameVariables.countryside_tile_list[index]
+		GameVariables.countryside_tile_list.remove(index)
+		mapTile = GameVariables.map_tile_info["CountrySideTiles"][mapTileId]
 	
-	SceneInitializer._addMapTile(mapTile, explore)
+	SceneInitializer.map_tile(key, mapTile, explore)
 	
-	GameVariables.explorableTilesInfo[key]["Explored"] = true
-	GameVariables.currentMovementCost += GameVariables.movementCosts["Day"]["Explore"]
-	emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
-	get_tree().get_root().get_node(root + key).queue_free()
+	GameVariables.explorable_tiles_info[key]["Explored"] = true
+	GameVariables.current_movement_cost += GameVariables.movement_costs["Day"]["Explore"]
+	emit_signal("set_current_movement_cost",GameVariables.current_movement_cost)
+	get_node(key).queue_free()
 	
-	for tile in adjacentTiles:
-		if (GameVariables.explorableTilesInfo[key]["Adjacency"] >= 2):
-			if (!GameVariables.explorableTilesInfo[tile["Id"]]["Explored"]):
-				var adjacentTileNode : ExplorableTile = get_tree().get_root().get_node(root + tile["Id"])
-				if (adjacentTileNode != null):
-					adjacentTileNode.activate()
-		_addAdjacency(tile["Id"])
-
+	for tile in adjacent_tiles:
+		if (GameVariables.explorable_tiles_info[key]["Adjacency"] >= 2):
+			if (!GameVariables.explorable_tiles_info[tile["Id"]]["Explored"]):
+				var adjacent_tile_node : ExplorableTile = get_node(tile["Id"])
+				if (adjacent_tile_node != null):
+					adjacent_tile_node.activate()
+		_add_adjacency(tile["Id"])
 
 #--------------------------END-------------------------------
 
 #--------------------------MAPTILES--------------------------
 
 
-signal setGreenTileCounter(values)
-signal setBrownTileCounter(values)
-
-func _initializeMapTiles():
-	#Creating Tile options lists
-	randomize()
-	for tile in GameVariables.mapTileInfo["CountrySideTiles"]:
-		GameVariables.countrySideTileList.append(tile)
-	
-	for tile in GameVariables.mapTileInfo["CoreTiles"]:
-		if (GameVariables.mapTileInfo["CoreTiles"][tile]["isCity"]):
-			GameVariables.cityTiles.append(tile)
-		else:
-			GameVariables.coreTiles.append(tile)
-
-	for i in range(0,GameVariables.scenarioCityCount,1):
-		var index = randi() % GameVariables.cityTiles.size()
-		var tile = GameVariables.cityTiles[index]
-		GameVariables.cityTiles.remove(index)
-		GameVariables.coreTileList.append(tile)
-	for i in range(0,GameVariables.scenarioCoreTilesLeft - GameVariables.scenarioCityCount,1):
-		var index = randi() % GameVariables.coreTiles.size()
-		var tile = GameVariables.coreTiles[index]
-		GameVariables.coreTiles.remove(index)
-		GameVariables.coreTileList.append(tile)
-	
-	GameVariables.unusedCoreTileList = GameVariables.coreTiles
-	#END
-	
-	emit_signal("setGreenTileCounter",GameVariables.scenarioCountryTilesLeft)
-	emit_signal("setBrownTileCounter",GameVariables.scenarioCoreTilesLeft)
+signal set_greentiles_counter(values)
+signal set_browntiles_counter(values)
 
 #--------------------------END-------------------------------
 
 #--------------------------PLAYERS---------------------
+signal set_current_movement_cost(value)
+var start_pos
 
-
-signal setCurrentMovementCost(value)
-var startPos
-
-func _handleMovement(var pos, var terrain):
-	if (startPos == null):
-		startPos = GameVariables.player1.position
+func handle_movement(var pos, var terrain, lock = false):
+	if (start_pos == null):
+		start_pos = StateController.player1.position
+	var origin = StateController.player1.position 
 	var destination = pos
-	if (GameVariables.player1.position.distance_to(destination) < GameVariables.hexDistance && GameVariables.player1.position != destination):
-		var movementcost = GameVariables.movementCosts["Day"][terrain]
-		if (movementcost != null):
-			GameVariables.player1.move(-movementcost)
-			emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
-			GameVariables.player1.position = pos
-			_checkTokens()
+	if (StateController.player1.position.distance_to(destination) < GameVariables.hex_distance && StateController.player1.position != destination):
+		var movement_cost = GameVariables.movement_costs["Day"][terrain]
+		if (movement_cost != null):
+			StateController.player1.position = destination
+			StateController.player1.move(-movement_cost)
+			if lock:
+				if (!TurnManager.lock_actions()):
+					StateController.player1.position = origin
+					StateController.player1.move(+movement_cost)
+					return false
+			if !_check_tokens():
+				StateController.player1.position = origin
+				StateController.player1.move(+movement_cost)
+				return false
+				
+			emit_signal("set_current_movement_cost",GameVariables.current_movement_cost)
+			return true
 
-func _checkTokens():
-	for feature in GameVariables.boardTokens:
+
+func _check_tokens():
+	for feature in StateController.board_tokens:
 		if !feature["Revealed"]:
-			if GameVariables.player1.position.distance_to(feature["Position"]) < GameVariables.hexDistance:
-				feature["Token"]._reveal()
-				feature["Revealed"] = true
-			
+			if StateController.player1.position.distance_to(Converter.string_to_vector2(feature["Position"])) < GameVariables.hex_distance:
+				if (TurnManager.lock_actions()):
+					feature["Token"]._reveal()
+					feature["Revealed"] = true
+				else:
+					return false
+	return true
 
-func _movementReset():
-	if (startPos != null):
-		GameVariables.player1.position = startPos
-		GameVariables.currentMovementCost = 0
-		emit_signal("setCurrentMovementCost",GameVariables.currentMovementCost)
+func reset_actions():
+	if (start_pos != null):
+		StateController.player1.position = start_pos
+		GameVariables.current_movement_cost = 0
+		emit_signal("set_current_movement_cost",GameVariables.current_movement_cost)
 
+func quit_game():
+	queue_free()
 #--------------------------END-------------------------------
 
 

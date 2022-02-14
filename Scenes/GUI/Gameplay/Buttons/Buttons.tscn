@@ -1,13 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/GUI/ResetTurn.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/GUI/Gameplay/Buttons/Buttons.gd" type="Script" id=2]
-[ext_resource path="res://Assets/GUI/check.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI/check.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/GUI/Gameplay/Buttons/buttons.gd" type="Script" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureButton
-
-signal reset()
 
 func _ready():
 	pass # Replace with function body.
@@ -18,7 +16,7 @@ margin_right = 144.0
 margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,15 +30,15 @@ texture_normal = ExtResource( 1 )
 expand = true
 script = SubResource( 1 )
 
-[node name="Reset3" type="TextureButton" parent="."]
+[node name="Confirm" type="TextureButton" parent="."]
 margin_left = 74.0
 margin_right = 144.0
 margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 2 )
 expand = true
 script = SubResource( 1 )
 
 [connection signal="button_up" from="Reset" to="." method="_on_Reset_button_up"]
-[connection signal="button_up" from="Reset3" to="." method="_on_Reset3_button_up"]
+[connection signal="button_up" from="Confirm" to="." method="_on_Reset3_button_up"]

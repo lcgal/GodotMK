@@ -1,30 +1,26 @@
 extends Area2D
 
 var key
-signal movement(pos,key)
-var featureInfo
 var feature
+var terrain
 
-func _ready():
-	pass # Replace with function body.
-
-func _on_Hex_input_event(viewport, event, shape_idx):
+func _on_Hex_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.pressed:
-		if featureInfo == null:
-			emit_signal("movement",global_position,key)
-		elif featureInfo["Type"] == "Hold" && featureInfo["Owner"] == null:
-			emit_signal("movement",global_position,key)
-			feature._startCombat()
-			
+		if feature == null:
+			StateController.board.handle_movement(global_position,terrain)
 		else:
-			emit_signal("movement",global_position,key)
+			feature._moveInto(global_position,terrain)
 
-func _set_Feature(var featureType):
-	if featureType != null && featureType == "Hold":
-		featureInfo = {"Type" : featureType, "Owner" : null}
-		var featureSceneInstance = load("res://Scenes/Map/Tiles/Hex/Feature/Feature.tscn").instance()
-		add_child(featureSceneInstance)
-		featureSceneInstance._setFeature(featureType)
-		featureSceneInstance.set_name("Feature")
-		feature = get_node("Feature")
-		
+
+func _set_Feature(var feature_type, var saved_feature):
+	if feature_type in Constants.features:
+		var feature_info = Constants.features[feature_type]
+		if feature_info != null:
+			SceneInitializer.feature(feature_info, saved_feature, self)
+
+func save_game():
+	if feature != null:
+		return feature.save_game()
+	
+func load_game(var saved_feature_info):
+	feature.load_game(saved_feature_info)

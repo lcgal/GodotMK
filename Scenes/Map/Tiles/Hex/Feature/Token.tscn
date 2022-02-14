@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Map/Tiles/Hex/Feature/Token.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map/Tiles/Hex/Feature/token.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tokens/Grey/Background.png" type="Texture" id=2]
 
 [node name="Token" type="Node2D"]

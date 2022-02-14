@@ -1,21 +1,21 @@
 extends Node
 
-var root = "res://Assets/"
-var pathMapTiles = "MapTiles/Tiles/"
-var pathCards = "Cards/"
-var pathBasicCards = "Cards/Basic/"
+const ROOT = "res://Assets/"
+const MAP_TILES_PATH = ROOT + "MapTiles/Tiles/"
+const CARDS_PATH = ROOT + "Cards/"
+const BASIC_CARDS_PATH = ROOT + "Cards/Basic/"
 
-var pathGrey = "Tokens/Grey/"
+const TOKENS_PATH = ROOT + "Tokens/"
 
-func _mapTile(var tile):
-	return load(root + pathMapTiles + tile)
+func map_tile(var tile):
+	return load(MAP_TILES_PATH + tile)
 
-func _card(var card):
-	return load(root + pathBasicCards + card)
+func card(var card):
+	# TODO use a single directory for all cards
+	return load(BASIC_CARDS_PATH + card)
 
-func _blood():
-	return load(root + pathCards + "blood.png")
+func blood():
+	return load(CARDS_PATH + "Blood.png")
 
-func _Token(var type, var name):
-	if type == "Grey":
-		return load(root + pathGrey + name)
+func token(var type, var name):
+	return load(TOKENS_PATH + type + "/" + name)

@@ -1,0 +1,139 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scenes/GUI/Gameplay/TilesCounters/tile_counters.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GUI/Gameplay/in_game_GUI.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GUI/movement_costs.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/confirm_popup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GUI/Gameplay/Hand/hand_area.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GUI/Gameplay/Deck/deck.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/play_card.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/GUI/Gameplay/Panel/right_panel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GUI/Gameplay/PopUps/dismiss_popup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/GUI/Gameplay/Combat/combat_board.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/GUI/Gameplay/PlayerInfo/player_info.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/GUI/Menu/menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/GUI/gear-settings-setup-icon-292038.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/GUI/Menu/LoadMenu/load_menu.tscn" type="PackedScene" id=14]
+
+[node name="Control" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1917.0
+margin_top = -2.51984
+margin_right = -1.0
+margin_bottom = 1076.48
+rect_pivot_offset = Vector2( -776.952, -122.255 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="." instance=ExtResource( 10 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -741.5
+margin_top = -438.5
+margin_right = 741.5
+margin_bottom = 438.5
+mouse_filter = 2
+
+[node name="NinePatchRect" parent="." instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -245.0
+margin_right = 0.0
+margin_bottom = 121.0
+
+[node name="MovementCosts" parent="." instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 6.73477
+margin_top = -47.8573
+margin_right = 48.7348
+margin_bottom = -7.8573
+
+[node name="Hand" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="Deck" parent="." instance=ExtResource( 6 )]
+margin_left = 8.01178
+margin_top = 795.698
+margin_right = 112.012
+margin_bottom = 942.698
+
+[node name="PopupMenu" parent="." instance=ExtResource( 7 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.5
+margin_top = -17.0
+margin_right = 31.5
+margin_bottom = 17.0
+items = [ "Item 0", null, 0, false, false, 0, 0, null, "", false ]
+
+[node name="VBoxContainer" parent="." instance=ExtResource( 8 )]
+margin_top = 161.635
+margin_bottom = 748.635
+
+[node name="ConfirmationPopUp" parent="." instance=ExtResource( 4 )]
+margin_left = 1015.5
+margin_top = 487.416
+margin_right = 1516.5
+margin_bottom = 557.416
+
+[node name="AcceptDialog" parent="." instance=ExtResource( 9 )]
+margin_left = 850.228
+margin_top = 502.248
+margin_right = 933.228
+margin_bottom = 560.248
+
+[node name="Control2" parent="." instance=ExtResource( 11 )]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -150.0
+margin_right = 0.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 200, 200 )
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 12 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.5
+margin_top = -412.0
+margin_right = 205.5
+margin_bottom = 412.0
+
+[node name="OptionsBtn" type="Button" parent="."]
+margin_right = 62.0
+margin_bottom = 66.0
+icon = ExtResource( 13 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadMenu" parent="." instance=ExtResource( 14 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -348.0
+margin_top = -449.5
+margin_right = 348.0
+margin_bottom = 449.5
+
+[connection signal="open_load_menu" from="OptionsMenu" to="." method="_on_OptionsMenu_open_load_menu"]
+[connection signal="pressed" from="OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

@@ -1,53 +1,103 @@
 extends Node2D
 var knight
 
+var hand_GUI
+
 var deck
+var hand = []
 var discard = []
-var handSize = 0
+var hand_size = 0
 var handLimit = 5
-var armor = 3
+var armor = 2
 var experience = 0
 
-var movementPoints = 0
+var movement_points = 0
 
-signal updateDeckCount(count)
+signal update_deck_count(count)
+
+var savable_attr = [
+	"knight",
+	"deck",
+	"hand",
+	"discard",
+	"hand_size",
+	"handLimit",
+	"armor",
+	"experience",
+	"movement_points",
+]
 
 func _ready():
-	var deckGUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Deck")
-	deckGUI._connect(self)
-	emit_signal("updateDeckCount",deck.size())
+	var deck_GUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Deck")
+	deck_GUI._connect(self)
+	hand_GUI = StateController.hand_area
+	emit_signal("update_deck_count",deck.size())
+
+
+func save_game():
+	var save_dict = {}
+	for key in savable_attr:
+		save_dict[key] = get(key)
+	
+	save_dict["position"] = position
+	
+	return save_dict
+
+func load_game(var load_dict):
+	for key in savable_attr:
+		set(key, load_dict[key])
+	
+	for card in hand:
+		SceneInitializer.card(card)
+		
+	position = Converter.string_to_vector2(load_dict["position"])
+	emit_signal("update_deck_count",deck.size())
+
+
+
 
 func _drawCard():
 	randomize()
 	var index = randi() % deck.size()
 	var card = deck[index]
 	deck.remove(index)
-	discard.append(card)
-	emit_signal("updateDeckCount",deck.size())
-	SceneInitializer._drawCard(card)
-	handSize+=1
+	hand.append(card)
+	emit_signal("update_deck_count",deck.size())
+	SceneInitializer.card(card)
+	hand_size += 1
 
-func _drawToHandLimit():
-	while handSize < handLimit:
+func draw_to_hand_limit():
+	while hand_size < handLimit:
 		_drawCard()
 
-func _resetTurn():
-	print(movementPoints)
-	movementPoints = 0
-	TurnManager._updateMovementPonts(movementPoints)
+func reset_actions():
+	movement_points = 0
+	TurnManager.update_movement_points(movement_points)
+	hand_GUI.reset_actions()
 
 func move(var movePoints):
-	movementPoints += movePoints
-	TurnManager._updateMovementPonts(movementPoints)
+	movement_points += movePoints
+	TurnManager.update_movement_points(movement_points)
 	
-func _drawBlood(var qtd):
-	for i in range(0, qtd, 1):
-		SceneInitializer._drawBlood()
-		handSize+=1
+func draw_blood(var qtd):
+	for _i in range(0, qtd, 1):
+		SceneInitializer.blood()
+		hand_size += 1
 
 func _gainFame(var value):
 	experience += value
-	var experienceText = TextBuilder._experienceLabelText(experience) 
+	var experience_text = TextBuilder.experience_label_text(experience) 
 	
-	GameVariables.player1Panel._setExperienceText(experienceText)
-	
+	StateController.player_panel.set_experience_text(experience_text)
+
+
+func lock_cards():
+	hand_GUI.lock_played_cards()
+
+
+func discard_cards():
+	hand_GUI.discard_cards()
+
+
+func quit_game():
+	queue_free()

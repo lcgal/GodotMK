@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Card",
 "language": "GDScript",
-"path": "res://Scenes/Cards/Card.gd"
+"path": "res://Scenes/Cards/card.gd"
 }, {
 "base": "Area2D",
 "class": "ExplorableTile",
 "language": "GDScript",
-"path": "res://Scenes/Map/ExplorableTile.gd"
+"path": "res://Scenes/Map/explorable_tile.gd"
 }, {
 "base": "Camera2D",
 "class": "MainCamera",
 "language": "GDScript",
-"path": "res://Scenes/Camera2D.gd"
+"path": "res://Scenes/camera_2D.gd"
 }, {
 "base": "Area2D",
 "class": "MapTile",
 "language": "GDScript",
-"path": "res://Scenes/Map/Tiles/MapTile.gd"
+"path": "res://Scenes/Map/Tiles/map_tile.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
@@ -39,18 +39,20 @@ _global_script_class_icons={
 [application]
 
 config/name="Mage Knight"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Constants="*res://Globals/Constants.gd"
-Configs="*res://Globals/Configs.gd"
-GameVariables="*res://Globals/GameVariables.gd"
-Assets="*res://Globals/Assets.gd"
-SceneInitializer="*res://Globals/SceneInitializer.gd"
-TurnManager="*res://Globals/TurnManager.gd"
-TextBuilder="*res://Globals/TextBuilder.gd"
+Converter="*res://Globals/converter.gd"
+StateController="*res://Globals/state_controller.gd"
+Configs="*res://Globals/configs.gd"
+Constants="*res://Globals/constants.gd"
+GameVariables="*res://Globals/game_variables.gd"
+Assets="*res://Globals/assets.gd"
+SceneInitializer="*res://Globals/scene_initializer.gd"
+TurnManager="*res://Globals/turn_manager.gd"
+TextBuilder="*res://Globals/text_builder.gd"
 
 [display]
 
