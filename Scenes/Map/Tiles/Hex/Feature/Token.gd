@@ -26,7 +26,7 @@ func save_game():
 func create_token(var tokenColor, var saved_info):
 	color = tokenColor
 	$TokenBG.texture = Assets.token(color, "Background.png")
-	$TokenFG.texture = Assets.token(color, "ForeGround.png")
+	$TokenFG.texture = Assets.token(color, "Foreground.png")
 	
 	if saved_info == null:
 		_draw_token()
@@ -59,6 +59,8 @@ func _set_token_status(var save_dict):
 func _get_creature_attributes():
 	attacks = creature["Attack"]
 	for attack in attacks:
+		if attack["type"] == "SummonerBrown":
+			pass
 		attack["Block"] = 0
 
 

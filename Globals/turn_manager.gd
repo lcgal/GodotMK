@@ -77,7 +77,8 @@ func end_phase():
 		StateController.combat_board.end_combat_phase(turn_phase)
 		start_phase(Constants.turn_phase.COMBAT_MELEE_PHASE)
 	elif turn_phase == Constants.turn_phase.COMBAT_MELEE_PHASE:
-		StateController.combat_board.end_combat()
+		StateController.combat_board.end_combat(false)
+		_end_turn()
 	elif turn_phase == Constants.turn_phase.INTERACTION:
 		_end_turn()
 		

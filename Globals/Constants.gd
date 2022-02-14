@@ -31,15 +31,17 @@ var relevant_effects = {
 	turn_phase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack"],
 	turn_phase.COMBAT_BLOCK_PHASE : ["Block"],
 	turn_phase.COMBAT_MELEE_PHASE : ["Attack"],
-	turn_phase.INTERACTION : ["Support"]
+	turn_phase.INTERACTION : ["Support"],
 }
 
 var sideway_effects = {
 	"Move" : {"Effect" : "AddMove", "Value" : 2, "Text" : "Play sideways to add 1 movement"},
 	"Attack" : {"Effect" : "AddAttack", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 attack"},
-	"Block" : {"Effect" : "AddBlock", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 block"}
+	"Block" : {"Effect" : "AddBlock", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 block"},
 }
 
 var features = {
-	"Hold" : {"Type" : "Hold", "Owner" : null, "Token" : "Grey", "Revealed" : false, "AutoCombat" : true}
+	"Hold" : {"Type" : "Hold", "Owner" : null, "Token" : "Grey", "Revealed" : false, "AutoCombat" : true},
+	"MageTower" : {"Type" : "MageTower", "Owner" : null, "Token" : "Violet", "Revealed" : false, "AutoCombat" : true},
+	"Rampaging" : {"Type" : "Rampaging", "Owner" : null, "Token" : "Green", "Revealed" : false, "AutoCombat" : true},
 }

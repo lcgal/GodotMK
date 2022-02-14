@@ -54,8 +54,6 @@ func load_game(var load_dict):
 	emit_signal("update_deck_count",deck.size())
 
 
-
-
 func _drawCard():
 	randomize()
 	var index = randi() % deck.size()
@@ -82,6 +80,7 @@ func move(var movePoints):
 func draw_blood(var qtd):
 	for _i in range(0, qtd, 1):
 		SceneInitializer.blood()
+		hand.append("Blood")
 		hand_size += 1
 
 func _gainFame(var value):

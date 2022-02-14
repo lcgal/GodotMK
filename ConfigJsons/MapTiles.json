@@ -237,7 +237,7 @@
 			"C" : 
 				{
 				"Terrain" : "Desert",
-				"Feature" : "WizardTower"
+				"Feature" : "MageTower"
 				},
 			"W" : 
 				{
@@ -462,7 +462,7 @@
 			"SW" : 
 				{
 				"Terrain" : "Wasteland",
-				"Feature" : "WizardTower"
+				"Feature" : "MageTower"
 				}
 			}
 		},
@@ -531,7 +531,7 @@
 			"C" : 
 				{
 				"Terrain" : "Grassland",
-				"Feature" : "WizardTower"
+				"Feature" : "MageTower"
 				},
 			"W" : 
 				{
@@ -573,7 +573,7 @@
 			"C" : 
 				{
 				"Terrain" : "Grassland",
-				"Feature" : "None"
+				"Feature" : "Rampaging"
 				},
 			"W" : 
 				{
@@ -615,7 +615,7 @@
 			"C" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "WizardTower"
+				"Feature" : "MageTower"
 				},
 			"W" : 
 				{
@@ -761,7 +761,7 @@
 			"SW" : 
 				{
 				"Terrain" : "Forest",
-				"Feature" : "WizardTower"
+				"Feature" : "MageTower"
 				}
 			}
 		},
@@ -784,7 +784,7 @@
 			"E" : 
 				{
 				"Terrain" : "Hills",
-				"Feature" : "WizardTower"
+				"Feature" : "MageTower"
 				},
 			"C" : 
 				{
@@ -860,7 +860,7 @@
 			"NE" : 
 				{
 				"Terrain" : "Hills",
-				"Feature" : "WizardTower"
+				"Feature" : "MageTower"
 				},
 			"NW" : 
 				{

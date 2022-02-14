@@ -4,19 +4,25 @@ func start_new_game():
 	var game_scene_instance = load("res://Scenes/game.tscn").instance()
 	game_scene_instance._newGame()
 
+
 func card(var card):
-	var card_scene_instance = load("res://Scenes/Cards/card.tscn").instance()
-	var card_sprite = GameVariables.action_cards["Basic"]["Cards"][card]["Image"]
-	card_scene_instance.name = card
-	card_scene_instance.effects = GameVariables.action_cards["Basic"]["Cards"][card]["Effects"]
-	card_scene_instance.set_sprite(Assets.card(card_sprite))
-	StateController.hand_area.add_card(card_scene_instance)
+	if card == "Blood":
+		blood()
+	else:
+		var card_scene_instance = load("res://Scenes/Cards/card.tscn").instance()
+		var card_sprite = GameVariables.action_cards["Basic"]["Cards"][card]["Image"]
+		card_scene_instance.name = card
+		card_scene_instance.effects = GameVariables.action_cards["Basic"]["Cards"][card]["Effects"]
+		card_scene_instance.set_sprite(Assets.card(card_sprite))
+		StateController.hand_area.add_card(card_scene_instance)
+		
 
 func blood():
 	var card_scene_instance = load("res://Scenes/Cards/card.tscn").instance()
 	card_scene_instance.name = "blood"
 	card_scene_instance.set_sprite(Assets.blood())
 	StateController.hand_area.add_card(card_scene_instance)
+
 
 func explorable_tiles():
 	for key in GameVariables.explorable_tiles_info:
@@ -33,11 +39,13 @@ func explorable_tiles():
 			StateController.board.add_child(explore_tile_instance)
 			explore_tile_instance.connect("explore_tile",StateController.board,"handle_explore_tile")
 
+
 func portal():
 	var map_tile_instance = load("res://Scenes/Map/Tiles/map_tile.tscn").instance()
 	var map_tile_info = GameVariables.map_tile_info["Portals"]["Wedge"]
 	map_tile_instance.set_tile(map_tile_info)
 	StateController.board.add_child(map_tile_instance)
+
 
 func map_tile(var key, var tile, var pos, var saved_features = null):
 	var map_tile_instance = load("res://Scenes/Map/Tiles/map_tile.tscn").instance()
@@ -45,6 +53,7 @@ func map_tile(var key, var tile, var pos, var saved_features = null):
 	StateController.board.add_child(map_tile_instance)
 	map_tile_instance.global_position = pos
 	map_tile_instance.set_tile(tile, saved_features)
+
 
 func player(var knight):
 	var player_data = Configs.get_knight_info(knight)
@@ -54,12 +63,14 @@ func player(var knight):
 	add_child(player_instance)
 	StateController.player1 = player_instance
 
+
 func feature(var feature_info, var saved_feature, var hex):
 	var feature_instance = load("res://Scenes/Map/Tiles/Hex/Feature/feature.tscn").instance()
 	hex.add_child(feature_instance)
 	feature_instance._setFeature(feature_info, saved_feature)
 	feature_instance.set_name("Feature")
 	hex.feature = hex.get_node("Feature")
+
 
 func feature_token(var color, var saved_info, var parent):
 	if saved_info == null or saved_info["active"]:

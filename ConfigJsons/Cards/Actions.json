@@ -31,7 +31,7 @@
 						}
 					},
 					"Advanced" : 
-{
+					{
 						"Cost" : "R",
 						"Types" : 
 						{
@@ -198,37 +198,163 @@
 			"Tranquility" : 
 			{
 				"Image" : "Tranquility.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "R",
+						"Types" : 
+						{
+
+						}
+					}
+				}
 			},
 			"Promise" : 
 			{
 				"Image" : "Promise.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "R",
+						"Types" : 
+						{
+
+						}
+					}
+				}
 			},
 			"Threaten" : 
 			{
 				"Image" : "Threaten.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "R",
+						"Types" : 
+						{
+
+						}
+					}
+				}
 			},
 			"Crystallize" : 
 			{
 				"Image" : "Crystallize.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "R",
+						"Types" : 
+						{
+
+						}
+					}
+				}
 			},
 			"Mana Draw" : 
 			{
 				"Image" : "ManaDraw.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "R",
+						"Types" : 
+						{
+
+						}
+					}
+				}
 			},
 			"Concentration" : 
 			{
 				"Image" : "Concentration.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "R",
+						"Types" : 
+						{
+
+						}
+					}
+				}
 			},
 			"Improvisation" : 
 			{
 				"Image" : "Improvisation.png",
-				"Effects" : null
+				"Effects" : 
+				{
+					"Basic" : 
+					{
+						"Cost" : null,
+						"Types" : 
+						{
+
+						}
+					},
+					"Advanced" : 
+					{
+						"Cost" : "R",
+						"Types" : 
+						{
+
+						}
+					}
+				}
 			},
 			"Cold Toughness" : 
 			{
