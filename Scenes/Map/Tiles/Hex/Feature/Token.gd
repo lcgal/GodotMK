@@ -9,11 +9,12 @@ var current_block
 var lane
 var active = true
 var revealed = false
+var in_combat = false
 var token_name
 
 func save_game():
 	var save_dict = {}
-	save_dict["Active"] = active
+	save_dict["active"] = active
 	save_dict["revealed"] = revealed
 	save_dict["color"] = color
 	save_dict["token_name"] = token_name
@@ -23,7 +24,6 @@ func save_game():
 
 
 func create_token(var tokenColor, var saved_info):
-	StateController.board_tokens.append({"Position": global_position, "Revealed" : false, "Token" : self})
 	color = tokenColor
 	$TokenBG.texture = Assets.token(color, "Background.png")
 	$TokenFG.texture = Assets.token(color, "ForeGround.png")
@@ -32,9 +32,9 @@ func create_token(var tokenColor, var saved_info):
 		_draw_token()
 	else:
 		_set_token(saved_info)
+		
 	
 	_get_creature_attributes()
-
 
 
 func _draw_token():
@@ -49,12 +49,10 @@ func _set_token(var saved_info):
 	token_name = saved_info["token_name"]
 	creature = GameVariables.tokens_info[color][token_name]
 	_set_token_status(saved_info)
-
+	
 
 func _set_token_status(var save_dict):
-	if !save_dict["Active"]:
-		_remove_token()
-	elif save_dict["revealed"]:
+	if save_dict["revealed"]:
 		_reveal()
 
 

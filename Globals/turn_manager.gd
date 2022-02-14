@@ -16,8 +16,10 @@ var combat_lane
 func _ready():
 	StateController.turn_manager = self
 
+
 func _startGame():
 	_start_turn()
+
 
 func save_game():
 	var save_dict = {}
@@ -28,6 +30,7 @@ func save_game():
 	
 	return save_dict
 
+
 func load_game(var save_dict):
 	turn_phase = int(save_dict["turn_phase"])
 	turn_phase_label.text = save_dict["turn_phase_label"]
@@ -35,12 +38,10 @@ func load_game(var save_dict):
 	current_turn = save_dict["current_turn"]
 	turn_label.text = TextBuilder.turn_text(current_turn)
 
+
 func confirm():
 	if lock_actions():
 		end_phase()
-
-func reset_actions():
-	pass
 
 
 func start_phase(var phase):
@@ -64,6 +65,7 @@ func start_phase(var phase):
 		turn_phase_label.text = "Interaction"
 		phase_info.text = "Interaction Phase"
 
+
 func end_phase():
 	if turn_phase == Constants.turn_phase.MOVEMENT:
 		StateController.player1.movement_points = 0
@@ -74,11 +76,20 @@ func end_phase():
 	elif turn_phase == Constants.turn_phase.COMBAT_BLOCK_PHASE:
 		StateController.combat_board.end_combat_phase(turn_phase)
 		start_phase(Constants.turn_phase.COMBAT_MELEE_PHASE)
+	elif turn_phase == Constants.turn_phase.COMBAT_MELEE_PHASE:
+		StateController.combat_board.end_combat()
 	elif turn_phase == Constants.turn_phase.INTERACTION:
 		_end_turn()
+		
 
 
 func lock_actions():
+	if lockable():
+		Configs.save_game()
+		return true
+
+
+func lockable():
 	if turn_phase == Constants.turn_phase.MOVEMENT:
 		if (StateController.player1.movement_points < 0):
 			TurnManager.dismiss_popup.dialog_text = "Not enough movement points"
@@ -88,6 +99,7 @@ func lock_actions():
 		StateController.player1.lock_cards()
 	return true
 
+
 func update_movement_points(var value):
 	if value < 0:
 		phase_info.bbcode_text = "Move points: [color=#FF1B00]" + str(value)
@@ -96,14 +108,18 @@ func update_movement_points(var value):
 	else:
 		phase_info.bbcode_text = "Move points: " + str(value)
 
+
 func start_combat(var tokens):
 	start_phase(Constants.turn_phase.COMBAT_RANGED_PHASE)
 	StateController.combat_board.start_combat(tokens)
-	
+	lock_actions()
+
+
 func _end_turn():
 	lock_actions()
 	StateController.player1.discard_cards()
 	_start_turn()
+
 
 func _start_turn():
 	current_turn += 1

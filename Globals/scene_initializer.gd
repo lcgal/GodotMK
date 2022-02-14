@@ -61,12 +61,22 @@ func feature(var feature_info, var saved_feature, var hex):
 	feature_instance.set_name("Feature")
 	hex.feature = hex.get_node("Feature")
 
-func token(var feature_info, saved_info, var feature):
+func feature_token(var color, var saved_info, var parent):
+	if saved_info == null or saved_info["active"]:
+		var token_instance = load("res://Scenes/Map/Tiles/Hex/Feature/token.tscn").instance()
+		parent.add_child(token_instance)
+		token_instance.create_token(color, saved_info)
+		token_instance.set_name("token")
+		StateController.board_tokens.append({"Position": token_instance.global_position, "Token" : token_instance})
+		return token_instance
+
+
+func combat_token(var color, var saved_info):
 	var token_instance = load("res://Scenes/Map/Tiles/Hex/Feature/token.tscn").instance()
-	feature.add_child(token_instance)
-	token_instance.create_token(feature_info["Token"], saved_info)
+	token_instance.create_token(color, saved_info)
 	token_instance.set_name("token")
-	feature.hex_token = feature.get_node("token")
+	return token_instance
+
 
 func load_item(var item):
 	var load_item_instance = load("res://Scenes/GUI/Menu/LoadMenu/load_item.tscn").instance()

@@ -5,6 +5,15 @@ var token
 func _ready():
 	TurnManager.combat_lane = self
 
+
+func save_game():
+	return token.save_game()
+
+
+func load_game(var _load_dict):
+	pass
+
+
 func add_token(var creatureToken):
 	token = creatureToken
 	token.lane = self

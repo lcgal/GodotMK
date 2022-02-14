@@ -136,7 +136,7 @@ func handle_movement(var pos, var terrain, lock = false):
 			StateController.player1.position = destination
 			StateController.player1.move(-movement_cost)
 			if lock:
-				if (!TurnManager.lock_actions()):
+				if (!TurnManager.lockable()):
 					StateController.player1.position = origin
 					StateController.player1.move(+movement_cost)
 					return false
@@ -150,12 +150,13 @@ func handle_movement(var pos, var terrain, lock = false):
 
 
 func _check_tokens():
-	for feature in StateController.board_tokens:
-		if !feature["Revealed"]:
-			if StateController.player1.position.distance_to(Converter.string_to_vector2(feature["Position"])) < GameVariables.hex_distance:
-				if (TurnManager.lock_actions()):
-					feature["Token"]._reveal()
-					feature["Revealed"] = true
+	for token in StateController.board_tokens:
+		if !token["Token"].revealed:
+			if StateController.player1.position.distance_to(Converter.string_to_vector2(token["Position"])) < GameVariables.hex_distance:
+				if (TurnManager.lockable()):
+					token["Token"]._reveal()
+					token["Revealed"] = true
+					TurnManager.lock_actions()
 				else:
 					return false
 	return true

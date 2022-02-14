@@ -6,10 +6,11 @@ var terrain
 
 func _on_Hex_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.pressed:
-		if feature == null:
-			StateController.board.handle_movement(global_position,terrain)
-		else:
-			feature._moveInto(global_position,terrain)
+		if (TurnManager.turn_phase == Constants.turn_phase.MOVEMENT):
+			if feature == null:
+				StateController.board.handle_movement(global_position,terrain)
+			else:
+				feature.move_into(global_position,terrain)
 
 
 func _set_Feature(var feature_type, var saved_feature):
@@ -18,9 +19,12 @@ func _set_Feature(var feature_type, var saved_feature):
 		if feature_info != null:
 			SceneInitializer.feature(feature_info, saved_feature, self)
 
+
 func save_game():
 	if feature != null:
 		return feature.save_game()
-	
+
+
+
 func load_game(var saved_feature_info):
 	feature.load_game(saved_feature_info)
