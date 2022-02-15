@@ -34,7 +34,8 @@ func load_game(var load_dict):
 
 
 func start_combat(var token, var move_back, var feature):
-	origin_feature = feature
+	if feature != null:
+		origin_feature = feature
 	visible = true
 	move_back_on_failure = move_back
 	var combat_lane = load("res://Scenes/GUI/Gameplay/Combat/CombatLane/combat_lane.tscn").instance()
@@ -56,7 +57,7 @@ func end_combat(var victorious):
 		for combat_lane in get_tree().get_nodes_in_group("combat_lane"):
 			var tokens = combat_lane.failed_combat()
 			living_tokens.append(tokens)
-		origin_feature.failed_combat(living_tokens)
+		origin_feature.end_combat(victorious, living_tokens)
 		if move_back_on_failure:
 			StateController.player1.move_back()
 	visible = false

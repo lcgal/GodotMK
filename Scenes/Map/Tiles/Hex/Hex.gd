@@ -23,8 +23,3 @@ func _set_Feature(var feature_type, var saved_feature):
 func save_game():
 	if feature != null:
 		return feature.save_game()
-
-
-
-func load_game(var saved_feature_info):
-	feature.load_game(saved_feature_info)

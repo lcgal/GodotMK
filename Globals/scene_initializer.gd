@@ -67,7 +67,7 @@ func player(var knight):
 func feature(var feature_info, var saved_feature, var hex):
 	var feature_instance = load("res://Scenes/Map/Tiles/Hex/Feature/feature.tscn").instance()
 	hex.add_child(feature_instance)
-	feature_instance._setFeature(feature_info, saved_feature)
+	feature_instance.set_feature(feature_info, saved_feature)
 	feature_instance.set_name("Feature")
 	hex.feature = hex.get_node("Feature")
 
@@ -76,7 +76,12 @@ func feature_token(var color, var saved_info, var parent):
 	if saved_info == null or saved_info["active"]:
 		var token_instance = load("res://Scenes/Map/Tiles/Hex/Feature/token.tscn").instance()
 		parent.add_child(token_instance)
-		token_instance.create_token(color, saved_info)
+		
+		var saved_token_info
+		if saved_info != null and "token" in saved_info:
+			saved_token_info = saved_info["token"]
+			
+		token_instance.create_token(color, saved_token_info)
 		token_instance.set_name("token")
 		StateController.board_tokens.append({"Position": token_instance.global_position, "Token" : token_instance})
 		return token_instance
