@@ -1,7 +1,6 @@
 extends Node2D
 
 var type
-var tokens = []
 var hex_token
 var feature_info
 
@@ -15,16 +14,21 @@ func move_into(var global_position, var terrain):
 	if feature_info != null:
 		if feature_info["AutoCombat"]:
 			if(StateController.board.handle_movement(global_position, terrain, true)):
-				start_combat()
+				start_combat(true)
 	else:
 		StateController.board.handle_movement(global_position, terrain)
 
 
-func start_combat():
+func start_combat(var move_back):
 	if hex_token != null:
 		hex_token.active = false
 		remove_child(hex_token)
-		TurnManager.start_combat(hex_token)
+		TurnManager.start_combat(hex_token, move_back, self)
+
+
+func failed_combat(var tokens):
+	for token in tokens:
+		add_child(token)
 
 
 func save_game():

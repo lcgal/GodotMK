@@ -110,9 +110,9 @@ func update_movement_points(var value):
 		phase_info.bbcode_text = "Move points: " + str(value)
 
 
-func start_combat(var tokens):
+func start_combat(var tokens, var move_back, var feature):
 	start_phase(Constants.turn_phase.COMBAT_RANGED_PHASE)
-	StateController.combat_board.start_combat(tokens)
+	StateController.combat_board.start_combat(tokens, move_back, feature)
 	lock_actions()
 
 

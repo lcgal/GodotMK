@@ -40,5 +40,10 @@ func end_combat_phase(var phase):
 					
 		Constants.turn_phase.COMBAT_RANGED_PHASE, Constants.turn_phase.COMBAT_MELEE_PHASE:
 			if token.creature["Armor"] - token.damage <= 0:
-				token._kill()
+				token.kill()
+				StateController.combat_board.end_combat(true)
 	
+
+func failed_combat():
+	$TokenZone.remove_token(token)
+	return token

@@ -106,7 +106,7 @@ func disconnect_popup():
 	TurnManager.options_popup.disconnect("id_pressed",self,"handled_action")
 	TurnManager.options_popup.disconnect("popup_hide",self,"disconnect_popup")
 
-func _kill():
+func kill():
 	StateController.player1._gainFame(creature["Fame"])
 	_remove_token()
 

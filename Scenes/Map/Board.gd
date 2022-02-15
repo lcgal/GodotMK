@@ -68,9 +68,9 @@ func handle_explore_tile(var explore, var key, var adjacent_tiles):
 	if is_instance_valid(player):
 		if (player.position.distance_to(explore) > 385 || TurnManager.turn_phase != Constants.turn_phase.MOVEMENT):
 			return
-		player.move(-2)
+		player.add_move(-2)
 		if (!TurnManager._lockActions()):
-			player.move(+2)
+			player.add_move(+2)
 			return
 	
 	randomize()
@@ -125,24 +125,22 @@ signal set_browntiles_counter(values)
 signal set_current_movement_cost(value)
 var start_pos
 
-func handle_movement(var pos, var terrain, lock = false):
+func handle_movement(var destination, var terrain, lock = false):
 	if (start_pos == null):
 		start_pos = StateController.player1.position
-	var origin = StateController.player1.position 
-	var destination = pos
 	if (StateController.player1.position.distance_to(destination) < GameVariables.hex_distance && StateController.player1.position != destination):
 		var movement_cost = GameVariables.movement_costs["Day"][terrain]
 		if (movement_cost != null):
-			StateController.player1.position = destination
-			StateController.player1.move(-movement_cost)
+			StateController.player1.move(destination)
+			StateController.player1.add_move(-movement_cost)
 			if lock:
 				if (!TurnManager.lockable()):
-					StateController.player1.position = origin
-					StateController.player1.move(+movement_cost)
+					StateController.player1.move_back()
+					StateController.player1.add_move(+movement_cost)
 					return false
 			if !_check_tokens():
-				StateController.player1.position = origin
-				StateController.player1.move(+movement_cost)
+				StateController.player1.move_back()
+				StateController.player1.add_move(+movement_cost)
 				return false
 				
 			emit_signal("set_current_movement_cost",GameVariables.current_movement_cost)

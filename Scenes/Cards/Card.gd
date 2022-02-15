@@ -68,7 +68,7 @@ func handled_action(var id):
 	set_played_status(true)
 	var effectType = actions[id]["Effect"]
 	if effectType == "AddMove":
-		StateController.player1.move(actions[id]["Value"])
+		StateController.player1.add_move(actions[id]["Value"])
 	elif effectType == "AddAttack":
 		TurnManager.combat_lane.add_damage(actions[id]["Value"],actions[id]["Type"])
 	elif effectType == "AddRanged":

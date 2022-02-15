@@ -12,6 +12,7 @@ var armor = 2
 var experience = 0
 
 var movement_points = 0
+var turn_movements = []
 
 signal update_deck_count(count)
 
@@ -25,6 +26,7 @@ var savable_attr = [
 	"armor",
 	"experience",
 	"movement_points",
+	"turn_movements",
 ]
 
 func _ready():
@@ -64,19 +66,36 @@ func _drawCard():
 	SceneInitializer.card(card)
 	hand_size += 1
 
+
+func start_turn():
+	turn_movements = []
+
+
 func draw_to_hand_limit():
 	while hand_size < handLimit:
 		_drawCard()
+
 
 func reset_actions():
 	movement_points = 0
 	TurnManager.update_movement_points(movement_points)
 	hand_GUI.reset_actions()
 
-func move(var movePoints):
+
+func add_move(var movePoints):
 	movement_points += movePoints
 	TurnManager.update_movement_points(movement_points)
-	
+
+
+func move(var target_pos):
+	turn_movements.append(position)
+	position = target_pos
+
+
+func move_back():
+	position = Converter.string_to_vector2(turn_movements.pop_back())
+
+
 func draw_blood(var qtd):
 	for _i in range(0, qtd, 1):
 		SceneInitializer.blood()
