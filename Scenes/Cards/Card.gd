@@ -66,15 +66,8 @@ func handled_action(var id):
 	TurnManager.options_popup.clear()
 	TurnManager.options_popup.hide()
 	set_played_status(true)
-	var effectType = actions[id]["Effect"]
-	if effectType == "AddMove":
-		StateController.player1.add_move(actions[id]["Value"])
-	elif effectType == "AddAttack":
-		TurnManager.combat_lane.add_damage(actions[id]["Value"],actions[id]["Type"])
-	elif effectType == "AddRanged":
-		TurnManager.combat_lane.add_damage(actions[id]["Value"],actions[id]["Type"])
-	elif effectType == "AddBlock":
-		TurnManager.combat_lane.add_block(actions[id]["Value"],actions[id]["Type"])
+	Actions.play_card(actions[id]["Effect"],actions[id]["Value"],actions[id]["Type"])
+
 
 func disconnect_popup():
 	$Outline.visible = false

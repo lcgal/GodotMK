@@ -6,21 +6,21 @@ var game_name
 var DefaultResolution = Vector2(1920,1062)
 var x_vector = Vector2(381,-323)
 var y_vector = Vector2(-95,-484)
-var explorable_tiles_info = {}
-var map_tile_info = {}
-var countryside_tile_list = []
-var core_tile_list = []
+var explorable_tiles_info
+var map_tile_info
+var countryside_tile_list
+var core_tile_list
 var countryside_tiles_left
 var core_tiles_left
 var city_count
-var city_tiles = []
-var core_tiles = []
+var city_tiles
+var core_tiles
 var movement_costs
 var current_movement_cost = 0
 var tile_distance = 200
 var hex_distance = 200
 var tokens_info
-var available_tokens = {}
+var available_tokens
 
 
 
@@ -59,6 +59,15 @@ func load_game(var save_dict):
 	for key in save_dict:
 		set(key, save_dict[key])
 
+
+func new_game():
+	available_tokens = {}
+	countryside_tile_list = []
+	core_tile_list = []
+	core_tiles = []
+	city_tiles = []
+
+
 func set_map_data(var map_data, var tiles_data, var movement_data, var token_data):
 	explorable_tiles_info = map_data["ExplorableTiles"]
 	countryside_tiles_left = map_data["CountrysideTiles"]
@@ -68,7 +77,9 @@ func set_map_data(var map_data, var tiles_data, var movement_data, var token_dat
 	movement_costs = movement_data
 	
 	tokens_info = token_data
+	
 	for key in tokens_info:
+		
 		var token_list = []
 		for token in tokens_info[key]:
 			for _i in range (0,tokens_info[key][token]["Count"],1):

@@ -63,13 +63,6 @@
 						"Cost" : null,
 						"Types" : 
 						{
-							"Attack" :
-							{
-								"Text" : "Attack 2",
-								"Effect" : "AddAttack",
-								"Type" : "Physical",
-								"Value" : 2
-							},
 							"Block" :
 							{
 								"Text" : "Block 2",
@@ -205,15 +198,29 @@
 						"Cost" : null,
 						"Types" : 
 						{
-
+							"Support" : 
+							{
+								
+							},
+							"Support" : 
+							{
+								
+							}
 						}
 					},
 					"Advanced" : 
 					{
-						"Cost" : "R",
+						"Cost" : "G",
 						"Types" : 
 						{
-
+							"Support" : 
+							{
+								
+							},
+							"Support" : 
+							{
+								
+							}
 						}
 					}
 				}

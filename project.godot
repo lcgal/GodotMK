@@ -53,6 +53,7 @@ Assets="*res://Globals/assets.gd"
 SceneInitializer="*res://Globals/scene_initializer.gd"
 TurnManager="*res://Globals/turn_manager.gd"
 TextBuilder="*res://Globals/text_builder.gd"
+Actions="*res://Globals/actions.gd"
 
 [display]
 

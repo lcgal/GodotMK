@@ -1,6 +1,6 @@
 extends Node
 
-var current_turn = 0
+var current_turn
 var turn_label
 var turn_phase_label
 var phase_info
@@ -18,6 +18,7 @@ func _ready():
 
 
 func _startGame():
+	current_turn = 0
 	_start_turn()
 
 
@@ -77,11 +78,15 @@ func end_phase():
 		StateController.combat_board.end_combat_phase(turn_phase)
 		start_phase(Constants.turn_phase.COMBAT_MELEE_PHASE)
 	elif turn_phase == Constants.turn_phase.COMBAT_MELEE_PHASE:
-		StateController.combat_board.end_combat(false)
-		_end_turn()
+		end_combat(false)
 	elif turn_phase == Constants.turn_phase.INTERACTION:
 		_end_turn()
 		
+
+
+func end_combat(var victorious):
+		StateController.combat_board.end_combat(victorious)
+		_end_turn()
 
 
 func lock_actions():

@@ -9,13 +9,16 @@ func _ready():
 
 
 func _newGame():
+	StateController.new_game()
 	Configs.get_map_info(Constants.Maps.WEDGE)
 	StateController.board._initializeNew()
 
 	SceneInitializer.player(Constants.Knights.TOVAK)
 	var datetime = OS.get_datetime()
 	GameVariables.game_name = str(datetime["year"]) + "-" + str(datetime["month"]) + "-" + str(datetime["day"]) + "-" + str(datetime["hour"]) + str(datetime["minute"]) + str(datetime["second"])
+	StateController.loaded_game = GameVariables.game_name + ".save"
 	TurnManager._startGame()
+	Configs.save_game()
 
 
 func _loadGame():

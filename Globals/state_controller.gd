@@ -38,7 +38,7 @@ func save_game():
 
 func load_game(var save_dict):
 	# FIXME better way to clear previous game data
-	board_tokens = []
+	
 	for key in savable_classes:
 		if get(key).has_method("load_game"):
 			get(key).load_game(save_dict[key])
@@ -51,6 +51,13 @@ func reset_actions():
 	#for key in savable_classes:
 	#	if get(key).has_method("reset_actions"):
 	#		get(key).reset_actions()
+
+
+func new_game():
+	board_tokens = []
+	for key in savable_classes:
+		if is_instance_valid(get(key)) and get(key).has_method("new_game"):
+			get(key).new_game()
 
 
 func quit_game():
