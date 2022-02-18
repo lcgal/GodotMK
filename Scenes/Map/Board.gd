@@ -149,6 +149,7 @@ func handle_movement(var destination, var terrain, lock = false):
 
 func _check_tokens():
 	for token in StateController.board_tokens:
+		var teste = StateController.board_tokens
 		if !token["Token"].revealed:
 			if StateController.player1.position.distance_to(Converter.string_to_vector2(token["Position"])) < GameVariables.hex_distance:
 				if (TurnManager.lockable()):

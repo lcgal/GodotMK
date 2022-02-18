@@ -14,41 +14,69 @@
 						"Cost" : null,
 						"Types" : 
 						{
-							"Attack" :
-							{
-								"Text" : "Attack 2",
-								"Effect" : "AddAttack",
-								"Type" : "Physical",
-								"Value" : 2
-							},
-							"Block" :
-							{
-								"Text" : "Block 2",
-								"Effect" : "AddBlock",
-								"Type" : "Physical",
-								"Value" : 2
-							}
+							"Attack" : 
+							[
+								{
+									"Text" : "Attack 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddAttack",
+											"Type" : "Physical",
+											"Value" : 2
+										}
+									]
+								}
+							],
+							"Block" :	
+							[
+								{
+									"Text" : "Block 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Type" : "Physical",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
-					"Advanced" : 
+					"Advanced" :	
 					{
 						"Cost" : "R",
-						"Types" : 
+						"Types" : 	
 						{
-							"Attack" :
-							{
-								"Text" : "Attack 4",
-								"Effect" : "AddAttack",
-								"Type" : "Physical",
-								"Value" : 4
-							},
+							"Attack" :	
+							[
+								{
+									"Text" : "Attack 4.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddAttack",
+											"Type" : "Physical",
+											"Value" : 4
+										}
+									]
+								}
+							],
 							"Block" :
-							{
-								"Text" : "Block 4",
-								"Effect" : "AddBlock",
-								"Type" : "Physical",
-								"Value" : 4
-							}
+							[
+								{
+									"Text" : "Block 4.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Type" : "Physical",
+											"Value" : 4
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -64,12 +92,19 @@
 						"Types" : 
 						{
 							"Block" :
-							{
-								"Text" : "Block 2",
-								"Effect" : "AddBlock",
-								"Type" : "Physical",
-								"Value" : 2
-							}
+							[
+								{
+									"Text" : "Block 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Type" : "Physical",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -78,12 +113,19 @@
 						"Types" : 
 						{
 							"Block" :
-							{
-								"Text" : "Block 5",
-								"Effect" : "AddBlock",
-								"Type" : "Physical",
-								"Value" : 5
-							}
+							[
+								{
+									"Text" : "Block 5.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Type" : "Physical",
+											"Value" : 5
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -99,11 +141,18 @@
 						"Types" : 
 						{
 							"Move" :
-							{
-								"Text" : "Move 2",
-								"Effect" : "AddMove",
-								"Value" : 2
-							}
+							[
+								{
+									"Text" : "Move 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddMove",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -112,12 +161,19 @@
 						"Types" : 
 						{
 							"Ranged" :
-							{
-								"Text" : "Ranged 3",
-								"Effect" : "AddRanged",
-								"Type" : "Physical",
-								"Value" : 3
-							}
+							[
+								{
+									"Text" : "Ranged 3.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddRanged",
+											"Type" : "Physical",
+											"Value" : 3
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -133,11 +189,18 @@
 						"Types" : 
 						{
 							"Move" :
-							{
-								"Text" : "Move 2",
-								"Effect" : "AddMove",
-								"Value" : 2
-							}
+							[
+								{
+									"Text" : "Move 2.",
+									"Effect" : 
+									[
+										{
+										"Action" : "AddMove",
+										"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -146,11 +209,18 @@
 						"Types" : 	
 						{
 							"Move" : 
-							{
-								"Text" : "Move 4",
-								"Effect" : "AddMove",
-								"Value" : 4
-							}
+							[
+								{
+									"Text" : "Move 4.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddMove",
+											"Value" : 4
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -166,11 +236,18 @@
 						"Types" : 
 						{
 							"Move" :
-							{
-								"Text" : "Move 2",
-								"Effect" : "AddMove",
-								"Value" : 2
-							}
+							[
+								{
+									"Text" : "Move 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddMove",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -179,11 +256,18 @@
 						"Types" : 	
 						{
 							"Move" : 
-							{
-								"Text" : "Move 4",
-								"Effect" : "AddMove",
-								"Value" : 4
-							}
+							[
+								{
+									"Text" : "Move 4.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddMove",
+											"Value" : 4
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -199,13 +283,28 @@
 						"Types" : 
 						{
 							"Support" : 
-							{
-								
-							},
-							"Support" : 
-							{
-								
-							}
+							[
+								{
+									"Text" : "Heal 1.",
+									"Effect" : 
+									[
+										{
+											"Action" : "Heal",
+											"Value" : 1
+										}
+									]
+								},
+								{
+									"Text" : "Draw 1.",
+									"Effect" : 
+									[
+										{
+											"Action" : "Draw",
+											"Value" : 1
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -214,13 +313,28 @@
 						"Types" : 
 						{
 							"Support" : 
-							{
-								
-							},
-							"Support" : 
-							{
-								
-							}
+							[
+								{
+									"Text" : "Heal 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "Heal",
+											"Value" : 2
+										}
+									]
+								},
+								{
+									"Text" : "Draw 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "Draw",
+											"Value" : 2
+										}
+									]
+								},
+							]
 						}
 					}
 				}
@@ -235,15 +349,39 @@
 						"Cost" : null,
 						"Types" : 
 						{
-
+							"Influence" : 
+							[
+								{
+									"Text" : "Influence 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddInfluence",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
 					{
-						"Cost" : "R",
+						"Cost" : "W",
 						"Types" : 
 						{
-
+							"Influence" : 
+							[
+								{
+									"Text" : "Influence 4.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddInfluence",
+											"Value" : 4
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -258,7 +396,19 @@
 						"Cost" : null,
 						"Types" : 
 						{
-
+							"Influence" : 
+							[
+								{
+									"Text" : "Influence 2.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddInfluence",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -266,7 +416,23 @@
 						"Cost" : "R",
 						"Types" : 
 						{
-
+							"Influence" : 
+							[
+								{
+									"Text" : "Influence 5. Reputation -1.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddInfluence",
+											"Value" : 5
+										},
+										{
+											"Action" : "AddReputation",
+											"Value" : -1
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -281,15 +447,66 @@
 						"Cost" : null,
 						"Types" : 
 						{
-
+							"Special" : 
+							[
+								{
+									"Text" : "Pay a mana of any basic color. Gain a crystal of that color.",
+									"Effect" : 
+									[
+										{
+											"Action" : "PayMana",
+											"Outcome" : 
+											{
+												"G" : 
+												{
+													"Action" : "GainCrystal",
+													"Color" : "G",
+													"Quantity" : 1
+												},
+												"U" : 
+												{
+													"Action" : "GainCrystal",
+													"Color" : "U",
+													"Quantity" : 1
+												},
+												"R" : 
+												{
+													"Action" : "GainCrystal",
+													"Color" : "R",
+													"Quantity" : 1
+												},
+												"W" : 
+												{
+													"Action" : "GainCrystal",
+													"Color" : "W",
+													"Quantity" : 1
+												}
+											}
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
 					{
-						"Cost" : "R",
+						"Cost" : "U",
 						"Types" : 
 						{
-
+							"Special" : 
+							[
+								{
+									"Text" : "Gain a crystal of any color.",
+									"Effect" : 
+									[
+										{
+											"Action" : "GainCrystal",
+											"Color" : "Any",
+											"Quantity" : 1
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -304,15 +521,70 @@
 						"Cost" : null,
 						"Types" : 
 						{
-
+							"Special" : 
+							[
+								{
+									"Text" : "You can use one additional mana die from the Source this turn.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddtionalSourceDie"
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
 					{
-						"Cost" : "R",
+						"Cost" : "W",
 						"Types" : 
 						{
-
+							"Special" : 
+							[
+								{
+									"Text" : "Take a Mana die from the Source and set it to any color except gold. Gain 2 mana tokens of that color.",
+									"Effect" : 
+									[
+										{
+											"Action" : "SetSourceDie",
+											"Outcome" : 
+											{
+												"G" : 
+												{
+													"Action" : "GainManaToken",
+													"Color" : "G",
+													"Quantity" : 2
+												},
+												"U" : 
+												{
+													"Action" : "GainManaToken",
+													"Color" : "U",
+													"Quantity" : 2
+												},
+												"R" : 
+												{
+													"Action" : "GainManaToken",
+													"Color" : "R",
+													"Quantity" : 2
+												},
+												"W" : 
+												{
+													"Action" : "GainManaToken",
+													"Color" : "W",
+													"Quantity" : 2
+												},
+												"B" : 
+												{
+													"Action" : "GainManaToken",
+													"Color" : "B",
+													"Quantity" : 2
+												}
+											}
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -327,15 +599,75 @@
 						"Cost" : null,
 						"Types" : 
 						{
-
+							"Special" : 
+							[
+								{
+									"Text" : "Gain a blue mana token.",
+									"Effect" : 
+									[
+										{
+											"Action" : "GainManaToken",
+											"Color" : "U",
+											"Quantity" : 1
+										}
+									]
+								},
+								{
+									"Text" : "Gain a white mana token.",
+									"Effect" : 
+									[
+										{
+											"Action" : "GainManaToken",
+											"Color" : "W",
+											"Quantity" : 1
+										}
+									]
+								},
+								{
+									"Text" : "Gain a red mana token.",
+									"Effect" : 
+									[
+										{
+											"Action" : "GainManaToken",
+											"Color" : "R",
+											"Quantity" : 1
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
 					{
-						"Cost" : "R",
+						"Cost" : "G",
 						"Types" : 
 						{
-
+							"Special" : 
+							[
+								{
+									"Text" : "Play the stronger effect of another card for free. If that effect gives you Move,Influence, Block or any type of Attack, get that amount plus 2.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "PlayCard",
+											"Cost" : "Free",
+											"Effect" : 
+											{
+												"Action" : "AddValue",
+												"ValidTypes" : 
+												[
+													"Attack",
+													"Ranged",
+													"Move",
+													"Block",
+													"Influence"
+												],
+												"Value" : 2
+											}
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -350,7 +682,82 @@
 						"Cost" : null,
 						"Types" : 
 						{
-
+							"Move" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Move 3.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddMove",
+													"Value" : 3
+												}
+											]
+										}
+									]
+								}
+							],
+							"Attack" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Attack 3.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddAttack",
+													"Value" : 3
+												}
+											]
+										}
+									]
+								}
+							],
+							"Block" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Block 3.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddBlock",
+													"Value" : 3
+												}
+											]
+										}
+									]
+								}
+							],
+							"Influence" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Influence 3.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddInfluence",
+													"Value" : 3
+												}
+											]
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -358,7 +765,82 @@
 						"Cost" : "R",
 						"Types" : 
 						{
-
+							"Move" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Move 5.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddMove",
+													"Value" : 5
+												}
+											]
+										}
+									]
+								}
+							],
+							"Attack" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Attack 5.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddAttack",
+													"Value" : 5
+												}
+											]
+										}
+									]
+								}
+							],
+							"Block" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Block 5.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddBlock",
+													"Value" : 5
+												}
+											]
+										}
+									]
+								}
+							],
+							"Influence" : 
+							[
+								{
+									"Text" : "Discard another card from your hand to get Influence 5.",
+									"Effect" :
+									[
+										{ 
+											"Action" : "DiscardCard",
+											"Effect" : 
+											[
+												{
+													"Action" : "AddInfluence",
+													"Value" : 5
+												}
+											]
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -376,21 +858,53 @@
 							"Attack" :
 							{
 								"Text" : "Attack 2",
-								"Effect" : "AddAttack",
-								"Type" : "Physical",
-								"Value" : 2
+								"Effect" : 
+								[
+									{
+										"Action" : "AddAttack",
+										"Type" : "Physical",
+										"Value" : 2
+									}
+								]
 							},
 							"Block" :
 							{
-								"Text" : "Block 2",
-								"Effect" : "AddBlock",
-								"Type" : "Physical",
-								"Value" : 2
+								"Text" : "Ice Block 3",
+								"Effect" : 
+								[
+									{
+										"Action" : "AddBlock",
+										"Type" : "Ice",
+										"Value" : 2
+									}
+								]
 							}
 						}
 					},
 					"Advanced" : 
-						null
+					{
+						"Cost" : "U",
+						"Types" : 
+						{
+							"Block" :
+							{
+								"Text" : "Ice Block 5. Get +1 Ice Block for each ability or color of attack on the blocked token.",
+								"Effect" : 
+								[
+									{
+										"Action" : "AddBlock",
+										"Type" : "Ice",
+										"Value" : 5
+									},
+									{
+										"Action" : "AddBlock",
+										"Type" : "Ice",
+										"Value" : 2
+									}
+								]
+							}
+						}
+					}
 				}
 			},
 			"Instinct" : 
@@ -406,28 +920,46 @@
 							"Move" :
 							{
 								"Text" : "Move 2",
-								"Effect" : "AddMove",
-								"Value" : 2
+								"Effect" : 
+								[
+									{
+										"Action" : "AddMove",
+										"Value" : 2
+									}
+								]
 							},
 							"Attack" :
 							{
 								"Text" : "Attack 2",
-								"Type" : "Physical",
-								"Effect" : "AddAttack",
-								"Value" : 2
+								"Effect" : 
+								[
+									{
+										"Action" : "AddAttack",
+										"Value" : 2
+									}
+								]
 							},
 							"Block" :
 							{
 								"Text" : "Block 2",
-								"Effect" : "AddBlock",
-								"Type" : "Physical",
-								"Value" : 2
+								"Effect" : 
+								[
+									{
+										"Action" : "AddBlock",
+										"Value" : 2
+									}
+								]
 							},
 							"Influence" :
 							{
 								"Text" : "Influence 2",
-								"Effect" : "AddInfluence",
-								"Value" : 2
+								"Effect" : 
+								[
+									{
+										"Action" : "AddInfluence",
+										"Value" : 2
+									}
+								]
 							}
 						}
 					},
@@ -436,31 +968,49 @@
 						"Cost" : "R",
 						"Types" : 	
 						{
-							"Move" : 
+							"Move" :
 							{
 								"Text" : "Move 4",
-								"Effect" : "AddMove",
-								"Value" : 4
+								"Effect" : 
+								[
+									{
+										"Action" : "AddMove",
+										"Value" : 4
+									}
+								]
 							},
 							"Attack" :
 							{
 								"Text" : "Attack 4",
-								"Type" : "Physical",
-								"Effect" : "AddAttack",
-								"Value" : 4
+								"Effect" : 
+								[
+									{
+										"Action" : "AddAttack",
+										"Value" : 4
+									}
+								]
 							},
 							"Block" :
 							{
 								"Text" : "Block 4",
-								"Effect" : "AddBlock",
-								"Type" : "Physical",
-								"Value" : 4
+								"Effect" : 
+								[
+									{
+										"Action" : "AddBlock",
+										"Value" : 4
+									}
+								]
 							},
 							"Influence" :
 							{
 								"Text" : "Influence 4",
-								"Effect" : "AddInfluence",
-								"Value" : 4
+								"Effect" : 
+								[
+									{
+										"Action" : "AddInfluence",
+										"Value" : 4
+									}
+								]
 							}
 						}
 					}

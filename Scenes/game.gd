@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	StateController.game = self
+	StateController.new_game()
 	if StateController.loaded_game == null:
 		_newGame()
 	else:
@@ -9,7 +10,6 @@ func _ready():
 
 
 func _newGame():
-	StateController.new_game()
 	Configs.get_map_info(Constants.Maps.WEDGE)
 	StateController.board._initializeNew()
 

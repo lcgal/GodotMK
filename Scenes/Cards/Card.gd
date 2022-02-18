@@ -44,13 +44,15 @@ func _show_effects_options():
 	for effect in Constants.relevant_effects[TurnManager.turn_phase]:
 		if effects != null:
 			if (effects["Basic"] != null && effects["Basic"]["Types"].has(effect)):
-				TurnManager.options_popup.add_item(effects["Basic"]["Types"][effect]["Text"],id)
-				actions[id] = effects["Basic"]["Types"][effect]
-				id += 1
+				for action in effects["Basic"]["Types"][effect]:
+					TurnManager.options_popup.add_item(action["Text"],id)
+					actions[id] = action["Effect"]
+					id += 1
 			if (effects["Advanced"] != null && effects["Advanced"]["Types"].has(effect)):
-				TurnManager.options_popup.add_item(effects["Advanced"]["Types"][effect]["Text"],id)
-				actions[id] = effects["Advanced"]["Types"][effect]
-				id += 1
+				for action in effects["Advanced"]["Types"][effect]:
+					TurnManager.options_popup.add_item(action["Text"],id)
+					actions[id] = action["Effect"]
+					id += 1
 			if effect in Constants.sideway_effects:
 				actions[id] = Constants.sideway_effects[effect]
 				TurnManager.options_popup.add_item(actions[id]["Text"])
@@ -66,7 +68,8 @@ func handled_action(var id):
 	TurnManager.options_popup.clear()
 	TurnManager.options_popup.hide()
 	set_played_status(true)
-	Actions.play_card(actions[id]["Effect"],actions[id]["Value"],actions[id]["Type"])
+	for action in actions[id]:
+		Actions.play_effect(action)
 
 
 func disconnect_popup():

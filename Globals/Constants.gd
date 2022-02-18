@@ -35,9 +35,9 @@ var relevant_effects = {
 }
 
 var sideway_effects = {
-	"Move" : {"Effect" : "AddMove", "Value" : 2, "Text" : "Play sideways to add 1 movement"},
-	"Attack" : {"Effect" : "AddAttack", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 attack"},
-	"Block" : {"Effect" : "AddBlock", "Value" : 2, "Type" : "Physical", "Text" : "Play sideways to add 1 block"},
+	"Move" : {"Effect" : [{"Action" : "AddMove", "Value" : 2}], "Text" : "Play sideways to add 1 movement"},
+	"Attack" : {"Effect" : [{"Action" : "AddAttack", "Value" : 2, "Type" : "Physical"}], "Text" : "Play sideways to add 1 attack"},
+	"Block" : {"Effect" : [{"Action" : "AddBlock", "Value" : 2, "Type" : "Physical"}], "Text" : "Play sideways to add 1 block"},
 }
 
 var features = {
