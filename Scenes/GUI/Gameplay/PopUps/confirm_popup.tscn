@@ -3,6 +3,7 @@
 [ext_resource path="res://Scenes/GUI/Gameplay/PopUps/confirm_popup.gd" type="Script" id=1]
 
 
+
 [node name="ConfirmationDialog" type="ConfirmationDialog"]
 margin_right = 200.0
 margin_bottom = 70.0

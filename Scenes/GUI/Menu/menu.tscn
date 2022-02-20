@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/Montserrat-Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/GUI/Menu/menu.gd" type="Script" id=3]
 
+
 [sub_resource type="DynamicFont" id=1]
 size = 54
 font_data = ExtResource( 2 )

@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/GUI/Gameplay/Panel/phase_info.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/GUI/Gameplay/Panel/turn_label.gd" type="Script" id=6]
 
+
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 2 )

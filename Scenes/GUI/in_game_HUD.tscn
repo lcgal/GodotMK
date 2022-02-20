@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/GUI/Gameplay/TilesCounters/tile_counters.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/GUI/Gameplay/in_game_GUI.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GUI/in_game_HUD.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GUI/movement_costs.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GUI/Gameplay/PopUps/confirm_popup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/Gameplay/Hand/hand_area.tscn" type="PackedScene" id=5]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/GUI/Menu/menu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/GUI/gear-settings-setup-icon-292038.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/GUI/Menu/LoadMenu/load_menu.tscn" type="PackedScene" id=14]
+
 
 [node name="Control" type="Control"]
 anchor_left = 1.0

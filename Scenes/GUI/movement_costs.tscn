@@ -3,6 +3,7 @@
 [ext_resource path="res://Assets/MontserratAlternates-ExtraBold.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/GUI/movement_costs_label.gd" type="Script" id=2]
 
+
 [sub_resource type="DynamicFont" id=1]
 size = 60
 outline_color = Color( 1, 0, 0, 1 )

@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/GUI/check.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/GUI/Gameplay/Buttons/buttons.gd" type="Script" id=3]
 
+
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureButton
 
