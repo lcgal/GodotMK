@@ -37,7 +37,6 @@ func load_game(var save_dict):
 	turn_phase_label.text = save_dict["turn_phase_label"]
 	phase_info.text = save_dict["phase_info"]
 	current_turn = save_dict["current_turn"]
-	turn_label.text = TextBuilder.turn_text(current_turn)
 
 
 func confirm():
@@ -48,19 +47,19 @@ func confirm():
 func start_phase(var phase):
 	turn_phase = phase
 	if phase == Constants.turn_phase.MOVEMENT:
-		turn_phase_label.text = "Movement"
+		turn_phase_label.text = "Movement phase"
 		phase_info.text = "Move points: " + str(0)
 		StateController.player1.draw_to_hand_limit()
 	elif phase == Constants.turn_phase.COMBAT_RANGED_PHASE:
 		turn_phase = Constants.turn_phase.COMBAT_RANGED_PHASE
 		turn_phase_label.text = "Combat"
-		phase_info.text = "Ranged Phase"
+		phase_info.text = "Ranged Combat"
 	elif phase == Constants.turn_phase.COMBAT_BLOCK_PHASE:
 		turn_phase = Constants.turn_phase.COMBAT_BLOCK_PHASE
 		phase_info.text = "Block Phase"
 	elif phase == Constants.turn_phase.COMBAT_MELEE_PHASE:
 		turn_phase = Constants.turn_phase.COMBAT_MELEE_PHASE
-		phase_info.text = "Attack Phase"
+		phase_info.text = "Melee Combat"
 	elif phase == Constants.turn_phase.INTERACTION:
 		turn_phase = Constants.turn_phase.INTERACTION
 		turn_phase_label.text = "Interaction"
@@ -130,5 +129,4 @@ func _end_turn():
 func _start_turn():
 	current_turn += 1
 	start_phase(Constants.turn_phase.MOVEMENT)
-	turn_label.text = TextBuilder.turn_text(current_turn)
 	

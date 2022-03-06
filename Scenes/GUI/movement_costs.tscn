@@ -1,13 +1,22 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/MontserratAlternates-ExtraBold.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/GUI/movement_costs_label.gd" type="Script" id=2]
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
 outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "xtends Label
+
+func _ready():
+	# warning-ignore:return_value_discarded
+	get_tree().get_root().get_node(\"/root/Game/Board\").connect(\"set_current_movement_cost\", self, \"set_counter\") 
+
+func set_counter(var value):
+	text = str(value)
+"
 
 [node name="MovementCosts" type="NinePatchRect"]
 margin_right = 42.0
@@ -27,7 +36,7 @@ margin_right = 20.5
 margin_bottom = 37.5
 custom_fonts/font = SubResource( 1 )
 text = "0"
-script = ExtResource( 2 )
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

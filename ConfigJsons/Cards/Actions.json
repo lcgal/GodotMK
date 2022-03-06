@@ -856,29 +856,33 @@
 						"Types" : 
 						{
 							"Attack" :
-							{
-								"Text" : "Attack 2",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddAttack",
-										"Type" : "Physical",
-										"Value" : 2
-									}
-								]
-							},
+							[
+								{
+									"Text" : "Attack 2",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddAttack",
+											"Type" : "Physical",
+											"Value" : 2
+										}
+									]
+								}
+							],
 							"Block" :
-							{
-								"Text" : "Ice Block 3",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddBlock",
-										"Type" : "Ice",
-										"Value" : 2
-									}
-								]
-							}
+							[
+								{
+									"Text" : "Ice Block 3",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Type" : "Ice",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -887,22 +891,29 @@
 						"Types" : 
 						{
 							"Block" :
-							{
-								"Text" : "Ice Block 5. Get +1 Ice Block for each ability or color of attack on the blocked token.",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddBlock",
-										"Type" : "Ice",
-										"Value" : 5
-									},
-									{
-										"Action" : "AddBlock",
-										"Type" : "Ice",
-										"Value" : 2
-									}
-								]
-							}
+							[
+								{
+									"Text" : "Ice Block 5. Get +1 Ice Block for each ability or color of attack on the blocked token.",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Type" : "Ice",
+											"Value" : 5
+										},
+										{
+											"Action" : "AddVariableBlock",
+											"Type" : "Ice",
+											"BasedOn" : "EnemyToken",
+											"Value" : 
+											[
+												"Ability",
+												"ColorOfAttack"
+											]
+										}
+									]
+								}
+							]
 						}
 					}
 				}
@@ -918,49 +929,57 @@
 						"Types" : 
 						{
 							"Move" :
-							{
-								"Text" : "Move 2",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddMove",
-										"Value" : 2
-									}
-								]
-							},
+							[
+								{
+									"Text" : "Move 2",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddMove",
+											"Value" : 2
+										}
+									]
+								}
+							],
 							"Attack" :
-							{
-								"Text" : "Attack 2",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddAttack",
-										"Value" : 2
-									}
-								]
-							},
+							[
+								{
+									"Text" : "Attack 2",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddAttack",
+											"Value" : 2
+										}
+									]
+								}
+							],
 							"Block" :
-							{
-								"Text" : "Block 2",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddBlock",
-										"Value" : 2
-									}
-								]
-							},
+							[
+								{
+									"Text" : "Block 2",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Value" : 2
+										}
+									]
+								}
+							],
 							"Influence" :
-							{
-								"Text" : "Influence 2",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddInfluence",
-										"Value" : 2
-									}
-								]
-							}
+							[
+								{
+									"Text" : "Influence 2",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddInfluence",
+											"Value" : 2
+										}
+									]
+								}
+							]
 						}
 					},
 					"Advanced" : 
@@ -969,49 +988,57 @@
 						"Types" : 	
 						{
 							"Move" :
-							{
-								"Text" : "Move 4",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddMove",
-										"Value" : 4
-									}
-								]
-							},
+							[
+								{
+									"Text" : "Move 4",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddMove",
+											"Value" : 4
+										}
+									]
+								}
+							],
 							"Attack" :
-							{
-								"Text" : "Attack 4",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddAttack",
-										"Value" : 4
-									}
-								]
-							},
+							[
+								{
+									"Text" : "Attack 4",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddAttack",
+											"Value" : 4
+										}
+									]
+								}
+							],
 							"Block" :
-							{
-								"Text" : "Block 4",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddBlock",
-										"Value" : 4
-									}
-								]
-							},
+							[
+								{
+									"Text" : "Block 4",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddBlock",
+											"Value" : 4
+										}
+									]
+								}
+							],
 							"Influence" :
-							{
-								"Text" : "Influence 4",
-								"Effect" : 
-								[
-									{
-										"Action" : "AddInfluence",
-										"Value" : 4
-									}
-								]
-							}
+							[
+								{
+									"Text" : "Influence 4",
+									"Effect" : 
+									[
+										{
+											"Action" : "AddInfluence",
+											"Value" : 4
+										}
+									]
+								}
+							]
 						}
 					}
 				}

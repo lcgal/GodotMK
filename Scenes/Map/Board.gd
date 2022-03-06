@@ -100,7 +100,6 @@ func handle_explore_tile(var explore, var key, var adjacent_tiles):
 	
 	GameVariables.explorable_tiles_info[key]["Explored"] = true
 	GameVariables.current_movement_cost += GameVariables.movement_costs["Day"]["Explore"]
-	emit_signal("set_current_movement_cost",GameVariables.current_movement_cost)
 	get_node(key).queue_free()
 	
 	for tile in adjacent_tiles:
@@ -122,7 +121,6 @@ signal set_browntiles_counter(values)
 #--------------------------END-------------------------------
 
 #--------------------------PLAYERS---------------------
-signal set_current_movement_cost(value)
 var start_pos
 
 func handle_movement(var destination, var terrain, lock = false):
@@ -143,13 +141,11 @@ func handle_movement(var destination, var terrain, lock = false):
 				StateController.player1.add_move(+movement_cost)
 				return false
 				
-			emit_signal("set_current_movement_cost",GameVariables.current_movement_cost)
 			return true
 
 
 func _check_tokens():
 	for token in StateController.board_tokens:
-		var teste = StateController.board_tokens
 		if !token["Token"].revealed:
 			if StateController.player1.position.distance_to(Converter.string_to_vector2(token["Position"])) < GameVariables.hex_distance:
 				if (TurnManager.lockable()):
@@ -164,7 +160,6 @@ func reset_actions():
 	if (start_pos != null):
 		StateController.player1.position = start_pos
 		GameVariables.current_movement_cost = 0
-		emit_signal("set_current_movement_cost",GameVariables.current_movement_cost)
 
 func quit_game():
 	queue_free()

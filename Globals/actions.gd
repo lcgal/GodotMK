@@ -58,7 +58,7 @@ func add_block(var action):
 	TurnManager.combat_lane.add_block(value,type)
 
 
-func heal(var _value, var _type):
+func heal(var _action):
 	pass
 
 

@@ -54,8 +54,8 @@ func _show_effects_options():
 					actions[id] = action["Effect"]
 					id += 1
 			if effect in Constants.sideway_effects:
-				actions[id] = Constants.sideway_effects[effect]
-				TurnManager.options_popup.add_item(actions[id]["Text"])
+				TurnManager.options_popup.add_item(Constants.sideway_effects[effect]["Text"])
+				actions[id] = Constants.sideway_effects[effect]["Effect"]
 				id += 1
 	if id > 0:
 		$Outline.visible = true
