@@ -9,6 +9,9 @@ func card(var card):
 	if card == "Blood":
 		blood()
 	else:
+		var cardname = String(card)
+		if cardname.right(cardname.length() - 2).left(1) == "_":
+			card = cardname.left(cardname.length() - 2)
 		var card_scene_instance = load("res://Scenes/Cards/card.tscn").instance()
 		var card_sprite = GameVariables.action_cards["Basic"]["Cards"][card]["Image"]
 		card_scene_instance.name = card
