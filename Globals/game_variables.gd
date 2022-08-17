@@ -44,7 +44,6 @@ var savable_properties = [
 	"core_tiles",
 	"movement_costs",
 	"tokens_info",
-	"action_cards",
 	"available_tokens"
 ]
 
