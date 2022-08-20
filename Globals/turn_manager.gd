@@ -26,7 +26,7 @@ func save_game():
 	var save_dict = {}
 	save_dict["turn_phase"] = turn_phase
 	save_dict["turn_phase_label"] = turn_phase_label.text
-	save_dict["phase_info"] = phase_info.text
+	save_dict["phase_info"] = phase_info.bbcode_text
 	save_dict["current_turn"] = current_turn
 	
 	return save_dict
@@ -35,7 +35,7 @@ func save_game():
 func load_game(var save_dict):
 	turn_phase = int(save_dict["turn_phase"])
 	turn_phase_label.text = save_dict["turn_phase_label"]
-	phase_info.text = save_dict["phase_info"]
+	phase_info.bbcode_text = save_dict["phase_info"]
 	current_turn = save_dict["current_turn"]
 
 
