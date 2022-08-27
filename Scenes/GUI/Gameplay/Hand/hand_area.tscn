@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scenes/GUI/Gameplay/Hand/hand_area.gd" type="Script" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 285.455, 74.5103 )
 

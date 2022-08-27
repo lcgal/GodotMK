@@ -33,6 +33,7 @@ func _ready():
 	var deck_GUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Deck")
 	deck_GUI._connect(self)
 	hand_GUI = StateController.hand_area
+	hand_GUI.connect("discard_card", self, "remove_card")
 	emit_signal("update_deck_count",deck.size())
 
 
@@ -102,12 +103,19 @@ func draw_blood(var qtd):
 		hand.append("Blood")
 		hand_size += 1
 
+func heal_hand(var qtd):
+	for i in range (0, qtd, 1):
+		hand_GUI.discard_blood()
+
 func _gainFame(var value):
 	experience += value
 	var experience_text = TextBuilder.experience_label_text(experience) 
 	
 	StateController.player_panel.set_experience_text(experience_text)
 
+func clean_movement():
+	movement_points = 0
+	TurnManager.update_movement_points(movement_points)
 
 func lock_cards():
 	hand_GUI.lock_played_cards()
@@ -116,6 +124,10 @@ func lock_cards():
 func discard_cards():
 	hand_GUI.discard_cards()
 
+func remove_card(var card_name):
+	hand.erase(card_name)
+	discard.append(card_name)
+	
 
 func quit_game():
 	queue_free()

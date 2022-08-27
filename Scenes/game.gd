@@ -3,6 +3,8 @@ extends Node2D
 func _ready():
 	StateController.game = self
 	StateController.new_game()
+	Configs.get_game_settings()
+	
 	if StateController.loaded_game == null:
 		_newGame()
 	else:

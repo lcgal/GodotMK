@@ -68,7 +68,7 @@ func start_phase(var phase):
 
 func end_phase():
 	if turn_phase == Constants.turn_phase.MOVEMENT:
-		StateController.player1.movement_points = 0
+		StateController.player1.clean_movement()
 		start_phase(Constants.turn_phase.INTERACTION)
 	elif turn_phase == Constants.turn_phase.COMBAT_RANGED_PHASE:
 		StateController.combat_board.end_combat_phase(turn_phase)
@@ -129,4 +129,5 @@ func _end_turn():
 func _start_turn():
 	current_turn += 1
 	start_phase(Constants.turn_phase.MOVEMENT)
+	Configs.save_game()
 	

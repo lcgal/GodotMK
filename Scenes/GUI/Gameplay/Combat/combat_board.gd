@@ -24,7 +24,6 @@ func save_game():
 
 
 func load_game(var load_dict):
-	
 	visible = load_dict["visible"]
 	for combat_lane in load_dict["combat_lanes"]:
 		var token_info = load_dict["combat_lanes"][combat_lane]

@@ -20,10 +20,14 @@ func get_map_info(var map):
 	if map == Constants.Maps.WEDGE:
 		var map_data = read_json(JSONS_ROOT + "WedgeMapTiles.json")
 		var tiles_data = _get_tiles_info()
-		var movement_data = _get_movement_info()
-		var token_data = get_tokens_info()
-		GameVariables.set_map_data(map_data, tiles_data, movement_data, token_data)
-		
+
+		GameVariables.set_map_data(map_data, tiles_data)
+
+func get_game_settings():
+	var movement_data = _get_movement_info()
+	var token_data = get_tokens_info()
+	GameVariables.set_game_data(movement_data, token_data)
+
 func get_actions_cards_info():
 	return read_json(CARDS_PATH + "Actions.json")
 

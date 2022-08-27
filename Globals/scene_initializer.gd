@@ -14,7 +14,7 @@ func card(var card):
 			card = cardname.left(cardname.length() - 2)
 		var card_scene_instance = load("res://Scenes/Cards/card.tscn").instance()
 		var card_sprite = GameVariables.action_cards["Basic"]["Cards"][card]["Image"]
-		card_scene_instance.name = card
+		card_scene_instance.name = cardname
 		card_scene_instance.effects = GameVariables.action_cards["Basic"]["Cards"][card]["Effects"]
 		card_scene_instance.set_sprite(Assets.card(card_sprite))
 		StateController.hand_area.add_card(card_scene_instance)

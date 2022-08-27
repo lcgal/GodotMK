@@ -58,8 +58,9 @@ func add_block(var action):
 	TurnManager.combat_lane.add_block(value,type)
 
 
-func heal(var _action):
-	pass
+func heal(var action):
+	var value = action["Value"]
+	StateController.player1.heal_hand(value)
 
 
 func draw(var _action):

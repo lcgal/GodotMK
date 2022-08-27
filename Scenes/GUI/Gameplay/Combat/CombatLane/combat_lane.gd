@@ -44,6 +44,9 @@ func end_combat_phase(var phase):
 				TurnManager.end_combat(true)
 	
 
+func end_combat():
+	pass
+
 func failed_combat():
 	$TokenZone.remove_token(token)
 	return token
