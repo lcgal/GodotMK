@@ -56,6 +56,8 @@ func end_combat(var victorious):
 		for combat_lane in get_tree().get_nodes_in_group("combat_lane"):
 			var tokens = combat_lane.failed_combat()
 			living_tokens.append(tokens)
+			combat_lane.remove_from_group("combat_lane")
+			combat_lane.queue_free()
 		origin_feature.end_combat(victorious, living_tokens)
 		if move_back_on_failure:
 			StateController.player1.move_back()

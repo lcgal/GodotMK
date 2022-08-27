@@ -34,7 +34,6 @@ func _ready():
 var savable_properties = [
 	"game_name",
 	"explorable_tiles_info",
-	"map_tile_info",
 	"countryside_tile_list",
 	"core_tile_list",
 	"countryside_tiles_left",
@@ -65,16 +64,17 @@ func new_game():
 	city_tiles = []
 
 
-func set_game_data(var movement_data, var token_data):
+func set_game_data(var movement_data, var token_data, var tiles_data):
 	movement_costs = movement_data
 	tokens_info = token_data
+	map_tile_info = tiles_data
 
-func set_map_data(var map_data, var tiles_data):
+func set_map_data(var map_data):
 	explorable_tiles_info = map_data["ExplorableTiles"]
 	countryside_tiles_left = map_data["CountrysideTiles"]
 	core_tiles_left = map_data["CoreTiles"]
 	city_count = map_data["Cities"]
-	map_tile_info = tiles_data
+	
 	
 	for key in tokens_info:
 		

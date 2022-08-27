@@ -38,6 +38,7 @@ func start_combat(var move_back):
 func end_combat(var victorious, var tokens):
 	in_combat = false
 	if !victorious:
+		hex_token.active = true
 		for token in tokens:
 			add_child(token)
 

@@ -49,7 +49,7 @@ func start_phase(var phase):
 	if phase == Constants.turn_phase.MOVEMENT:
 		turn_phase_label.text = "Movement phase"
 		phase_info.text = "Move points: " + str(0)
-		StateController.player1.draw_to_hand_limit()
+		StateController.player1.start_turn()
 	elif phase == Constants.turn_phase.COMBAT_RANGED_PHASE:
 		turn_phase = Constants.turn_phase.COMBAT_RANGED_PHASE
 		turn_phase_label.text = "Combat"

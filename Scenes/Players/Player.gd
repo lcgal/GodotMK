@@ -70,7 +70,7 @@ func _drawCard():
 
 func start_turn():
 	turn_movements = []
-
+	draw_to_hand_limit()
 
 func draw_to_hand_limit():
 	while hand_size < handLimit:
@@ -104,7 +104,7 @@ func draw_blood(var qtd):
 		hand_size += 1
 
 func heal_hand(var qtd):
-	for i in range (0, qtd, 1):
+	for _i in range (0, qtd, 1):
 		hand_GUI.discard_blood()
 
 func _gainFame(var value):
@@ -127,7 +127,8 @@ func discard_cards():
 func remove_card(var card_name):
 	hand.erase(card_name)
 	discard.append(card_name)
-	
+
+
 
 func quit_game():
 	queue_free()
