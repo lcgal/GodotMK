@@ -90,6 +90,16 @@ func discard_cards():
 	for hand_card in get_tree().get_nodes_in_group("cards"):
 		if hand_card.played:
 			StateController.player1.hand.erase(hand_card.name)
+			hand_card.remove_from_group("cards")
+			hand_card.queue_free()
+			StateController.player1.hand_size -= 1
+	_reorganize(false, null)
+	
+func discard_blood():
+	for hand_card in get_tree().get_nodes_in_group("cards"):
+		if hand_card.name.left(5) == "blood" || hand_card.name.left(6) == "@blood":
+			StateController.player1.hand.erase(hand_card.name)
+			hand_card.remove_from_group("cards")
 			hand_card.queue_free()
 			StateController.player1.hand_size -= 1
 	_reorganize(false, null)
