@@ -4,6 +4,8 @@ var move_back_on_failure = false
 
 var origin_feature
 
+var origin_token
+
 func _ready():
 	StateController.combat_board = self
 	var scale = GameVariables.DefaultResolution.x / $Sprite.texture.get_size().x
@@ -33,6 +35,7 @@ func load_game(var load_dict):
 
 
 func start_combat(var token, var move_back, var feature):
+	origin_token = token
 	if feature != null:
 		origin_feature = feature
 	visible = true
@@ -58,7 +61,7 @@ func end_combat(var victorious):
 			living_tokens.append(tokens)
 			combat_lane.remove_from_group("combat_lane")
 			combat_lane.queue_free()
-		origin_feature.end_combat(victorious, living_tokens)
+		origin_feature.end_combat(victorious, origin_token, living_tokens)
 		if move_back_on_failure:
 			StateController.player1.move_back()
 	visible = false

@@ -35,9 +35,10 @@ func start_combat(var move_back):
 		TurnManager.start_combat(hex_token, move_back, self)
 
 
-func end_combat(var victorious, var tokens):
+func end_combat(var victorious, var original_token, var tokens):
 	in_combat = false
 	if !victorious:
+		hex_token = original_token
 		hex_token.active = true
 		for token in tokens:
 			add_child(token)
