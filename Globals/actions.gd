@@ -26,8 +26,6 @@ var card_actions = {
 #	"AddInfluence" : funcref(self,"add_influence"),
 #	"AddInfluence" : funcref(self,"add_influence"),
 #	"AddInfluence" : funcref(self,"add_influence"),
-	
-
 }
 
 
@@ -63,31 +61,35 @@ func heal(var action):
 	StateController.player1.heal_hand(value)
 
 
-func draw(var _action):
+func draw(var action):
+	var value = action["Value"]
+	StateController.player1.draw_cards(value)
 	pass
 
 
-func add_influence(var _action):
+func add_influence(var action):
+	var value = action["Value"]
+	StateController.player1.add_influence(value)
+
+
+func add_reputation(var action):
+	var value = action["Value"]
+	StateController.player1.add_reputation(value)
+
+
+func gain_crystal(var action):
 	pass
 
 
-func add_reputation(var _action):
+func pay_mana(var action):
 	pass
 
 
-func gain_crystal(var _action):
+func gain_mana_token(var action):
 	pass
 
 
-func pay_mana(var _action):
-	pass
-
-
-func gain_mana_token(var _action):
-	pass
-
-
-func play_card(var _action):
+func play_card(var action):
 	pass
 
 

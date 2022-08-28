@@ -14,6 +14,10 @@ var experience = 0
 var movement_points = 0
 var turn_movements = []
 
+var influence = 0
+
+var reputation = 0
+
 signal update_deck_count(count)
 
 var savable_attr = [
@@ -27,6 +31,8 @@ var savable_attr = [
 	"experience",
 	"movement_points",
 	"turn_movements",
+	"influence",
+	"reputation",
 ]
 
 func _ready():
@@ -76,26 +82,31 @@ func draw_to_hand_limit():
 	while hand_size < handLimit:
 		_drawCard()
 
-
+func draw_cards(var qtd):
+	for _i in range (0, qtd, 1):
+		_drawCard()
+		
 func reset_actions():
 	movement_points = 0
 	TurnManager.update_movement_points(movement_points)
 	hand_GUI.reset_actions()
 
-
 func add_move(var movePoints):
 	movement_points += movePoints
 	TurnManager.update_movement_points(movement_points)
-
 
 func move(var target_pos):
 	turn_movements.append(position)
 	position = target_pos
 
-
 func move_back():
 	position = Converter.string_to_vector2(turn_movements.pop_back())
 
+func add_influence(var influencePoints):
+	influence += influencePoints
+
+func add_reputation(var reputationPoints):
+	reputation += reputationPoints
 
 func draw_blood(var qtd):
 	for _i in range(0, qtd, 1):
@@ -117,6 +128,9 @@ func clean_movement():
 	movement_points = 0
 	TurnManager.update_movement_points(movement_points)
 
+func clean_influence():
+	influence = 0
+
 func lock_cards():
 	hand_GUI.lock_played_cards()
 
@@ -127,8 +141,6 @@ func discard_cards():
 func remove_card(var card_name):
 	hand.erase(card_name)
 	discard.append(card_name)
-
-
 
 func quit_game():
 	queue_free()

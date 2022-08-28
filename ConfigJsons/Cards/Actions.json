@@ -645,7 +645,7 @@
 							"Special" : 
 							[
 								{
-									"Text" : "Play the stronger effect of another card for free. If that effect gives you Move,Influence, Block or any type of Attack, get that amount plus 2.",
+									"Text" : "Play the stronger effect of another card for free. If that effect gives you Move, Influence, Block or any type of Attack, get that amount plus 2.",
 									"Effect" :
 									[
 										{ 

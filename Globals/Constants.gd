@@ -31,7 +31,7 @@ var relevant_effects = {
 	turn_phase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack"],
 	turn_phase.COMBAT_BLOCK_PHASE : ["Block"],
 	turn_phase.COMBAT_MELEE_PHASE : ["Attack"],
-	turn_phase.INTERACTION : ["Support"],
+	turn_phase.INTERACTION : ["Support","Influence"],
 }
 
 var sideway_effects = {

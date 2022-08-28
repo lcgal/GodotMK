@@ -1,6 +1,8 @@
 extends Control
 var origin = Vector2(-560,1317)
 
+signal discard_card(card_name)
+
 onready var center_card_oval = GameVariables.DefaultResolution * Vector2(0, 0.95)
 onready var hor_rad = GameVariables.DefaultResolution.x*1
 onready var ver_rad = GameVariables.DefaultResolution.y*0.8
@@ -89,7 +91,7 @@ func lock_played_cards():
 func discard_cards():
 	for hand_card in get_tree().get_nodes_in_group("cards"):
 		if hand_card.played:
-			StateController.player1.hand.erase(hand_card.name)
+			emit_signal("discard_card", hand_card.name)
 			hand_card.remove_from_group("cards")
 			hand_card.queue_free()
 			StateController.player1.hand_size -= 1
@@ -98,7 +100,7 @@ func discard_cards():
 func discard_blood():
 	for hand_card in get_tree().get_nodes_in_group("cards"):
 		if hand_card.name.left(5) == "blood" || hand_card.name.left(6) == "@blood":
-			StateController.player1.hand.erase(hand_card.name)
+			emit_signal("discard_card", hand_card.name)
 			hand_card.remove_from_group("cards")
 			hand_card.queue_free()
 			StateController.player1.hand_size -= 1
