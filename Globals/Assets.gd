@@ -7,6 +7,8 @@ const BASIC_CARDS_PATH = ROOT + "Cards/Basic/"
 
 const TOKENS_PATH = ROOT + "Tokens/"
 
+const CRYSTALS_PATH = ROOT + "Player/Crystals/"
+
 func map_tile(var tile):
 	return load(MAP_TILES_PATH + tile)
 
@@ -19,3 +21,6 @@ func blood():
 
 func token(var type, var name):
 	return load(TOKENS_PATH + type + "/" + name)
+
+func crystal(var color):
+	return load(CRYSTALS_PATH + color)
