@@ -15,7 +15,7 @@ var card_actions = {
 	"PayMana" : funcref(self,"pay_mana"),
 	"GainManaToken" : funcref(self,"gain_mana_token"),
 	"SetSourceDie" : funcref(self,"set_source_die"),
-#	"PlayCard" : funcref(self,"play_card"),
+	"AddtionalSourceDie" : funcref(self,"use_additional_source_die"),
 #	"AddInfluence" : funcref(self,"add_influence"),
 #	"AddInfluence" : funcref(self,"add_influence"),
 #	"AddInfluence" : funcref(self,"add_influence"),
@@ -78,7 +78,9 @@ func add_reputation(var action):
 
 
 func gain_crystal(var action):
-	pass
+	var color = action["Color"]
+	var value = action["Value"]
+	StateController.player1.crystal(color, value)
 
 
 func pay_mana(var action):
@@ -88,6 +90,8 @@ func pay_mana(var action):
 func gain_mana_token(var action):
 	pass
 
+func use_additional_source_die():
+	pass
 
 func play_card(var action):
 	pass

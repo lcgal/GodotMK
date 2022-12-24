@@ -27,11 +27,11 @@ var hexes = {
 }
 
 var relevant_effects = {
-	turn_phase.MOVEMENT : ["Move","Support"],
-	turn_phase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack"],
-	turn_phase.COMBAT_BLOCK_PHASE : ["Block"],
-	turn_phase.COMBAT_MELEE_PHASE : ["Attack"],
-	turn_phase.INTERACTION : ["Support","Influence"],
+	turn_phase.MOVEMENT : ["Move","Support","Special"],
+	turn_phase.COMBAT_RANGED_PHASE : ["Ranged","Siege","Attack","Special"],
+	turn_phase.COMBAT_BLOCK_PHASE : ["Block","Special"],
+	turn_phase.COMBAT_MELEE_PHASE : ["Attack","Special"],
+	turn_phase.INTERACTION : ["Support","Influence","Special"],
 }
 
 var sideway_effects = {

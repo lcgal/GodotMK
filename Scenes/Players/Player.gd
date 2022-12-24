@@ -14,11 +14,19 @@ var experience = 0
 var movement_points = 0
 var turn_movements = []
 
+var green_crystals = 0
+var red_crystals = 0
+var blue_crystals = 0
+var white_crystals = 0
+var gold_crystals = 0
+var dark_crystals = 0
+
 var influence = 0
 
 var reputation = 0
 
 signal update_deck_count(count)
+signal update_crystal_count(color, count)
 
 var savable_attr = [
 	"knight",
@@ -33,11 +41,19 @@ var savable_attr = [
 	"turn_movements",
 	"influence",
 	"reputation",
+	"green_crystals",
+	"red_crystals",
+	"blue_crystals",
+	"white_crystals",
+	"gold_crystals",
+	"dark_crystals",
 ]
 
 func _ready():
 	var deck_GUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/Deck")
 	deck_GUI._connect(self)
+	var crystals_GUI = get_tree().get_root().get_node("/root/Game/CanvasLayer/Control/CrystalsInfo")
+	crystals_GUI._connect(self)
 	hand_GUI = StateController.hand_area
 	hand_GUI.connect("discard_card", self, "remove_card")
 	emit_signal("update_deck_count",deck.size())
@@ -142,5 +158,29 @@ func remove_card(var card_name):
 	hand.erase(card_name)
 	discard.append(card_name)
 
+func crystal(var color, var qtd):
+	if color == "green":
+		green_crystals += qtd
+		emit_signal("update_crystal_count",color,green_crystals)
+	elif color == "red":
+		red_crystals += qtd
+		emit_signal("update_crystal_count",color,red_crystals)
+	elif color == "blue":
+		blue_crystals += qtd
+		emit_signal("update_crystal_count",color,blue_crystals)
+	elif color == "white":
+		white_crystals += qtd
+		emit_signal("update_crystal_count",color,white_crystals)
+	elif color == "gold":
+		gold_crystals += qtd
+		emit_signal("update_crystal_count",color,gold_crystals)
+	elif color == "dark":
+		dark_crystals += qtd
+		emit_signal("update_crystal_count",color,dark_crystals)
+	elif color == "Any":
+		blue_crystals += qtd
+		emit_signal("update_crystal_count","blue",blue_crystals)
+	
+	
 func quit_game():
 	queue_free()

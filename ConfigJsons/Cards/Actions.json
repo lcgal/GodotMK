@@ -461,25 +461,25 @@
 												{
 													"Action" : "GainCrystal",
 													"Color" : "G",
-													"Quantity" : 1
+													"Value" : 1
 												},
 												"U" : 
 												{
 													"Action" : "GainCrystal",
 													"Color" : "U",
-													"Quantity" : 1
+													"Value" : 1
 												},
 												"R" : 
 												{
 													"Action" : "GainCrystal",
 													"Color" : "R",
-													"Quantity" : 1
+													"Value" : 1
 												},
 												"W" : 
 												{
 													"Action" : "GainCrystal",
 													"Color" : "W",
-													"Quantity" : 1
+													"Value" : 1
 												}
 											}
 										}
@@ -502,7 +502,7 @@
 										{
 											"Action" : "GainCrystal",
 											"Color" : "Any",
-											"Quantity" : 1
+											"Value" : 1
 										}
 									]
 								}
@@ -554,31 +554,31 @@
 												{
 													"Action" : "GainManaToken",
 													"Color" : "G",
-													"Quantity" : 2
+													"Value" : 2
 												},
 												"U" : 
 												{
 													"Action" : "GainManaToken",
 													"Color" : "U",
-													"Quantity" : 2
+													"Value" : 2
 												},
 												"R" : 
 												{
 													"Action" : "GainManaToken",
 													"Color" : "R",
-													"Quantity" : 2
+													"Value" : 2
 												},
 												"W" : 
 												{
 													"Action" : "GainManaToken",
 													"Color" : "W",
-													"Quantity" : 2
+													"Value" : 2
 												},
 												"B" : 
 												{
 													"Action" : "GainManaToken",
 													"Color" : "B",
-													"Quantity" : 2
+													"Value" : 2
 												}
 											}
 										}
@@ -608,7 +608,7 @@
 										{
 											"Action" : "GainManaToken",
 											"Color" : "U",
-											"Quantity" : 1
+											"Value" : 1
 										}
 									]
 								},
@@ -619,7 +619,7 @@
 										{
 											"Action" : "GainManaToken",
 											"Color" : "W",
-											"Quantity" : 1
+											"Value" : 1
 										}
 									]
 								},
@@ -630,7 +630,7 @@
 										{
 											"Action" : "GainManaToken",
 											"Color" : "R",
-											"Quantity" : 1
+											"Value" : 1
 										}
 									]
 								}
